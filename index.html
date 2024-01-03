@@ -1,1 +1,61 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexon API Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input, button {
+            margin-bottom: 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nexon API Viewer</h1>
+    
+    <label for="apiKey">API 키:</label>
+    <input type="text" id="apiKey" value="test_ad6c0a6934215fad4b75dfc81d40caa08ec93cbb06b86feee55ebcbed5a6401040fc9f0162a1fec40ac4b8e45e56924d" required>
+    
+    <label for="characterName">캐릭터 명:</label>
+    <input type="text" id="characterName" required>
+
+    <button onclick="fetchCharacterInfo()">조회</button>
+
+    <div id="result"></div>
+
+    <script>
+        function fetchCharacterInfo() {
+            const apiKey = document.getElementById("apiKey").value;
+            const characterName = encodeURIComponent(document.getElementById("characterName").value);
+
+            const urlString = `https://open.api.nexon.com/heroes/v1/id?character_name=${characterName}`;
+
+            fetch(urlString, {
+                headers: {
+                    "x-nxopen-api-key": apiKey
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 결과를 처리하거나 화면에 표시하는 코드를 작성
+                const resultDiv = document.getElementById("result");
+                resultDiv.textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error(error);
+                const resultDiv = document.getElementById("result");
+                resultDiv.textContent = `Error: ${error.message}`;
+            });
+        }
+    </script>
+</body>
+</html>
