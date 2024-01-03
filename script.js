@@ -7,7 +7,15 @@ function fetchServerInfo() {
     const url = `https://openapi.nexon.com/game/baramy/?character_name=${characterName}`;
 
     fetch(url)
-        .then(response => response.json())
+        .then(response => {
+            // 응답이 성공인지 확인
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            // JSON 형식으로 파싱
+            return response.json();
+        })
         .then(data => {
             const resultDiv = document.getElementById("result");
             resultDiv.innerHTML = "<h2>서버 목록</h2>";
@@ -25,24 +33,8 @@ function fetchServerInfo() {
         })
         .catch(error => {
             // 네트워크 오류 등의 에러 처리
-            console.error(error);
+            console.error(error.message);
             const resultDiv = document.getElementById("result");
             resultDiv.textContent = `에러: ${error.message}`;
-        });
-}
-
-function checkServer(characterName, serverId) {
-    const url = `https://openapi.nexon.com/heroes/v1/id?character_name=${characterName}&server_id=${serverId}`;
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            if (!data.error) {
-                const resultDiv = document.getElementById("result");
-                resultDiv.innerHTML += `<p>서버: ${serverId}, ocid: ${data.ocid}</p>`;
-            }
-        })
-        .catch(error => {
-            // 에러가 있는 경우, 무시하고 다음 서버 확인
         });
 }
