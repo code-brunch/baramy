@@ -22,9 +22,6 @@
 <body>
     <h1>Nexon API Server Finder</h1>
     
-    <label for="apiKey">API 키:</label>
-    <input type="text" id="apiKey" value="test_ad6c0a6934215fad4b75dfc81d40caa08ec93cbb06b86feee55ebcbed5a6401040fc9f0162a1fec40ac4b8e45e56924d" required>
-    
     <label for="characterName">캐릭터 명:</label>
     <input type="text" id="characterName" required>
 
@@ -34,16 +31,11 @@
 
     <script>
         function fetchServerInfo() {
-            const apiKey = document.getElementById("apiKey").value;
             const characterName = encodeURIComponent(document.getElementById("characterName").value);
 
             const url = `https://openapi.nexon.com/game/baramy/?character_name=${characterName}`;
 
-            fetch(url, {
-                headers: {
-                    "x-nxopen-api-key": apiKey
-                }
-            })
+            fetch(url)
             .then(response => response.json())
             .then(data => {
                 const resultDiv = document.getElementById("result");
@@ -51,7 +43,7 @@
 
                 // 서버 목록을 출력
                 data.servers.forEach(server => {
-                    checkServer(characterName, server.server_id, apiKey);
+                    checkServer(characterName, server.server_id);
                 });
             })
             .catch(error => {
@@ -61,14 +53,10 @@
             });
         }
 
-        function checkServer(characterName, serverId, apiKey) {
+        function checkServer(characterName, serverId) {
             const url = `https://openapi.nexon.com/heroes/v1/id?character_name=${characterName}&server_id=${serverId}`;
 
-            fetch(url, {
-                headers: {
-                    "x-nxopen-api-key": apiKey
-                }
-            })
+            fetch(url)
             .then(response => response.json())
             .then(data => {
                 // 에러가 없는 경우, 결과 출력
