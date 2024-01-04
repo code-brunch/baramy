@@ -29,6 +29,17 @@
         <link href="https://assets-global.website-files.com/img/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
         <link href="https://assets-global.website-files.com/img/webclip.png" rel="apple-touch-icon"/>
         <script src="script.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const searchForm = document.getElementById("email-form");
+
+                searchForm.addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    fetchCharacterInfo();
+                });
+            });
+        </script>
     </head>
     <body class="body">
         <div class="top-nav">
