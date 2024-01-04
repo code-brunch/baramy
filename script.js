@@ -46,7 +46,6 @@ function fetchCharacterInfo() {
                     cell2.textContent = additionalInfo[key];
                 }
             }
-
             table.appendChild(tbody);
             resultDiv.appendChild(table);
         }
