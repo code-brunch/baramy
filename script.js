@@ -10,7 +10,9 @@ async function fetchCharacterInfo() {
     let highestLevelCharacter = null;
     let otherServers = []; 
 
-    const promises = servers.map(async (serverName) => {
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms)); 
+
+    const promises = servers.map(async (serverName, index) => {
         const url = `https://open.api.nexon.com/baramy/v1/id?character_name=${characterName}&server_name=${encodeURIComponent(serverName)}`; 
 
         try {
@@ -48,6 +50,11 @@ async function fetchCharacterInfo() {
                     otherServers.push(characterInfo);
                 }
             }
+            
+            // Add a delay to avoid API rate limits
+            if (index < servers.length - 1) {
+                await delay(1000); // Adjust the delay as needed
+            }
         } catch (error) {
             console.error(error);
             return { server: serverName, result: `서버: ${serverName}, Error: ${error.message}` };
@@ -55,7 +62,12 @@ async function fetchCharacterInfo() {
     }); 
 
     try {
-        await Promise.all(promises); 
+        const results = await Promise.all(promises); 
+
+        // Process results in the order of servers
+        results.forEach(({ server, result }) => {
+            // Process each server's result here
+        }); 
 
         // Display the result with the highest level
         if (highestLevelCharacter) {
