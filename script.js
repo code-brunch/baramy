@@ -1,58 +1,35 @@
 function fetchCharacterInfo() {
     const apiKey = "test_ad6c0a6934215fad4b75dfc81d40caa08ec93cbb06b86feee55ebcbed5a6401040fc9f0162a1fec40ac4b8e45e56924d";
-    const characterName = encodeURIComponent(document.getElementById("characterName").value);
-    const serverName = encodeURIComponent(document.getElementById("serverName").value);
+    const characterName = encodeURIComponent(document.getElementById("top-searchbar").value);
 
-    const url = `https://open.api.nexon.com/baramy/v1/id?character_name=${characterName}&server_name=${serverName}`;
+    // List of servers to iterate over
+    const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
 
-    fetch(url, {
-        headers: {
-            "x-nxopen-api-key": apiKey
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        const resultDiv = document.getElementById("result");
-        resultDiv.innerHTML = ""; // 기존 내용 초기화
+    // Iterate over servers
+    servers.forEach(serverName => {
+        const url = `https://open.api.nexon.com/baramy/v1/id?character_name=${characterName}&server_name=${encodeURIComponent(serverName)}`;
 
-        if (data.error) {
-            resultDiv.textContent = `Error: ${data.error.message}`;
-        } else {
-            // 캐릭터 정보가 있는 경우
-            const table = document.createElement("table");
-            const tbody = document.createElement("tbody");
-
-            // 기본 정보 표시
-            const basicInfo = data.basic_info;
-            for (const key in basicInfo) {
-                const row = tbody.insertRow();
-                const cell1 = row.insertCell(0);
-                const cell2 = row.insertCell(1);
-
-                cell1.textContent = key;
-                cell2.textContent = basicInfo[key];
-            }
-
-            // 추가 정보 표시
-            if (data.additional_info) {
-                const additionalInfo = data.additional_info;
-                for (const key in additionalInfo) {
-                    const row = tbody.insertRow();
-                    const cell1 = row.insertCell(0);
-                    const cell2 = row.insertCell(1);
-
-                    cell1.textContent = key;
-                    cell2.textContent = additionalInfo[key];
+        fetch(url, {
+                headers: {
+                    "x-nxopen-api-key": apiKey
                 }
-            }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultDiv = document.getElementById(`${serverName.toLowerCase()}Resp`);
 
-            table.appendChild(tbody);
-            resultDiv.appendChild(table);
-        }
-    })
-    .catch(error => {
-        console.error(error);
-        const resultDiv = document.getElementById("result");
-        resultDiv.textContent = `Error: ${error.message}`;
+                if (data.error) {
+                    // No information found for this server
+                    resultDiv.textContent = `정보를 찾을 수 없습니다.`;
+                } else {
+                    // Display ocid for this server
+                    resultDiv.textContent = `ocid(${serverName}): ${data.ocid}`;
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                const resultDiv = document.getElementById(`${serverName.toLowerCase()}Resp`);
+                resultDiv.textContent = `Error: ${error.message}`;
+            });
     });
 }
