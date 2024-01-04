@@ -1,30 +1,37 @@
-// Function to fetch character info for a given server
-const fetchCharacterInfo = async (server) => {
+// script.js
+function fetchCharacterInfo() {
+    // Check if the required inputs are available
     const characterInput = document.getElementById("characterName");
     const serverInput = document.getElementById("serverName");
 
-    // Check if the required inputs are available
     if (!characterInput || !serverInput) {
         console.error("Required inputs not found.");
-        return;
+    } else {
+        const apiKey = "test_ad6c0a6934215fad4b75dfc81d40caa08ec93cbb06b86feee55ebcbed5a6401040fc9f0162a1fec40ac4b8e45e56924d";
+        const characterName = encodeURIComponent(characterInput.value);
+        const serverName = encodeURIComponent(serverInput.value);
+
+        const url = `https://open.api.nexon.com/baramy/v1/id?character_name=${characterName}&server_name=${serverName}&apikey=${apiKey}`;
+
+        fetch(url, {
+            headers: {
+                "x-nxopen-api-key": apiKey
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const resultDiv = document.getElementById("result");
+
+            if (data.error) {
+                resultDiv.textContent = `Error: ${data.error}`;
+            } else {
+                resultDiv.textContent = `ocid: ${data.ocid}`;
+            }
+        })
+        .catch(error => {
+            console.error(error);
+            const resultDiv = document.getElementById("result");
+            resultDiv.textContent = `Error: ${error.message}`;
+        });
     }
-
-    const characterName = encodeURIComponent(characterInput.value);
-    const apiKey = 'test_ad6c0a6934215fad4b75dfc81d40caa08ec93cbb06b86feee55ebcbed5a6401040fc9f0162a1fec40ac4b8e45e56924d';
-    const apiUrl = `https://open.api.nexon.com/baramy/v1/id?character_name=${characterName}&server_name=${server}&apikey=${apiKey}`;
-
-    try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-
-        // Check if the response contains an error
-        if (data.error) {
-            console.error(`Error fetching data from ${server} - ${data.error.message}`);
-        } else {
-            console.log(`Character Info from ${server}`, data);
-            // Add your logic to display character information in the HTML or do any further processing
-        }
-    } catch (error) {
-        console.error(`Error fetching data from ${server} - ${error}`);
-    }
-};
+}
