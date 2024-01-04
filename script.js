@@ -1,3 +1,5 @@
+// script.js
+
 document.addEventListener("DOMContentLoaded", function () {
     // Function to fetch character info for a given server
     const fetchCharacterInfo = async (server) => {
@@ -14,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 console.log(`Character Info from ${server}`, data);
                 // Add your logic to display character information in the HTML or do any further processing
+                updateDOM(data);
             }
         } catch (error) {
             console.error(`Error fetching data from ${server} - ${error}`);
@@ -24,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     searchForm.addEventListener("submit", async function (event) {
         event.preventDefault();
-        
+
         const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
 
         // Array to store promises for each server request
@@ -53,5 +56,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         return highestLevelCharacter;
+    };
+
+    // Function to update the DOM with character information
+    const updateDOM = (data) => {
+        // Add your logic to update the DOM with character information
+        // For example, you can set text content of elements or manipulate HTML
+        document.getElementById("charNameResp").textContent = data.character_name;
+        document.getElementById("serverResp").textContent = data.server_name;
+        // ... (add similar lines for other elements)
     };
 });
