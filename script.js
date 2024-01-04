@@ -1,10 +1,9 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", function () {
     // Function to fetch character info for a given server
     const fetchCharacterInfo = async (server) => {
         const characterName = document.getElementById("top-searchbar").value;
-        const apiUrl = `https://open.api.nexon.com/baramy/v1/id?character_name=${characterName}&server_name=${server}`;
+        const apiKey = 'test_ad6c0a6934215fad4b75dfc81d40caa08ec93cbb06b86feee55ebcbed5a6401040fc9f0162a1fec40ac4b8e45e56924d';  // Replace with your actual API key
+        const apiUrl = `https://open.api.nexon.com/baramy/v1/id?character_name=${characterName}&server_name=${server}&apikey=${apiKey}`;
 
         try {
             const response = await fetch(apiUrl);
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 console.log(`Character Info from ${server}`, data);
                 // Add your logic to display character information in the HTML or do any further processing
-                updateDOM(data);
             }
         } catch (error) {
             console.error(`Error fetching data from ${server} - ${error}`);
@@ -27,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     searchForm.addEventListener("submit", async function (event) {
         event.preventDefault();
-
+        
         const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
 
         // Array to store promises for each server request
@@ -56,14 +54,5 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         return highestLevelCharacter;
-    };
-
-    // Function to update the DOM with character information
-    const updateDOM = (data) => {
-        // Add your logic to update the DOM with character information
-        // For example, you can set text content of elements or manipulate HTML
-        document.getElementById("charNameResp").textContent = data.character_name;
-        document.getElementById("serverResp").textContent = data.server_name;
-        // ... (add similar lines for other elements)
     };
 });
