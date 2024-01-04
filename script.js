@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", function () {
     // Function to fetch character info for a given server
     const fetchCharacterInfo = async (server) => {
-        const characterName = document.getElementById("top-searchbar").value;
+        const characterName = encodeURIComponent(document.getElementById("characterName").value);
         const apiKey = 'test_ad6c0a6934215fad4b75dfc81d40caa08ec93cbb06b86feee55ebcbed5a6401040fc9f0162a1fec40ac4b8e45e56924d';  // Replace with your actual API key
         const apiUrl = `https://open.api.nexon.com/baramy/v1/id?character_name=${characterName}&server_name=${server}&apikey=${apiKey}`;
 
@@ -12,17 +12,12 @@ document.addEventListener("DOMContentLoaded", async function () {
             // Check if the response contains an error
             if (data.error) {
                 console.error(`Error fetching data from ${server} - ${data.error.message}`);
-                // Return an empty object instead of rejecting the promise
-                return {};
             } else {
                 console.log(`Character Info from ${server}`, data);
                 // Add your logic to display character information in the HTML or do any further processing
-                return data;
             }
         } catch (error) {
             console.error(`Error fetching data from ${server} - ${error}`);
-            // Return an empty object instead of rejecting the promise
-            return {};
         }
     };
 
@@ -32,16 +27,18 @@ document.addEventListener("DOMContentLoaded", async function () {
         event.preventDefault();
 
         const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
-        const results = await Promise.allSettled(servers.map(server => fetchCharacterInfo(server)));
 
-        // Filter only the fulfilled promises
-        const fulfilledResults = results
-            .filter(result => result.status === 'fulfilled')
-            .map(result => result.value);
+        // Array to store promises for each server request
+        const requests = servers.map(server => fetchCharacterInfo(server));
 
-        // Process the results to find the highest level character
-        const highestLevelCharacter = findHighestLevel(fulfilledResults);
-        console.log("Highest Level Character", highestLevelCharacter);
+        // Promise.all() waits for all requests to complete
+        Promise.all(requests)
+            .then(results => {
+                // Process the results to find the highest level character
+                const highestLevelCharacter = findHighestLevel(results);
+                console.log("Highest Level Character", highestLevelCharacter);
+            })
+            .catch(error => console.error("Error fetching data from one or more servers.", error));
     });
 
     // Function to find the highest level character
@@ -58,4 +55,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         return highestLevelCharacter;
     };
+
+    // Add this line to call fetchCharacterInfo with a default server for testing
+    fetchCharacterInfo("연");
 });
