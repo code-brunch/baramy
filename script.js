@@ -24,7 +24,21 @@ function fetchCharacterInfo() {
                     return `서버: ${serverName}, 정보를 찾을 수 없습니다.`;
                 } else {
                     // 에러가 없는 경우
-                    return `서버: ${serverName}, ocid: ${data.ocid}`;
+                    const ocid = data.ocid;
+                    // 추가 요청을 통해 character/basic의 정보를 가져오기
+                    return fetch(`https://open.api.nexon.com/baramy/v1/character/basic?ocid=${ocid}`, {
+                        headers: {
+                            "x-nxopen-api-key": apiKey
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(characterData => {
+                        return `서버: ${serverName}, ocid: ${ocid}, 캐릭터 정보: ${JSON.stringify(characterData)}`;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        return `서버: ${serverName}, ocid: ${ocid}, Error fetching character/basic: ${error.message}`;
+                    });
                 }
             })
             .catch(error => {
