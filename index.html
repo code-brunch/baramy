@@ -22,17 +22,14 @@
 <body>
     <h1>Nexon API Viewer</h1>
     
-    <label for="apiKey">API 키:</label>
-    <input type="text" id="apiKey" value="YOUR_API_KEY" required>
-    
     <label for="characterName">캐릭터 명:</label>
     <input type="text" id="characterName" required>
 
     <label for="serverName">서버 선택:</label>
     <select id="serverName" required>
         <!-- 서버 리스트 추가 -->
-        <option value="서버1">서버1</option>
-        <option value="서버2">서버2</option>
+        <option value="무휼">무휼</option>
+        <option value="세류">세류</option>
         <!-- 필요한 만큼 옵션을 추가해주세요 -->
     </select>
 
@@ -40,30 +37,6 @@
 
     <div id="result"></div>
 
-    <script>
-        function fetchCharacterInfo() {
-            const apiKey = document.getElementById("apiKey").value;
-            const characterName = encodeURIComponent(document.getElementById("characterName").value);
-            const serverName = encodeURIComponent(document.getElementById("serverName").value);
-
-            const url = `https://open.api.nexon.com/baramy/v1/id?character_name=${characterName}&server_name=${serverName}`;
-
-            fetch(url, {
-                headers: {
-                    "x-nxopen-api-key": apiKey
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                const resultDiv = document.getElementById("result");
-                resultDiv.textContent = JSON.stringify(data, null, 2);
-            })
-            .catch(error => {
-                console.error(error);
-                const resultDiv = document.getElementById("result");
-                resultDiv.textContent = `Error: ${error.message}`;
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
