@@ -8,7 +8,7 @@ function fetchCharacterInfo() {
     resultDiv.innerHTML = ""; // Clear previous results
 
     let highestLevelCharacter = null;
-    let otherCharacters = [];
+    let otherServers = [];
 
     // Use Promise.all to handle multiple asynchronous requests
     Promise.all(
@@ -47,7 +47,7 @@ function fetchCharacterInfo() {
                             if (!highestLevelCharacter || characterData.character_level > highestLevelCharacter.character_level) {
                                 highestLevelCharacter = characterInfo;
                             } else {
-                                otherCharacters.push(characterInfo);
+                                otherServers.push(characterInfo);
                             }
                         }
                     })
@@ -68,12 +68,12 @@ function fetchCharacterInfo() {
         if (highestLevelCharacter) {
             resultDiv.innerHTML = `서버: ${highestLevelCharacter.server}, ocid: ${highestLevelCharacter.ocid}, character_level: ${highestLevelCharacter.character_level}`;
 
-            // Sort otherCharacters array by character_level in ascending order
-            otherCharacters.sort((a, b) => a.character_level - b.character_level);
+            // Sort otherServers array by character_level in ascending order
+            otherServers.sort((a, b) => a.character_level - b.character_level);
 
-            // Display other characters
-            if (otherCharacters.length > 0) {
-                resultDiv.innerHTML += "<br>다른 서버 캐릭터들:<br>" + otherCharacters.map(character => `서버: ${character.server}, ocid: ${character.ocid}, character_level: ${character.character_level}`).join("<br>");
+            // Display other servers
+            if (otherServers.length > 0) {
+                resultDiv.innerHTML += "<br>다른 서버 캐릭터들(server_name 기준으로 정렬):<br>" + otherServers.map(server => server.server).join("<br>");
             }
         } else {
             resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
