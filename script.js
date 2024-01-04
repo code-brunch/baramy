@@ -7,8 +7,7 @@ function fetchCharacterInfo() {
     const resultDiv = document.getElementById("result");
     resultDiv.innerHTML = ""; // Clear previous results
 
-    let highestLevel = 0;
-    let highestLevelResult = "";
+    let serverResults = [];
 
     // Use Promise.all to handle multiple asynchronous requests
     Promise.all(
@@ -38,10 +37,11 @@ function fetchCharacterInfo() {
                     .then(characterData => {
                         if (characterData.character_level !== undefined && !isNaN(characterData.character_level)) {
                             // 현재 서버에서 받아온 캐릭터 레벨이 더 높으면 업데이트
-                            if (characterData.character_level > highestLevel) {
-                                highestLevel = characterData.character_level;
-                                highestLevelResult = `서버: ${serverName}, ocid: ${ocid}, character_level: ${highestLevel}`;
-                            }
+                            serverResults.push({
+                                server: serverName,
+                                ocid: ocid,
+                                character_level: characterData.character_level
+                            });
                         }
                     })
                     .catch(error => {
@@ -57,9 +57,12 @@ function fetchCharacterInfo() {
         })
     )
     .then(() => {
-        // Display the result with the highest level
-        if (highestLevelResult) {
-            resultDiv.innerHTML = highestLevelResult;
+        // Sort serverResults array by character_level in descending order
+        serverResults.sort((a, b) => b.character_level - a.character_level);
+
+        // Display the sorted results
+        if (serverResults.length > 0) {
+            resultDiv.innerHTML = serverResults.map(result => `서버: ${result.server}, ocid: ${result.ocid}, character_level: ${result.character_level}`).join("<br>");
         } else {
             resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
         }
