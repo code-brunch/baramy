@@ -25,25 +25,25 @@ function fetchCharacterInfo() {
                 } else {
                     // 에러가 없는 경우
                     const ocid = data.ocid;
-                    if (ocid) {
-                        // ocid가 존재하는 경우에만 추가 요청을 통해 character/basic의 정보를 가져오기
-                        return fetch(`https://open.api.nexon.com/baramy/v1/character/basic?ocid=${ocid}`, {
-                            headers: {
-                                "x-nxopen-api-key": apiKey
-                            }
-                        })
-                        .then(response => response.json())
-                        .then(characterData => {
-                            return { server: serverName, result: `서버: ${serverName}, ocid: ${ocid}, 캐릭터 정보: ${JSON.stringify(characterData)}` };
-                        })
-                        .catch(error => {
-                            console.error(error);
-                            return { server: serverName, result: `서버: ${serverName}, ocid: ${ocid}, Error fetching character/basic: ${error.message}` };
-                        });
-                    } else {
-                        // ocid가 존재하지 않는 경우에는 빈 문자열 반환
-                        return { server: serverName, result: "" };
-                    }
+                    // 추가 요청을 통해 character/basic의 정보를 가져오기
+                    return fetch(`https://open.api.nexon.com/baramy/v1/character/basic?ocid=${ocid}`, {
+                        headers: {
+                            "x-nxopen-api-key": apiKey
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(characterData => {
+                        if (characterData.character_level) {
+                            return { server: serverName, result: `서버: ${serverName}, ocid: ${ocid}, character_level: ${characterData.character_level}` };
+                        } else {
+                            // character_level이 없는 경우, 빈 문자열 반환
+                            return { server: serverName, result: "" };
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        return { server: serverName, result: `서버: ${serverName}, ocid: ${ocid}, Error fetching character/basic: ${error.message}` };
+                    });
                 }
             })
             .catch(error => {
@@ -53,9 +53,21 @@ function fetchCharacterInfo() {
         })
     )
     .then(results => {
-        // Display results
-        const filteredResults = results.filter(result => result.result !== ""); // Filter out empty results
-        resultDiv.innerHTML = filteredResults.map(result => result.result).join("<br>");
+        // Filter out empty results
+        const nonEmptyResults = results.filter(result => result.result !== "");
+        
+        // Find the character with the highest level
+        const highestLevelCharacter = nonEmptyResults.reduce((highest, current) => {
+            const currentLevel = parseInt(current.result.match(/character_level: (\d+)/)[1]);
+            if (currentLevel > highest.level) {
+                return { level: currentLevel, result: current.result };
+            } else {
+                return highest;
+            }
+        }, { level: 0, result: "" });
+
+        // Display the result with the highest level
+        resultDiv.innerHTML = highestLevelCharacter.result;
     })
     .catch(error => {
         console.error(error);
