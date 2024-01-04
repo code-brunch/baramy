@@ -1,72 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Function to fetch character info for a given server
-    const fetchCharacterInfo = async (server) => {
-        const characterInput = document.getElementById("characterName");
-        const serverInput = document.getElementById("serverName");
+// Function to fetch character info for a given server
+const fetchCharacterInfo = async (server) => {
+    const characterInput = document.getElementById("characterName");
+    const serverInput = document.getElementById("serverName");
 
-        // Check if the required inputs are available
-        if (!characterInput || !serverInput) {
-            console.error("Required inputs not found.");
-            return;
-        }
-
-        const characterName = encodeURIComponent(characterInput.value);
-        const apiKey = 'test_ad6c0a6934215fad4b75dfc81d40caa08ec93cbb06b86feee55ebcbed5a6401040fc9f0162a1fec40ac4b8e45e56924d';
-        const apiUrl = `https://open.api.nexon.com/baramy/v1/id?character_name=${characterName}&server_name=${server}&apikey=${apiKey}`;
-
-        try {
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-
-            // Check if the response contains an error
-            if (data.error) {
-                console.error(`Error fetching data from ${server} - ${data.error.message}`);
-            } else {
-                console.log(`Character Info from ${server}`, data);
-                // Add your logic to display character information in the HTML or do any further processing
-            }
-        } catch (error) {
-            console.error(`Error fetching data from ${server} - ${error}`);
-        }
-    };
-
-    const searchForm = document.getElementById("email-form");
-
-    if (searchForm) {
-        searchForm.addEventListener("submit", async function (event) {
-            event.preventDefault();
-
-            const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
-
-            // Array to store promises for each server request
-            const requests = servers.map(server => fetchCharacterInfo(server));
-
-            // Promise.all() waits for all requests to complete
-            Promise.all(requests)
-                .then(results => {
-                    // Process the results to find the highest level character
-                    const highestLevelCharacter = findHighestLevel(results);
-                    console.log("Highest Level Character", highestLevelCharacter);
-                })
-                .catch(error => console.error("Error fetching data from one or more servers.", error));
-        });
+    // Check if the required inputs are available
+    if (!characterInput || !serverInput) {
+        console.error("Required inputs not found.");
+        return;
     }
 
-    // Function to find the highest level character
-    const findHighestLevel = (characterDataArray) => {
-        let highestLevel = -1;
-        let highestLevelCharacter = null;
+    const characterName = encodeURIComponent(characterInput.value);
+    const apiKey = 'test_ad6c0a6934215fad4b75dfc81d40caa08ec93cbb06b86feee55ebcbed5a6401040fc9f0162a1fec40ac4b8e45e56924d';
+    const apiUrl = `https://open.api.nexon.com/baramy/v1/id?character_name=${characterName}&server_name=${server}&apikey=${apiKey}`;
 
-        characterDataArray.forEach(characterData => {
-            if (characterData && characterData.level && characterData.level > highestLevel) {
-                highestLevel = characterData.level;
-                highestLevelCharacter = characterData;
-            }
-        });
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
 
-        return highestLevelCharacter;
-    };
-
-    // Add this line to call fetchCharacterInfo with a default server for testing
-    fetchCharacterInfo("연");
-});
+        // Check if the response contains an error
+        if (data.error) {
+            console.error(`Error fetching data from ${server} - ${data.error.message}`);
+        } else {
+            console.log(`Character Info from ${server}`, data);
+            // Add your logic to display character information in the HTML or do any further processing
+        }
+    } catch (error) {
+        console.error(`Error fetching data from ${server} - ${error}`);
+    }
+};
