@@ -7,6 +7,9 @@ function fetchCharacterInfo() {
     const resultDiv = document.getElementById("result");
     resultDiv.innerHTML = ""; // Clear previous results
 
+    let highestLevel = 0;
+    let highestLevelResult = "";
+
     // Use Promise.all to handle multiple asynchronous requests
     Promise.all(
         servers.map(serverName => {
@@ -34,10 +37,11 @@ function fetchCharacterInfo() {
                     .then(response => response.json())
                     .then(characterData => {
                         if (characterData.character_level !== undefined && !isNaN(characterData.character_level)) {
-                            return { server: serverName, result: `서버: ${serverName}, ocid: ${ocid}, character_level: ${characterData.character_level}` };
-                        } else {
-                            // character_level이 유효한 숫자가 아닌 경우, 빈 문자열 반환
-                            return { server: serverName, result: "" };
+                            // 현재 서버에서 받아온 캐릭터 레벨이 더 높으면 업데이트
+                            if (characterData.character_level > highestLevel) {
+                                highestLevel = characterData.character_level;
+                                highestLevelResult = `서버: ${serverName}, ocid: ${ocid}, character_level: ${highestLevel}`;
+                            }
                         }
                     })
                     .catch(error => {
@@ -52,22 +56,13 @@ function fetchCharacterInfo() {
             });
         })
     )
-    .then(results => {
-        // Filter out empty results
-        const nonEmptyResults = results.filter(result => result.result !== "");
-        
-        // Find the character with the highest level
-        const highestLevelCharacter = nonEmptyResults.reduce((highest, current) => {
-            const currentLevel = parseInt(current.result.match(/character_level: (\d+)/)?.[1] || 0);
-            if (currentLevel > highest.level) {
-                return { level: currentLevel, result: current.result };
-            } else {
-                return highest;
-            }
-        }, { level: 0, result: "" });
-
+    .then(() => {
         // Display the result with the highest level
-        resultDiv.innerHTML = highestLevelCharacter.result;
+        if (highestLevelResult) {
+            resultDiv.innerHTML = highestLevelResult;
+        } else {
+            resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
+        }
     })
     .catch(error => {
         console.error(error);
