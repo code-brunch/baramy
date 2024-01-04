@@ -33,10 +33,10 @@ function fetchCharacterInfo() {
                     })
                     .then(response => response.json())
                     .then(characterData => {
-                        if (characterData.character_level) {
+                        if (characterData.character_level !== undefined && !isNaN(characterData.character_level)) {
                             return { server: serverName, result: `서버: ${serverName}, ocid: ${ocid}, character_level: ${characterData.character_level}` };
                         } else {
-                            // character_level이 없는 경우, 빈 문자열 반환
+                            // character_level이 유효한 숫자가 아닌 경우, 빈 문자열 반환
                             return { server: serverName, result: "" };
                         }
                     })
@@ -58,7 +58,7 @@ function fetchCharacterInfo() {
         
         // Find the character with the highest level
         const highestLevelCharacter = nonEmptyResults.reduce((highest, current) => {
-            const currentLevel = parseInt(current.result.match(/character_level: (\d+)/)[1]);
+            const currentLevel = parseInt(current.result.match(/character_level: (\d+)/)?.[1] || 0);
             if (currentLevel > highest.level) {
                 return { level: currentLevel, result: current.result };
             } else {
