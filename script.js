@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", async function () {
             // Check if the response contains an error
             if (data.error) {
                 console.error(`Error fetching data from ${server} - ${data.error.message}`);
-                // Propagate the error by rejecting the promise
-                throw new Error(data.error.message);
+                // Return an empty object instead of rejecting the promise
+                return {};
             } else {
                 console.log(`Character Info from ${server}`, data);
                 // Add your logic to display character information in the HTML or do any further processing
@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
         } catch (error) {
             console.error(`Error fetching data from ${server} - ${error}`);
-            // Propagate the error by rejecting the promise
-            throw error;
+            // Return an empty object instead of rejecting the promise
+            return {};
         }
     };
 
@@ -32,22 +32,15 @@ document.addEventListener("DOMContentLoaded", async function () {
         event.preventDefault();
 
         const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
-        const results = [];
+        const results = await Promise.allSettled(servers.map(server => fetchCharacterInfo(server)));
 
-        // Iterate through servers and fetch character info for each
-        for (const server of servers) {
-            try {
-                const result = await fetchCharacterInfo(server);
-                results.push(result);
-            } catch (error) {
-                console.error(`Error fetching data from ${server} - ${error}`);
-                // Even if an error occurs, push an empty object to prevent Promise.all from rejecting
-                results.push({});
-            }
-        }
+        // Filter only the fulfilled promises
+        const fulfilledResults = results
+            .filter(result => result.status === 'fulfilled')
+            .map(result => result.value);
 
         // Process the results to find the highest level character
-        const highestLevelCharacter = findHighestLevel(results);
+        const highestLevelCharacter = findHighestLevel(fulfilledResults);
         console.log("Highest Level Character", highestLevelCharacter);
     });
 
