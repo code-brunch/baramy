@@ -14,46 +14,46 @@ function fetchCharacterInfo() {
     .then(response => response.json())
     .then(data => {
         const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = ""; // 기존 내용 초기화
 
         if (data.error) {
-            // 에러가 있는 경우
-            resultDiv.textContent = `정보를 찾을 수 없습니다.`;
+            resultDiv.textContent = `Error: ${data.error.message}`;
         } else {
-            // 에러가 없는 경우
-            const ocid = data.ocid;
+            // 캐릭터 정보가 있는 경우
+            const table = document.createElement("table");
+            const tbody = document.createElement("tbody");
 
-            // 추가 정보를 받아오는 URL
-            const additionalInfoUrl = `https://open.api.nexon.com/baramy/v1/character/basic?ocid=${ocid}`;
+            // 기본 정보 표시
+            const basicInfo = data.basic_info;
+            for (const key in basicInfo) {
+                const row = tbody.insertRow();
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
 
-            // 추가 정보 요청
-            fetch(additionalInfoUrl, {
-                headers: {
-                    "x-nxopen-api-key": apiKey
+                cell1.textContent = key;
+                cell2.textContent = basicInfo[key];
+            }
+
+            // 추가 정보 표시
+            if (data.additional_info) {
+                const additionalInfo = data.additional_info;
+                for (const key in additionalInfo) {
+                    const row = tbody.insertRow();
+                    const cell1 = row.insertCell(0);
+                    const cell2 = row.insertCell(1);
+
+                    cell1.textContent = key;
+                    cell2.textContent = additionalInfo[key];
                 }
-            })
-            .then(response => response.json())
-            .then(additionalInfo => {
-                // 추가 정보를 출력
-                resultDiv.textContent = `ocid: ${ocid}\n\n` +
-                                        `서버: ${additionalInfo.server_name}\n` +
-                                        `캐릭터 명: ${additionalInfo.character_name}\n` +
-                                        `캐릭터 생성 일자: ${additionalInfo.character_date_create}\n` +
-                                        `클래스 그룹: ${additionalInfo.character_class_group_name}\n` +
-                                        `클래스: ${additionalInfo.character_class_name}\n` +
-                                        `국가: ${additionalInfo.character_nation}\n` +
-                                        `성별: ${additionalInfo.character_gender}\n` +
-                                        `경험치: ${additionalInfo.character_exp}\n` +
-                                        `레벨: ${additionalInfo.character_level}`;
-            })
-            .catch(error => {
-                console.error(error);
-                resultDiv.textContent = `에러: ${error.message}`;
-            });
+            }
+
+            table.appendChild(tbody);
+            resultDiv.appendChild(table);
         }
     })
     .catch(error => {
         console.error(error);
         const resultDiv = document.getElementById("result");
-        resultDiv.textContent = `에러: ${error.message}`;
+        resultDiv.textContent = `Error: ${error.message}`;
     });
 }
