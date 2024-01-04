@@ -25,9 +25,11 @@ function fetchCharacterInfo() {
             }
 
             if (data.error) {
-                resultDiv.textContent = `정보를 찾을 수 없습니다.`;
-            } else {
+                resultDiv.textContent = `Error: ${data.error.message}`;
+            } else if (data.ocid) {
                 resultDiv.textContent = `ocid(${serverName}): ${data.ocid}`;
+            } else {
+                resultDiv.textContent = `No data available for ${serverName}`;
             }
         })
         .catch(error => {
