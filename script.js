@@ -46,6 +46,8 @@ function fetchCharacterInfo() {
                             // 현재 서버에서 받아온 캐릭터 레벨이 더 높으면 업데이트
                             if (!highestLevelCharacter || characterData.character_level > highestLevelCharacter.character_level) {
                                 highestLevelCharacter = characterInfo;
+                            } else {
+                                otherServers.push(characterInfo);
                             }
                         }
                     })
@@ -65,17 +67,16 @@ function fetchCharacterInfo() {
         // Display the result with the highest level
         if (highestLevelCharacter) {
             resultDiv.innerHTML = `서버: ${highestLevelCharacter.server}, ocid: ${highestLevelCharacter.ocid}, character_level: ${highestLevelCharacter.character_level}`;
+
+            // Sort otherServers array by character_level in ascending order
+            otherServers.sort((a, b) => a.character_level - b.character_level);
+
+            // Display other servers
+            if (otherServers.length > 0) {
+                resultDiv.innerHTML += "<br>다른 서버 캐릭터들(server_name 기준으로 정렬):<br>" + otherServers.map(server => server.server).join("<br>");
+            }
         } else {
             resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
-            return;
-        }
-
-        // Sort otherServers array by character_level in ascending order
-        otherServers.sort((a, b) => a.character_level - b.character_level);
-
-        // Display other servers
-        if (otherServers.length > 0) {
-            resultDiv.innerHTML += "<br>다른 서버 캐릭터들(server_name 기준으로 정렬):<br>" + otherServers.map(server => `${server.server} (character_level: ${server.character_level})`).join("<br>");
         }
     })
     .catch(error => {
