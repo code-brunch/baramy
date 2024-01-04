@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
     // Function to fetch character info for a given server
     const fetchCharacterInfo = async (server) => {
         const characterName = document.getElementById("top-searchbar").value;
@@ -12,12 +12,17 @@ document.addEventListener("DOMContentLoaded", function () {
             // Check if the response contains an error
             if (data.error) {
                 console.error(`Error fetching data from ${server} - ${data.error.message}`);
+                // Propagate the error by rejecting the promise
+                throw new Error(data.error.message);
             } else {
                 console.log(`Character Info from ${server}`, data);
                 // Add your logic to display character information in the HTML or do any further processing
+                return data;
             }
         } catch (error) {
             console.error(`Error fetching data from ${server} - ${error}`);
+            // Propagate the error by rejecting the promise
+            throw error;
         }
     };
 
@@ -25,20 +30,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     searchForm.addEventListener("submit", async function (event) {
         event.preventDefault();
-        
+
         const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
+        const results = [];
 
-        // Array to store promises for each server request
-        const requests = servers.map(server => fetchCharacterInfo(server));
+        // Iterate through servers and fetch character info for each
+        for (const server of servers) {
+            try {
+                const result = await fetchCharacterInfo(server);
+                results.push(result);
+            } catch (error) {
+                console.error(`Error fetching data from ${server} - ${error}`);
+            }
+        }
 
-        // Promise.all() waits for all requests to complete
-        Promise.all(requests)
-            .then(results => {
-                // Process the results to find the highest level character
-                const highestLevelCharacter = findHighestLevel(results);
-                console.log("Highest Level Character", highestLevelCharacter);
-            })
-            .catch(error => console.error("Error fetching data from one or more servers.", error));
+        // Process the results to find the highest level character
+        const highestLevelCharacter = findHighestLevel(results);
+        console.log("Highest Level Character", highestLevelCharacter);
     });
 
     // Function to find the highest level character
