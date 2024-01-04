@@ -73,7 +73,7 @@ function fetchCharacterInfo() {
 
             // Display other servers
             if (otherServers.length > 0) {
-                resultDiv.innerHTML += "<br>다른 서버 캐릭터들(server_name 기준으로 정렬):<br>" + otherServers.map(server => server.server).join("<br>");
+                resultDiv.innerHTML += "<br>다른 서버 캐릭터들(server_name 기준으로 정렬):<br>" + otherServers.map(server => `${server.server} (character_level: ${server.character_level})`).join("<br>");
             }
         } else {
             resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
