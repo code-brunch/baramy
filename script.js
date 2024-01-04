@@ -32,23 +32,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const searchForm = document.getElementById("email-form");
 
-    searchForm.addEventListener("submit", async function (event) {
-        event.preventDefault();
+    if (searchForm) {
+        searchForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
 
-        const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
+            const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
 
-        // Array to store promises for each server request
-        const requests = servers.map(server => fetchCharacterInfo(server));
+            // Array to store promises for each server request
+            const requests = servers.map(server => fetchCharacterInfo(server));
 
-        // Promise.all() waits for all requests to complete
-        Promise.all(requests)
-            .then(results => {
-                // Process the results to find the highest level character
-                const highestLevelCharacter = findHighestLevel(results);
-                console.log("Highest Level Character", highestLevelCharacter);
-            })
-            .catch(error => console.error("Error fetching data from one or more servers.", error));
-    });
+            // Promise.all() waits for all requests to complete
+            Promise.all(requests)
+                .then(results => {
+                    // Process the results to find the highest level character
+                    const highestLevelCharacter = findHighestLevel(results);
+                    console.log("Highest Level Character", highestLevelCharacter);
+                })
+                .catch(error => console.error("Error fetching data from one or more servers.", error));
+        });
+    }
 
     // Function to find the highest level character
     const findHighestLevel = (characterDataArray) => {
@@ -56,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let highestLevelCharacter = null;
 
         characterDataArray.forEach(characterData => {
-            if (characterData.level && characterData.level > highestLevel) {
+            if (characterData && characterData.level && characterData.level > highestLevel) {
                 highestLevel = characterData.level;
                 highestLevelCharacter = characterData;
             }
