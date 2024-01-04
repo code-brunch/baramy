@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", async function () {
                 results.push(result);
             } catch (error) {
                 console.error(`Error fetching data from ${server} - ${error}`);
+                // Even if an error occurs, push an empty object to prevent Promise.all from rejecting
+                results.push({});
             }
         }
 
