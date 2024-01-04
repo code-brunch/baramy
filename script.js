@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const searchForm = document.getElementById("email-form");
-
     // Function to fetch character info for a given server
     const fetchCharacterInfo = async (server) => {
         const characterName = document.getElementById("top-searchbar").value;
@@ -21,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error(`Error fetching data from ${server} - ${error}`);
         }
     };
+
+    const searchForm = document.getElementById("email-form");
 
     searchForm.addEventListener("submit", async function (event) {
         event.preventDefault();
