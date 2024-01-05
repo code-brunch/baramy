@@ -92,16 +92,34 @@ async function fetchCharacterInfo() {
             const serverDiv = document.createElement("div");
             const ocidDiv = document.createElement("div");
             const characterLevelDiv = document.createElement("div");
-    
+            const characterDateDiv = document.createElement("div");
+            const characterClassGroupDiv = document.createElement("div");
+            const characterClassDiv = document.createElement("div");
+            const characterNationDiv = document.createElement("div");
+            const characterGenderDiv = document.createElement("div");
+            const characterExpDiv = document.createElement("div");
+            
             // Assign values to the div elements
             serverDiv.textContent = `서버: ${highestLevelCharacter.server}`;
             ocidDiv.textContent = `ocid: ${highestLevelCharacter.ocid}`;
             characterLevelDiv.textContent = `character_level: ${highestLevelCharacter.character_level}`;
+            characterDateDiv.textContent = `character_level: ${highestLevelCharacter.character_date_create}`;
+            characterClassGroupDiv.textContent = `character_level: ${highestLevelCharacter.character_class_group_name}`;
+            characterClassDiv.textContent = `character_level: ${highestLevelCharacter.character_class_name}`;
+            characterNationDiv.textContent = `character_level: ${highestLevelCharacter.character_nation}`;
+            characterGenderDiv.textContent = `character_level: ${highestLevelCharacter.character_gender}`;
+            characterExpDiv.textContent = `character_level: ${highestLevelCharacter.character_exp}`;
     
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
             resultDiv.appendChild(ocidDiv);
             resultDiv.appendChild(characterLevelDiv);
+            resultDiv.appendChild(characterDateDiv);
+            resultDiv.appendChild(characterClassGroupDiv);
+            resultDiv.appendChild(characterClassDiv);
+            resultDiv.appendChild(characterNationDiv);
+            resultDiv.appendChild(characterGenderDiv);
+            resultDiv.appendChild(characterExpDiv);
     
             // Sort otherServers array by character_level in ascending order
             otherServers.sort((a, b) => a.character_level - b.character_level);
