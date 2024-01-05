@@ -38,7 +38,7 @@ async function fetchCharacterInfo() {
     if (characterName === '' || characterName === '캐릭터명 또는 길드') {
         alert('캐릭터명을 입력 후 검색해주세요.');
         characterNameInput.focus(); // 검색창에 다시 포커스를 맞춥니다.
-        return; // 검색 실행하지 않고 함수 종료
+        return; // 검색을 수행하지 않고 함수를 종료합니다.
     }
 
     const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
