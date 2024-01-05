@@ -21,14 +21,13 @@ async function fetchCharacterInfo() {
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
 
-    const resultDiv = document.getElementById("result");
-
     if (!characterName) {
-        resultDiv.textContent = "캐릭터명을 입력 후 검색해주세요.";
+        alert("캐릭터명을 입력 후 검색해주세요.");
         return;
     }
 
     const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
+    const resultDiv = document.getElementById("result");
     resultDiv.innerHTML = ""; // Clear previous results
     let highestLevelCharacter = null;
     let otherServers = [];
