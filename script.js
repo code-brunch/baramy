@@ -22,7 +22,7 @@ async function fetchCharacterInfo() {
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
 
     if (!characterName) {
-        window.alert("캐릭터명을 입력 후 검색해주세요.");
+        alert("캐릭터명을 입력 후 검색해주세요.");
         return;
     }
 
