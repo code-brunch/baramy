@@ -170,15 +170,19 @@ async function fetchCharacterInfo() {
 
 function processTitles(titles) {
     if (!Array.isArray(titles)) {
+        console.log("Invalid titles data:", titles);
         return "N/A";
     }
 
-    return titles.map(title => {
+    const processedTitles = titles.map(title => {
         if (title.title_type_name && title.title_name) {
-            return `${title.title_type_name}: ${title.title_name}`;
+            return `#${title.title_name}`;
         } else {
             console.log("Invalid title object:", title);
             return "N/A";
         }
-    }).join(", ");
+    });
+
+    return `보유칭호: ${processedTitles.join(', ')}`;
 }
+
