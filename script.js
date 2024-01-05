@@ -191,7 +191,7 @@ function processTitles(titlesData) {
 function processEquippedTitles(titles) {
     return titles.map(title => {
         if (title.title_equipment_type && title.title_type_name && title.title_name) {
-            return `${title.title_name}`;
+            return `${title.title_equipment_type}: ${title.title_name}`;
         } else {
             console.log("Invalid equipped title object:", title);
             return "N/A";
