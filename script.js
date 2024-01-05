@@ -14,6 +14,20 @@ document.addEventListener('DOMContentLoaded', function () {
             characterNameInput.value = '캐릭터명 또는 길드';
         }
     });
+
+    // 검색 버튼 클릭 이벤트 처리
+    document.getElementById('searchButton').addEventListener('click', function (event) {
+        event.preventDefault(); // 기본 동작을 막아서 폼 전송을 방지합니다.
+
+        const characterName = characterNameInput.value.trim();
+
+        if (characterName === '' || characterName === '캐릭터명 또는 길드') {
+            alert('캐릭터명을 입력 후 검색해주세요.');
+            characterNameInput.focus(); // 검색창에 다시 포커스를 맞춥니다.
+        } else {
+            fetchCharacterInfo();
+        }
+    });
 });
 
 async function fetchCharacterInfo() {
