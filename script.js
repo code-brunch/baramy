@@ -174,15 +174,34 @@ function processTitles(titles) {
         return "N/A";
     }
 
-    const processedTitles = titles.map(title => {
+    const equippedTitles = titles.filter(title => title.title_type_name === "장착");
+    const ownedTitles = titles.filter(title => title.title_type_name !== "장착");
+
+    const processedEquippedTitles = processEquippedTitles(equippedTitles);
+    const processedOwnedTitles = processOwnedTitles(ownedTitles);
+
+    return `장착칭호: ${processedEquippedTitles}\n보유칭호: ${processedOwnedTitles}`;
+}
+
+function processEquippedTitles(titles) {
+    return titles.map(title => {
+        if (title.title_type_name && title.title_name) {
+            return `${title.title_name}`;
+        } else {
+            console.log("Invalid equipped title object:", title);
+            return "N/A";
+        }
+    }).join(', ');
+}
+
+function processOwnedTitles(titles) {
+    return titles.map(title => {
         if (title.title_type_name && title.title_name) {
             return `#${title.title_name}`;
         } else {
-            console.log("Invalid title object:", title);
+            console.log("Invalid owned title object:", title);
             return "N/A";
         }
-    });
-
-    return `보유칭호: ${processedTitles.join(', ')}`;
+    }).join(', ');
 }
 
