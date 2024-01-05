@@ -21,10 +21,8 @@ async function fetchCharacterInfo() {
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
 
-    // 검색창이 비어있으면 팝업을 띄우고 검색을 수행하지 않습니다.
-    if (!characterName || characterName === '캐릭터명 또는 길드') {
+    if (!characterName) {
         alert("캐릭터명을 입력 후 검색해주세요.");
-        characterNameInput.focus(); // 검색창에 다시 포커스를 맞춥니다.
         return;
     }
 
