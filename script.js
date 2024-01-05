@@ -21,9 +21,11 @@ async function fetchCharacterInfo() {
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
 
-    if (!characterName) {
-        alert("캐릭터명을 입력 후 검색해주세요.");
-        return;
+    if (characterName === '' || characterName === '캐릭터명 또는 길드') {
+        alert('캐릭터명을 입력 후 검색해주세요.');
+        characterNameInput.focus(); // 검색창에 다시 포커스를 맞춥니다.
+    } else {
+        fetchCharacterInfo();
     }
 
     const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
