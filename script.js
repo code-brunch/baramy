@@ -174,7 +174,6 @@ function processTitles(titles) {
     }
 
     return titles.map(title => {
-        console.log(title);  // 디버깅용 로그 추가
         if ('title_equipment_type' in title) {
             // title_equipment인 경우
             return `${title.title_equipment_type}: ${title.title_name}`;
