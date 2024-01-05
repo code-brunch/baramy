@@ -177,7 +177,9 @@ function processTitles(titles) {
         if (title.title_type_name && title.title_name) {
             return `${title.title_type_name}: ${title.title_name}`;
         } else {
+            console.log("Invalid title object:", title);
             return "N/A";
         }
     }).join(", ");
 }
+
