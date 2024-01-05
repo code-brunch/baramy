@@ -133,7 +133,7 @@ async function fetchCharacterInfo() {
             characterGenderDiv.textContent = `성별: ${highestLevelCharacter.character_gender}`;
             characterExpDiv.textContent = `경험치: ${highestLevelCharacter.character_exp}`;
             titleEquipDiv.textContent = `장착칭호: ${highestLevelCharacter.titleEquipment}`;
-            titleDiv.textContent = `보유칭호: ${(highestLevelCharacter.titles.map(title => `#${title.replace(/ /g, '_')}`).join(' '))}`;
+            titleDiv.textContent = `보유칭호: ${Array.isArray(highestLevelCharacter.titles) ? highestLevelCharacter.titles.map(title => `#${title.replace(/ /g, '_')}`).join(' ') : 'N/A'}`;
     
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
