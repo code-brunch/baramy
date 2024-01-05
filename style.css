@@ -751,6 +751,10 @@
     height: 100%;
 }
 
+label.sr-only {
+    display: none;
+}
+
 #result {
     margin-top: 20px;
 }
