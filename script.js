@@ -84,8 +84,8 @@ async function fetchCharacterInfo() {
                         character_nation: characterData.character_nation,
                         character_gender: characterData.character_gender,
                         character_exp: characterData.character_exp,
-                        titleEquipment: titleEquipmentData.title_equipment,
-                        titles: titleData.title,
+                        titleEquipment: processTitles(titleEquipmentData.title_equipment),
+                        titles: processTitles(titleData.title),
                     };
 
                     if (!highestLevelCharacter || characterData.character_level > highestLevelCharacter.character_level) {
@@ -164,4 +164,15 @@ async function fetchCharacterInfo() {
         console.error(error);
         resultDiv.textContent = `Error: ${error.message}`;
     }
+}
+
+function processTitles(titles) {
+    if (!Array.isArray(titles)) {
+        return "N/A";
+    }
+
+    return titles.map(title => {
+        // 여기서 title의 속성에 접근하여 필요한 정보를 가져옴
+        return `${title.title_equipment_type}: ${title.title_name}`;
+    }).join(", ");
 }
