@@ -168,24 +168,29 @@ async function fetchCharacterInfo() {
     }
 }
 
-function processTitles(titleData) {
-    if (!Array.isArray(titleData.title)) {
-        console.log("Invalid title data:", titleData);
+function processTitles(titlesData) {
+    if (!titlesData) {
+        console.log("Invalid titles data:", titlesData);
         return "N/A";
     }
 
-    const equippedTitles = titleData.title.filter(title => title.title_type_name === "장착");
-    const ownedTitles = titleData.title.filter(title => title.title_type_name !== "장착");
-
-    const processedEquippedTitles = processEquippedTitles(equippedTitles);
-    const processedOwnedTitles = processOwnedTitles(ownedTitles);
-
-    return `장착칭호: ${processedEquippedTitles}\n보유칭호: ${processedOwnedTitles}`;
+    if (titlesData.title_equipment) {
+        // Process equipped titles
+        const equippedTitles = processEquippedTitles(titlesData.title_equipment);
+        return `장착칭호: ${equippedTitles}\n보유칭호: N/A`;
+    } else if (titlesData.title) {
+        // Process owned titles
+        const ownedTitles = processOwnedTitles(titlesData.title);
+        return `장착칭호: N/A\n보유칭호: ${ownedTitles}`;
+    } else {
+        console.log("Invalid titles data:", titlesData);
+        return "N/A";
+    }
 }
 
 function processEquippedTitles(titles) {
     return titles.map(title => {
-        if (title.title_name) {
+        if (title.title_equipment_type && title.title_type_name && title.title_name) {
             return `${title.title_name}`;
         } else {
             console.log("Invalid equipped title object:", title);
@@ -196,7 +201,7 @@ function processEquippedTitles(titles) {
 
 function processOwnedTitles(titles) {
     return titles.map(title => {
-        if (title.title_name) {
+        if (title.title_type_name && title.title_name) {
             return `#${title.title_name}`;
         } else {
             console.log("Invalid owned title object:", title);
