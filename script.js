@@ -61,6 +61,13 @@ async function fetchCharacterInfo() {
                         server: serverName,
                         ocid: ocid,
                         character_level: characterData.character_level,
+                        character_name: characterData.character_name,
+                        character_date_create: characterData.character_date_create,
+                        character_class_group_name: characterData.character_class_group_name,
+                        character_class_name: characterData.character_class_name,
+                        character_nation: characterData.character_nation,
+                        character_gender: characterData.character_gender,
+                        character_exp: characterData.character_exp,
                     };
 
                     if (!highestLevelCharacter || characterData.character_level > highestLevelCharacter.character_level) {
