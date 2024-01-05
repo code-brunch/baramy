@@ -174,7 +174,14 @@ function processTitles(titles) {
     }
 
     return titles.map(title => {
-        // 여기서 title의 속성에 접근하여 필요한 정보를 가져옴
-        return `${title.title_equipment_type}: ${title.title_name}`;
+        if ('title_equipment_type' in title) {
+            // title_equipment인 경우
+            return `${title.title_equipment_type}: ${title.title_name}`;
+        } else if ('title_type_name' in title) {
+            // title인 경우
+            return `${title.title_type_name}: ${title.title_name}`;
+        } else {
+            return "N/A";
+        }
     }).join(", ");
 }
