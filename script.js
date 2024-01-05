@@ -85,22 +85,37 @@ async function fetchCharacterInfo() {
 
     try {
         await Promise.all(promises);
-
+    
         // Display the result with the highest level
         if (highestLevelCharacter) {
-            resultDiv.innerHTML = `서버2: ${highestLevelCharacter.server}, ocid: ${highestLevelCharacter.ocid}, character_level: ${highestLevelCharacter.character_level}`;
-
+            // Create three div elements
+            const serverDiv = document.createElement("div");
+            const ocidDiv = document.createElement("div");
+            const characterLevelDiv = document.createElement("div");
+    
+            // Assign values to the div elements
+            serverDiv.textContent = `서버: ${highestLevelCharacter.server}`;
+            ocidDiv.textContent = `ocid: ${highestLevelCharacter.ocid}`;
+            characterLevelDiv.textContent = `character_level: ${highestLevelCharacter.character_level}`;
+    
+            // Append the div elements to the content-main div
+            resultDiv.appendChild(serverDiv);
+            resultDiv.appendChild(ocidDiv);
+            resultDiv.appendChild(characterLevelDiv);
+    
             // Sort otherServers array by character_level in ascending order
             otherServers.sort((a, b) => a.character_level - b.character_level);
-
+    
             // Display other servers
             if (otherServers.length > 0) {
-                resultDiv.innerHTML += "<br>다른 서버 캐릭터들(server_name 기준으로 정렬):<br>" + otherServers.map(server => server.server).join("<br>");
+                const otherServersDiv = document.createElement("div");
+                otherServersDiv.innerHTML = "<br>다른 서버 캐릭터들(server_name 기준으로 정렬):<br>" + otherServers.map(server => server.server).join("<br>");
+                resultDiv.appendChild(otherServersDiv);
             }
         } else {
             resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
         }
-
+    
         // Clear the input value after successful search
         characterNameInput.value = "";
     } catch (error) {
