@@ -1,3 +1,22 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const characterNameInput = document.getElementById('characterName');
+
+    // 포커스 이벤트 처리
+    characterNameInput.addEventListener('focus', function () {
+        if (characterNameInput.value === '캐릭터명 또는 길드') {
+            characterNameInput.value = '';
+        }
+    });
+
+    // 포커스 아웃 이벤트 처리
+    characterNameInput.addEventListener('blur', function () {
+        if (characterNameInput.value === '') {
+            characterNameInput.value = '캐릭터명 또는 길드';
+        }
+    });
+});
+
+
 async function fetchCharacterInfo() {
     const apiKey = "test_ad6c0a6934215fad4b75dfc81d40caa08ec93cbb06b86feee55ebcbed5a6401040fc9f0162a1fec40ac4b8e45e56924d";
     const characterName = encodeURIComponent(document.getElementById("characterName").value); 
