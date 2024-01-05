@@ -133,7 +133,8 @@ async function fetchCharacterInfo() {
             characterGenderDiv.textContent = `성별: ${highestLevelCharacter.character_gender}`;
             characterExpDiv.textContent = `경험치: ${highestLevelCharacter.character_exp}`;
             titleEquipDiv.textContent = `장착칭호: ${highestLevelCharacter.titleEquipment}`;
-            titleDiv.textContent = `보유칭호: ${Array.isArray(highestLevelCharacter.titles) ? highestLevelCharacter.titles.map(title => `#${title.replace(/ /g, '_')}`).join(' ') : 'N/A'}`;
+            titleDiv.textContent = `보유칭호: ${Array.isArray(highestLevelCharacter.titles) ? processTitles(highestLevelCharacter.titles) : 'N/A'}`;
+
     
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
@@ -179,10 +180,11 @@ function processTitles(titles) {
     return titles.map(title => {
         if (title.title_type_name && title.title_name) {
             return `${title.title_type_name}: ${title.title_name}`;
+        } else if (title.title_equipment_type && title.title_name) {
+            return `${title.title_equipment_type}: ${title.title_name}`;
         } else {
             console.log("Invalid title object:", title);
             return "N/A";
         }
     }).join(", ");
 }
-
