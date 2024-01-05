@@ -763,3 +763,10 @@ label.sr-only {
 #result {
     margin-top: 20px;
 }
+
+.hashtag {
+    background-color: #CCCCCC; /* Use the desired gray color */
+    padding: 4px 8px; /* Adjust padding as needed */
+    border-radius: 8px; /* Adjust border radius as needed */
+    margin-right: 4px; /* Adjust margin as needed to create space between hashtags */
+}
