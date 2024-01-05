@@ -735,6 +735,7 @@
     padding: 10px;
     font-size: 16px;
     color: #555;
+    width: 200px;
 }
 
 .search-container input:focus {
@@ -742,10 +743,12 @@
 }
 
 .search-container button {
-    padding: 2px;
+    padding: 10px;
     font-size: 16px;
     writing-mode: vertical-lr;
     text-orientation: mixed;
+    width: 50px;
+    height: 100%;
 }
 
 #result {
