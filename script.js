@@ -118,9 +118,6 @@ async function fetchCharacterInfo() {
             const characterExpDiv = document.createElement("div");
             const titleEquipDiv = document.createElement("div");
             const titleDiv = document.createElement("div");
-
-            // Assign the class to the titleDiv
-            titleDiv.classList.add("hashtag-container");
             
             // Assign values to the div elements
             serverDiv.textContent = `서버: ${highestLevelCharacter.server}`;
@@ -133,8 +130,7 @@ async function fetchCharacterInfo() {
             characterGenderDiv.textContent = `성별: ${highestLevelCharacter.character_gender}`;
             characterExpDiv.textContent = `경험치: ${highestLevelCharacter.character_exp}`;
             titleEquipDiv.textContent = `장착칭호: ${highestLevelCharacter.titleEquipment}`;
-            titleDiv.textContent = `보유칭호: ${Array.isArray(highestLevelCharacter.titles) ? processTitles(highestLevelCharacter.titles) : 'N/A'}`;
-
+            titleDiv.textContent = `보유칭호: ${(highestLevelCharacter.titles)}`;
     
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
@@ -174,7 +170,6 @@ async function fetchCharacterInfo() {
 
 function processTitles(titles) {
     if (!Array.isArray(titles)) {
-        console.log("Invalid titles data:", titles);
         return "N/A";
     }
 
