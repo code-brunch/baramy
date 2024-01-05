@@ -731,13 +731,13 @@
 }
 
 .search-container input {
-    margin-right: 8px;
-    padding: 8px;
+    margin-right: 2px;
+    padding: 2px;
     font-size: 16px;
 }
 
 .search-container button {
-    padding: 8px;
+    padding: 2px;
     font-size: 16px;
 }
 
