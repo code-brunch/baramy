@@ -101,84 +101,83 @@ async function fetchCharacterInfo() {
         }
     });
 
-    try {
-        await Promise.all(promises);
-    
-        // Display the result with the highest level
-        if (highestLevelCharacter) {
-            // Create three div elements
-            const serverDiv = document.createElement("div");
-            const ocidDiv = document.createElement("div");
-            const characterLevelDiv = document.createElement("div");
-            const characterDateDiv = document.createElement("div");
-            const characterClassGroupDiv = document.createElement("div");
-            const characterClassDiv = document.createElement("div");
-            const characterNationDiv = document.createElement("div");
-            const characterGenderDiv = document.createElement("div");
-            const characterExpDiv = document.createElement("div");
-            const titleEquipDiv = document.createElement("div");
-            const titleDiv = document.createElement("div");
-            
-            // Assign values to the div elements
-            serverDiv.textContent = `서버: ${highestLevelCharacter.server}`;
-            ocidDiv.textContent = `ocid: ${highestLevelCharacter.ocid}`;
-            characterLevelDiv.textContent = `레벨: ${highestLevelCharacter.character_level}`;
-            characterDateDiv.textContent = `생성일: ${highestLevelCharacter.character_date_create}`;
-            characterClassGroupDiv.textContent = `직업: ${highestLevelCharacter.character_class_group_name}`;
-            characterClassDiv.textContent = `승급: ${highestLevelCharacter.character_class_name}`;
-            characterNationDiv.textContent = `국가: ${highestLevelCharacter.character_nation}`;
-            characterGenderDiv.textContent = `성별: ${highestLevelCharacter.character_gender}`;
-            characterExpDiv.textContent = `경험치: ${highestLevelCharacter.character_exp}`;
-            titleEquipDiv.textContent = `장착칭호: ${highestLevelCharacter.titleEquipment}`;
-            titleDiv.textContent = `보유칭호: ${(highestLevelCharacter.titles)}`;
-    
-            // Append the div elements to the content-main div
-            resultDiv.appendChild(serverDiv);
-            resultDiv.appendChild(ocidDiv);
-            resultDiv.appendChild(characterLevelDiv);
-            resultDiv.appendChild(characterDateDiv);
-            resultDiv.appendChild(characterClassGroupDiv);
-            resultDiv.appendChild(characterClassDiv);
-            resultDiv.appendChild(characterNationDiv);
-            resultDiv.appendChild(characterGenderDiv);
-            resultDiv.appendChild(characterExpDiv);
-            resultDiv.appendChild(titleEquipDiv);
-            resultDiv.appendChild(titleDiv);
-    
-            // Sort otherServers array by character_level in ascending order
-            otherServers.sort((a, b) => a.character_level - b.character_level);
-    
-            // Display other servers
-            if (otherServers.length > 0) {
-                const otherServersDiv = document.createElement("div");
-                otherServersDiv.innerHTML = "<br>다른 서버 캐릭터들(server_name 기준으로 정렬):<br>" + otherServers.map(server => server.server).join("<br>");
-                resultDiv.appendChild(otherServersDiv);
-            }
+// ... (기존 코드)
 
-            document.querySelector('.content-sub').appendChild(titleDiv);
-        } else {
-            resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
+try {
+    await Promise.all(promises);
+
+    // Display the result with the highest level
+    if (highestLevelCharacter) {
+        // Create div elements for each piece of information
+        const serverDiv = document.createElement("div");
+        const ocidDiv = document.createElement("div");
+        const characterLevelDiv = document.createElement("div");
+        const characterDateDiv = document.createElement("div");
+        const characterClassGroupDiv = document.createElement("div");
+        const characterClassDiv = document.createElement("div");
+        const characterNationDiv = document.createElement("div");
+        const characterGenderDiv = document.createElement("div");
+        const characterExpDiv = document.createElement("div");
+        const titleEquipDiv = document.createElement("div");
+        const titleDiv = document.createElement("div");
+
+        // Assign values to the div elements
+        serverDiv.textContent = `서버: ${highestLevelCharacter.server}`;
+        ocidDiv.textContent = `ocid: ${highestLevelCharacter.ocid}`;
+        characterLevelDiv.textContent = `레벨: ${highestLevelCharacter.character_level}`;
+        characterDateDiv.textContent = `생성일: ${highestLevelCharacter.character_date_create}`;
+        characterClassGroupDiv.textContent = `직업: ${highestLevelCharacter.character_class_group_name}`;
+        characterClassDiv.textContent = `승급: ${highestLevelCharacter.character_class_name}`;
+        characterNationDiv.textContent = `국가: ${highestLevelCharacter.character_nation}`;
+        characterGenderDiv.textContent = `성별: ${highestLevelCharacter.character_gender}`;
+        characterExpDiv.textContent = `경험치: ${highestLevelCharacter.character_exp}`;
+        titleEquipDiv.textContent = `장착칭호: ${highestLevelCharacter.titleEquipment}`;
+        titleDiv.textContent = `보유칭호: ${(highestLevelCharacter.titles)}`;
+
+        // Append the div elements to the resultDiv
+        resultDiv.appendChild(serverDiv);
+        resultDiv.appendChild(ocidDiv);
+        resultDiv.appendChild(characterLevelDiv);
+        resultDiv.appendChild(characterDateDiv);
+        resultDiv.appendChild(characterClassGroupDiv);
+        resultDiv.appendChild(characterClassDiv);
+        resultDiv.appendChild(characterNationDiv);
+        resultDiv.appendChild(characterGenderDiv);
+        resultDiv.appendChild(characterExpDiv);
+        resultDiv.appendChild(titleEquipDiv);
+        resultDiv.appendChild(titleDiv);
+
+        // Sort otherServers array by character_level in ascending order
+        otherServers.sort((a, b) => a.character_level - b.character_level);
+
+        // Display other servers
+        if (otherServers.length > 0) {
+            const otherServersDiv = document.createElement("div");
+            otherServersDiv.innerHTML = "<br>다른 서버 캐릭터들(server_name 기준으로 정렬):<br>" + otherServers.map(server => server.server).join("<br>");
+            resultDiv.appendChild(otherServersDiv);
         }
-    
-        // Clear the input value after successful search
+
+        // Clear the input value after a successful search
         characterNameInput.value = "";
-    } catch (error) {
-        console.error(error);
-        resultDiv.textContent = `Error: ${error.message}`;
-    }
-}
 
-function processTitles(titles) {
-    if (!Array.isArray(titles)) {
-        return "N/A";
+        // Display the result in content-sub as well
+        const contentSubDiv = document.querySelector('.content-sub');
+        contentSubDiv.innerHTML = ""; // Clear previous results
+        contentSubDiv.appendChild(serverDiv.cloneNode(true));
+        contentSubDiv.appendChild(ocidDiv.cloneNode(true));
+        contentSubDiv.appendChild(characterLevelDiv.cloneNode(true));
+        contentSubDiv.appendChild(characterDateDiv.cloneNode(true));
+        contentSubDiv.appendChild(characterClassGroupDiv.cloneNode(true));
+        contentSubDiv.appendChild(characterClassDiv.cloneNode(true));
+        contentSubDiv.appendChild(characterNationDiv.cloneNode(true));
+        contentSubDiv.appendChild(characterGenderDiv.cloneNode(true));
+        contentSubDiv.appendChild(characterExpDiv.cloneNode(true));
+        contentSubDiv.appendChild(titleEquipDiv.cloneNode(true));
+        contentSubDiv.appendChild(titleDiv.cloneNode(true));
+    } else {
+        resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
     }
-
-    return titles.map(title => {
-        if (title.title_type_name && title.title_name) {
-            return `${title.title_type_name}: ${title.title_name}`;
-        } else {
-            console.log("Invalid title object:", title);
-            return "N/A";
-        }
-    }).join(", ");
+} catch (error) {
+    console.error(error);
+    resultDiv.textContent = `Error: ${error.message}`;
 }
