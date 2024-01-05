@@ -102,13 +102,13 @@ async function fetchCharacterInfo() {
             // Assign values to the div elements
             serverDiv.textContent = `서버: ${highestLevelCharacter.server}`;
             ocidDiv.textContent = `ocid: ${highestLevelCharacter.ocid}`;
-            characterLevelDiv.textContent = `character_level: ${highestLevelCharacter.character_level}`;
-            characterDateDiv.textContent = `character_level: ${highestLevelCharacter.character_date_create}`;
-            characterClassGroupDiv.textContent = `character_level: ${highestLevelCharacter.character_class_group_name}`;
-            characterClassDiv.textContent = `character_level: ${highestLevelCharacter.character_class_name}`;
-            characterNationDiv.textContent = `character_level: ${highestLevelCharacter.character_nation}`;
-            characterGenderDiv.textContent = `character_level: ${highestLevelCharacter.character_gender}`;
-            characterExpDiv.textContent = `character_level: ${highestLevelCharacter.character_exp}`;
+            characterLevelDiv.textContent = `레벨: ${highestLevelCharacter.character_level}`;
+            characterDateDiv.textContent = `생성일: ${highestLevelCharacter.character_date_create}`;
+            characterClassGroupDiv.textContent = `직업: ${highestLevelCharacter.character_class_group_name}`;
+            characterClassDiv.textContent = `승급: ${highestLevelCharacter.character_class_name}`;
+            characterNationDiv.textContent = `국가: ${highestLevelCharacter.character_nation}`;
+            characterGenderDiv.textContent = `성별: ${highestLevelCharacter.character_gender}`;
+            characterExpDiv.textContent = `경험치: ${highestLevelCharacter.character_exp}`;
     
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
