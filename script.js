@@ -93,6 +93,9 @@ async function fetchCharacterInfo() {
         } else {
             resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
         }
+
+        // Clear the input value after successful search
+        characterNameInput.value = "";
     } catch (error) {
         console.error(error);
         resultDiv.textContent = `Error: ${error.message}`;
