@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 async function fetchCharacterInfo() {
-    const apiKey = "test_ad6c0a6934215fad4b75dfc81d40caa08ec93cbb06b86feee55ebcbed5a6401040fc9f0162a1fec40ac4b8e45e56924d";
+    const apiKey = "test_ad6c0a6934215fad4b75dfc81d40caa08a42cd3a4f45409e36316120f2fcad5acfb2e97961a26d5eabf65d062839b224";
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
 
