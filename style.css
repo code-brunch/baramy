@@ -744,6 +744,8 @@
 .search-container button {
     padding: 2px;
     font-size: 16px;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
 }
 
 #result {
