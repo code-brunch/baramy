@@ -130,7 +130,7 @@ async function fetchCharacterInfo() {
             characterGenderDiv.textContent = `성별: ${highestLevelCharacter.character_gender}`;
             characterExpDiv.textContent = `경험치: ${highestLevelCharacter.character_exp}`;
             titleEquipDiv.textContent = `장착칭호: ${highestLevelCharacter.titleEquipment}`;
-            titleDiv.textContent = `보유칭호: ${highestLevelCharacter.titles}`;
+            titleDiv.textContent = `보유칭호: ${processTitles(highestLevelCharacter.titles)}`;
     
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
@@ -181,4 +181,3 @@ function processTitles(titles) {
         }
     }).join(", ");
 }
-
