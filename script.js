@@ -118,6 +118,9 @@ async function fetchCharacterInfo() {
             const characterExpDiv = document.createElement("div");
             const titleEquipDiv = document.createElement("div");
             const titleDiv = document.createElement("div");
+
+            // Assign the class to the titleDiv
+            titleDiv.classList.add("hashtag-container");
             
             // Assign values to the div elements
             serverDiv.textContent = `서버: ${highestLevelCharacter.server}`;
@@ -130,7 +133,7 @@ async function fetchCharacterInfo() {
             characterGenderDiv.textContent = `성별: ${highestLevelCharacter.character_gender}`;
             characterExpDiv.textContent = `경험치: ${highestLevelCharacter.character_exp}`;
             titleEquipDiv.textContent = `장착칭호: ${highestLevelCharacter.titleEquipment}`;
-            titleDiv.textContent = `보유칭호: ${(highestLevelCharacter.titles)}`;
+            titleDiv.textContent = `보유칭호: ${(highestLevelCharacter.titles.map(title => `#${title.replace(/ /g, '_')}`).join(' '))}`;
     
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
