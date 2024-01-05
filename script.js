@@ -59,13 +59,13 @@ async function fetchCharacterInfo() {
                 if (characterData.character_level !== undefined && !isNaN(characterData.character_level)) {
                     const characterInfo = {
                         server: serverName,
-                        /*ocid: ocid,
+                        ocid: ocid,
                         character_level: characterData.character_level,
                         character_name: characterData.character_name,
                         character_date_create: characterData.character_date_create,
                         character_class_group_name: characterData.character_class_group_name,
                         character_class_name: characterData.character_class_name,
-                        character_nation: characterData.character_nation,*/
+                        character_nation: characterData.character_nation,
                         character_gender: characterData.character_gender,
                         character_exp: characterData.character_exp,
                     };
@@ -88,7 +88,7 @@ async function fetchCharacterInfo() {
 
         // Display the result with the highest level
         if (highestLevelCharacter) {
-            resultDiv.innerHTML = `서버: ${highestLevelCharacter.server}, ocid: ${highestLevelCharacter.ocid}, character_level: ${highestLevelCharacter.character_level}`;
+            resultDiv.innerHTML = `서버2: ${highestLevelCharacter.server}, ocid: ${highestLevelCharacter.ocid}, character_level: ${highestLevelCharacter.character_level}`;
 
             // Sort otherServers array by character_level in ascending order
             otherServers.sort((a, b) => a.character_level - b.character_level);
