@@ -118,6 +118,7 @@ async function fetchCharacterInfo() {
             const characterExpDiv = document.createElement("div");
             const titleEquipDiv = document.createElement("div");
             const titleDiv = document.createElement("div");
+            const titlesContainerDiv = document.createElement("div");
             
             // Assign values to the div elements
             serverDiv.textContent = `서버: ${highestLevelCharacter.server}`;
@@ -144,9 +145,25 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(characterExpDiv);
             resultDiv.appendChild(titleEquipDiv);
             resultDiv.appendChild(titleDiv);
+
+            // 컨테이너 div를 content-main div에 추가합니다
+            resultDiv.appendChild(titlesContainerDiv);
+
+            // 컨테이너 div에 값을 할당합니다
+            titlesContainerDiv.innerHTML = "보유칭호: ";
     
             // Sort otherServers array by character_level in ascending order
             otherServers.sort((a, b) => a.character_level - b.character_level);
+
+            // 각 제목마다 반복하면서 각각에 대한 div를 생성합니다
+            highestLevelCharacter.titles.forEach(title => {
+                const titleDiv = document.createElement("div");
+                titleDiv.textContent = title;
+                titleDiv.style.backgroundColor = "#CCCCCC";
+                titleDiv.style.borderRadius = "4px";
+                
+                // 각 제목 div를 컨테이너 div에 추가합니다
+                titlesContainerDiv.appendChild(titleDiv);
     
             // Display other servers
             if (otherServers.length > 0) {
