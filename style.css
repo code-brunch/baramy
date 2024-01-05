@@ -722,17 +722,27 @@
 .searchbar {
     display: flex;
     align-items: center;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 300px; /* 원하는 너비로 조절하세요 */
 }
 
 .searchbar input {
-    margin-right: 8px;
-    padding: 8px;
+    flex: 1;
+    border: none;
+    padding: 10px;
     font-size: 16px;
+    outline: none;
 }
 
 .searchbar button {
-    padding: 8px;
-    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
 }
 
 #result {
