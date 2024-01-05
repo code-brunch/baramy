@@ -56,6 +56,22 @@ async function fetchCharacterInfo() {
 
                 const characterData = await characterResponse.json();
 
+                const titleEquipmentResponse = await fetch(`https://open.api.nexon.com/baramy/v1/character/title-equipment?ocid=${ocid}`, {
+                headers: {
+                    "x-nxopen-api-key": apiKey,
+                },
+                });
+    
+                const titleEquipmentData = await titleEquipmentResponse.json();
+    
+                const titleResponse = await fetch(`https://open.api.nexon.com/baramy/v1/character/title?ocid=${ocid}`, {
+                    headers: {
+                        "x-nxopen-api-key": apiKey,
+                    },
+                });
+
+            const titleData = await titleResponse.json();
+
                 if (characterData.character_level !== undefined && !isNaN(characterData.character_level)) {
                     const characterInfo = {
                         server: serverName,
@@ -68,6 +84,8 @@ async function fetchCharacterInfo() {
                         character_nation: characterData.character_nation,
                         character_gender: characterData.character_gender,
                         character_exp: characterData.character_exp,
+                        titleEquipment: titleEquipmentData.title_equipment,
+                        titles: titleData.title,
                     };
 
                     if (!highestLevelCharacter || characterData.character_level > highestLevelCharacter.character_level) {
@@ -98,6 +116,8 @@ async function fetchCharacterInfo() {
             const characterNationDiv = document.createElement("div");
             const characterGenderDiv = document.createElement("div");
             const characterExpDiv = document.createElement("div");
+            const titleEquipDiv = document.createElement("div");
+            const titleDiv = document.createElement("div");
             
             // Assign values to the div elements
             serverDiv.textContent = `서버: ${highestLevelCharacter.server}`;
@@ -109,6 +129,8 @@ async function fetchCharacterInfo() {
             characterNationDiv.textContent = `국가: ${highestLevelCharacter.character_nation}`;
             characterGenderDiv.textContent = `성별: ${highestLevelCharacter.character_gender}`;
             characterExpDiv.textContent = `경험치: ${highestLevelCharacter.character_exp}`;
+            titleEquipDiv.textContent = `장착칭호: ${highestLevelCharacter.titleEquipment}`;
+            titleDiv.textContent = `보유칭호: ${highestLevelCharacter.titleDiv}`;
     
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
@@ -120,6 +142,8 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(characterNationDiv);
             resultDiv.appendChild(characterGenderDiv);
             resultDiv.appendChild(characterExpDiv);
+            resultDiv.appendChild(titleEquipDiv);
+            resultDiv.appendChild(titleDiv);
     
             // Sort otherServers array by character_level in ascending order
             otherServers.sort((a, b) => a.character_level - b.character_level);
