@@ -118,6 +118,9 @@ async function fetchCharacterInfo() {
             const characterExpDiv = document.createElement("div");
             const titleEquipDiv = document.createElement("div");
             const titleDiv = document.createElement("div");
+
+            // Assign the class to the titleDiv
+            titleDiv.classList.add("hashtag-container");
             
             // Assign values to the div elements
             serverDiv.textContent = `서버: ${highestLevelCharacter.server}`;
@@ -130,7 +133,9 @@ async function fetchCharacterInfo() {
             characterGenderDiv.textContent = `성별: ${highestLevelCharacter.character_gender}`;
             characterExpDiv.textContent = `경험치: ${highestLevelCharacter.character_exp}`;
             titleEquipDiv.textContent = `장착칭호: ${highestLevelCharacter.titleEquipment}`;
-            titleDiv.textContent = `보유칭호: ${(highestLevelCharacter.titles)}`;
+            
+            // Process titles using the original processTitles function
+            titleDiv.textContent = `보유칭호: ${processTitles(highestLevelCharacter.titles)}`;
     
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
@@ -168,46 +173,19 @@ async function fetchCharacterInfo() {
     }
 }
 
-function processTitles(titlesData) {
-    if (!titlesData) {
-        console.log("Invalid titles data:", titlesData);
+function processTitles(titles) {
+    if (!Array.isArray(titles)) {
         return "N/A";
     }
 
-    if (titlesData.title_equipment) {
-        // Process equipped titles
-        const equippedTitles = processEquippedTitles(titlesData.title_equipment);
-        return `장착칭호: ${equippedTitles}\n보유칭호: N/A`;
-    } else if (titlesData.title) {
-        // Process owned titles
-        const ownedTitles = processOwnedTitles(titlesData.title);
-        return `장착칭호: N/A\n보유칭호: ${ownedTitles}`;
-    } else {
-        console.log("Invalid titles data:", titlesData);
-        return "N/A";
-    }
-}
-
-function processEquippedTitles(titles) {
-    return titles.map(title => {
-        if (title.title_equipment_type && title.title_type_name && title.title_name) {
-            return `${title.title_equipment_type}: ${title.title_name}`;
-        } else {
-            console.log("Invalid equipped title object:", title);
-            return "N/A";
-        }
-    }).join(', ');
-}
-
-function processOwnedTitles(titles) {
     return titles.map(title => {
         if (title.title_type_name && title.title_name) {
-            return `#${title.title_name}`;
+            return `${title.title_type_name}: ${title.title_name}`;
         } else {
-            console.log("Invalid owned title object:", title);
+            console.log("Invalid title object:", title);
             return "N/A";
         }
-    }).join(', ');
+    }).join(", ");
 }
 
 
