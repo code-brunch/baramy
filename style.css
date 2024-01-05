@@ -764,9 +764,22 @@ label.sr-only {
     margin-top: 20px;
 }
 
+/* 여기서부턴 현재 삽질 중인 구간 */
 .hashtag {
     background-color: #CCCCCC; /* Use the desired gray color */
     padding: 4px 8px; /* Adjust padding as needed */
     border-radius: 8px; /* Adjust border radius as needed */
     margin-right: 4px; /* Adjust margin as needed to create space between hashtags */
+}
+
+/* 제목 컨테이너 스타일 */
+#result > div {
+    margin-bottom: 8px; /* 각 제목 컨테이너 사이의 간격 조절 */
+}
+
+/* 각 제목 div 스타일 */
+#result > div > div {
+    background-color: #CCCCCC;
+    border-radius: 4px;
+    padding: 4px; /* 내부 여백을 추가하여 스타일이 좀 더 깔끔하게 보이도록 함 */
 }
