@@ -14,20 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
             characterNameInput.value = '캐릭터명 또는 길드';
         }
     });
-
-    // 검색 버튼 클릭 이벤트 처리
-    document.getElementById('searchButton').addEventListener('click', function (event) {
-        event.preventDefault(); // 기본 동작을 막아서 폼 전송을 방지합니다.
-
-        const characterName = characterNameInput.value.trim();
-
-        if (characterName === '' || characterName === '캐릭터명 또는 길드') {
-            alert('캐릭터명을 입력 후 검색해주세요.');
-            characterNameInput.focus(); // 검색창에 다시 포커스를 맞춥니다.
-        } else {
-            fetchCharacterInfo();
-        }
-    });
 });
 
 async function fetchCharacterInfo() {
@@ -35,11 +21,9 @@ async function fetchCharacterInfo() {
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
 
-    // 검색창이 비어있거나 기본값인 경우 예외처리
-    if (characterName === '' || characterName === '캐릭터명 또는 길드') {
-        alert('캐릭터명을 입력 후 검색해주세요.');
-        characterNameInput.focus(); // 검색창에 다시 포커스를 맞춥니다.
-        return; // 검색을 수행하지 않고 함수를 종료합니다.
+    if (!characterName) {
+        alert("캐릭터명을 입력 후 검색해주세요.");
+        return;
     }
 
     const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
@@ -98,16 +82,16 @@ async function fetchCharacterInfo() {
         // Display the result with the highest level
         if (highestLevelCharacter) {
             resultDiv.innerHTML = `서버: ${highestLevelCharacter.server}, ocid: ${highestLevelCharacter.ocid}, character_level: ${highestLevelCharacter.character_level}`;
-        
+
             // Sort otherServers array by character_level in ascending order
             otherServers.sort((a, b) => a.character_level - b.character_level);
-        
+
             // Display other servers
             if (otherServers.length > 0) {
                 resultDiv.innerHTML += "<br>다른 서버 캐릭터들(server_name 기준으로 정렬):<br>" + otherServers.map(server => server.server).join("<br>");
             }
         } else {
-            resultDiv.innerHTML = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
+            resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
         }
 
         // Clear the input value after successful search
