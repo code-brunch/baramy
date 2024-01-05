@@ -168,14 +168,14 @@ async function fetchCharacterInfo() {
     }
 }
 
-function processTitles(titles) {
-    if (!Array.isArray(titles)) {
-        console.log("Invalid titles data:", titles);
+function processTitles(titleData) {
+    if (!Array.isArray(titleData.title)) {
+        console.log("Invalid title data:", titleData);
         return "N/A";
     }
 
-    const equippedTitles = titles.filter(title => title.title_type_name === "장착");
-    const ownedTitles = titles.filter(title => title.title_type_name !== "장착");
+    const equippedTitles = titleData.title.filter(title => title.title_type_name === "장착");
+    const ownedTitles = titleData.title.filter(title => title.title_type_name !== "장착");
 
     const processedEquippedTitles = processEquippedTitles(equippedTitles);
     const processedOwnedTitles = processOwnedTitles(ownedTitles);
@@ -185,7 +185,7 @@ function processTitles(titles) {
 
 function processEquippedTitles(titles) {
     return titles.map(title => {
-        if (title.title_type_name && title.title_name) {
+        if (title.title_name) {
             return `${title.title_name}`;
         } else {
             console.log("Invalid equipped title object:", title);
@@ -196,7 +196,7 @@ function processEquippedTitles(titles) {
 
 function processOwnedTitles(titles) {
     return titles.map(title => {
-        if (title.title_type_name && title.title_name) {
+        if (title.title_name) {
             return `#${title.title_name}`;
         } else {
             console.log("Invalid owned title object:", title);
@@ -204,4 +204,5 @@ function processOwnedTitles(titles) {
         }
     }).join(', ');
 }
+
 
