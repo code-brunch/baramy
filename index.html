@@ -26,28 +26,6 @@
     </script>
     <link href="https://assets-global.website-files.com/img/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
     <link href="https://assets-global.website-files.com/img/webclip.png" rel="apple-touch-icon"/>
-    <style>
-        .searchbar {
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .searchbar input {
-            margin-right: 8px;
-            padding: 8px;
-            font-size: 16px;
-        }
-
-        .searchbar button {
-            padding: 8px;
-            font-size: 16px;
-        }
-
-        #result {
-            margin-top: 20px;
-        }
-    </style>
 </head>
 <body class="body">
     <div class="cb-header">
@@ -56,9 +34,11 @@
             <div class="logo-text">Char Searcher</div>
         </div>
         <div class="searchbar">
-            <label for="characterName"></label>
-            <input type="text" id="characterName" required>
-            <button onclick="fetchCharacterInfo()">조회</button>
+            <label for="characterName" class="sr-only">캐릭터 또는 길드:</label>
+            <div class="search-container">
+                <input type="text" id="characterName" required>
+                <button onclick="fetchCharacterInfo()">조회</button>
+            </div>
         </div>
     </div>
     <div class="cb-section1">
