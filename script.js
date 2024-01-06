@@ -198,6 +198,7 @@ function getCharacterClassImage(characterClassName) {
     imageMap.set('검성', 'Assets/icons/검성(4차).png');
     imageMap.set('검신', 'Assets/icons/검신(5차).png');
     imageMap.set('검천', 'Assets/icons/검천(6차).png');
+    
     // 도적
     imageMap.set('자객', 'Assets/icons/자객(1차).png');
     imageMap.set('진검', 'Assets/icons/진검(2차).png');
@@ -262,4 +263,11 @@ function getCharacterClassImage(characterClassName) {
     imageMap.set('신각', 'Assets/icons/신각(5차).png');
     imageMap.set('귀극', 'Assets/icons/귀극(6차).png');
     
-    return "default_class_image.png";
+    if (imageMap.has(characterClassName)) {
+        return imageMap.get(characterClassName);
+    } else {
+        // 매핑이 없는 경우 기본 이미지를 반환
+        console.warn(`이미지를 찾을 수 없습니다. characterClassName: ${characterClassName}`);
+        return "default_class_image.png";
+    }
+}
