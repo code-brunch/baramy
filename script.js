@@ -221,7 +221,7 @@ function getCharacterClassImage(characterClassName) {
     imageMap.set('진인', 'Assets/icons/진인(3차).png');
     imageMap.set('진선', 'Assets/icons/진선(4차).png');
     imageMap.set('신선', 'Assets/icons/신선(5차).png');
-    imageMap.set('재천', 'Assets/icons/천선(6차).png');
+    imageMap.set('천선', 'Assets/icons/천선(6차).png');
     
     // 격투가
     imageMap.set('권극', 'Assets/icons/권극(6차).png');
