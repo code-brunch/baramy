@@ -142,8 +142,9 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(characterLevelDiv);
             resultDiv.appendChild(characterDateDiv);
             resultDiv.appendChild(characterClassGroupDiv);
-            resultDiv.appendChild(characterClassDiv);
             characterClassDiv.appendChild(characterClassImage);
+            resultDiv.appendChild(characterClassDiv);
+            //characterClassDiv.appendChild(characterClassImage);
             
             resultDiv.appendChild(characterNationDiv);
             resultDiv.appendChild(characterGenderDiv);
@@ -268,6 +269,6 @@ function getCharacterClassImage(characterClassName) {
     } else {
         // 매핑이 없는 경우 기본 이미지를 반환
         console.warn(`이미지를 찾을 수 없습니다. characterClassName: ${characterClassName}`);
-        return null;
+        return null; // default img 넣어주기 "default_class_image.png";
     }
 }
