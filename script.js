@@ -113,6 +113,10 @@ async function fetchCharacterInfo() {
             const characterDateDiv = document.createElement("div");
             const characterClassGroupDiv = document.createElement("div");
             const characterClassDiv = document.createElement("div");
+            const characterClassImage = document.createElement("img");
+            characterClassImage.src = getCharacterClassImage(highestLevelCharacter.character_class_name);
+            
+
             const characterNationDiv = document.createElement("div");
             const characterGenderDiv = document.createElement("div");
             const characterExpDiv = document.createElement("div");
@@ -139,6 +143,8 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(characterDateDiv);
             resultDiv.appendChild(characterClassGroupDiv);
             resultDiv.appendChild(characterClassDiv);
+            characterClassDiv.appendChild(characterClassImage);
+            
             resultDiv.appendChild(characterNationDiv);
             resultDiv.appendChild(characterGenderDiv);
             resultDiv.appendChild(characterExpDiv);
@@ -182,3 +188,78 @@ function processTitles(titles) {
         }
     }).join(", ");
 }
+
+function getCharacterClassImage(characterClassName) {
+    var imageMap = new Map();
+    // 전사
+    imageMap.set('검객', 'Assets/icons/검객(1차).png');
+    imageMap.set('검제', 'Assets/icons/검제(2차).png');
+    imageMap.set('검황', 'Assets/icons/검황(3차).png');
+    imageMap.set('검성', 'Assets/icons/검성(4차).png');
+    imageMap.set('검신', 'Assets/icons/검신(5차).png');
+    imageMap.set('검천', 'Assets/icons/검천(6차).png');
+    // 도적
+    imageMap.set('자객', 'Assets/icons/자객(1차).png');
+    imageMap.set('진검', 'Assets/icons/진검(2차).png');
+    imageMap.set('귀검', 'Assets/icons/귀검(3차).png');
+    imageMap.set('태성', 'Assets/icons/태성(4차).png');
+    imageMap.set('패왕', 'Assets/icons/패왕(5차).png');
+    imageMap.set('패황', 'Assets/icons/패황(6차).png');
+    
+    // 주술사
+    imageMap.set('술사', 'Assets/icons/술사(1차).png');
+    imageMap.set('현사', 'Assets/icons/현사(2차).png');
+    imageMap.set('현인', 'Assets/icons/현인(3차).png');
+    imageMap.set('현자', 'Assets/icons/현자(4차).png');    
+    imageMap.set('마신', 'Assets/icons/마신(5차).png');
+    imageMap.set('마성', 'Assets/icons/마성(6차).png');
+    
+    // 도사
+    imageMap.set('도인', 'Assets/icons/도인(1차).png');
+    imageMap.set('명인', 'Assets/icons/명인(2차).png');
+    imageMap.set('진인', 'Assets/icons/진인(3차).png');
+    imageMap.set('진선', 'Assets/icons/진선(4차).png');
+    imageMap.set('신선', 'Assets/icons/신선(5차).png');
+    imageMap.set('재천', 'Assets/icons/천선(6차).png');
+    
+    // 격투가
+    imageMap.set('권극', 'Assets/icons/권극(6차).png');
+    imageMap.set('권사', 'Assets/icons/권사(1차).png');
+    imageMap.set('권신', 'Assets/icons/권신(5차).png');
+    imageMap.set('권왕', 'Assets/icons/권왕(3차).png');
+    imageMap.set('권제', 'Assets/icons/권제(4차).png');
+    imageMap.set('권호', 'Assets/icons/권호(2차).png');
+    
+    // 궁사
+    imageMap.set('명궁', 'Assets/icons/명궁(1차).png');
+    imageMap.set('현궁', 'Assets/icons/현궁(2차).png');
+    imageMap.set('진탄', 'Assets/icons/진탄(3차).png');
+    imageMap.set('심안', 'Assets/icons/심안(4차).png');
+    imageMap.set('신궁', 'Assets/icons/신궁(5차).png');
+    imageMap.set('천궁', 'Assets/icons/천궁(6차).png');
+    
+    // 무사
+    imageMap.set('창객', 'Assets/icons/창객(1차).png');
+    imageMap.set('창제', 'Assets/icons/창제(2차).png');
+    imageMap.set('창황', 'Assets/icons/창황(3차).png');
+    imageMap.set('창성', 'Assets/icons/창성(4차).png');
+    imageMap.set('신창', 'Assets/icons/신창(5차).png');
+    imageMap.set('창극', 'Assets/icons/창극(6차).png');
+    
+    // 천인
+    imageMap.set('재천', 'Assets/icons/천랑(1차).png');
+    imageMap.set('재천', 'Assets/icons/천무(2차).png');
+    imageMap.set('재천', 'Assets/icons/천군(3차).png');
+    imageMap.set('천위', 'Assets/icons/천위(4차).png');
+    imageMap.set('재천', 'Assets/icons/재천(5차).png');
+    imageMap.set('천신', 'Assets/icons/천신(6차).png');
+
+    // 도깨비
+    imageMap.set('귀명', 'Assets/icons/귀명(1차).png');
+    imageMap.set('귀제', 'Assets/icons/귀제(2차).png');
+    imageMap.set('귀황', 'Assets/icons/귀황(3차).png');
+    imageMap.set('귀성', 'Assets/icons/귀성(4차).png');
+    imageMap.set('신각', 'Assets/icons/신각(5차).png');
+    imageMap.set('귀극', 'Assets/icons/귀극(6차).png');
+    
+    return "default_class_image.png";
