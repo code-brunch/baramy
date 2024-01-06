@@ -268,6 +268,6 @@ function getCharacterClassImage(characterClassName) {
     } else {
         // 매핑이 없는 경우 기본 이미지를 반환
         console.warn(`이미지를 찾을 수 없습니다. characterClassName: ${characterClassName}`);
-        return "default_class_image.png";
+        return null;
     }
 }
