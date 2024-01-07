@@ -127,7 +127,7 @@ async function fetchCharacterInfo() {
             const characterClassGroupName = highestLevelCharacter.character_class_group_name;
 
             if (characterClassGroupName) {
-                const imageUrl = `Assets/icons/${characterClassGroupName}.png`;
+                const imageUrl = `Assets/chars/${characterClassGroupName}.png`;
                 characterClassGroupImage.src = imageUrl;
 
 
