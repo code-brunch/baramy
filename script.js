@@ -193,14 +193,14 @@ async function fetchCharacterInfo() {
             console.log(titleEquipment)
             
             if (titleEquipment) {
-    const titleEquipments = titleEquipment.split(','); // 타이틀을 ','로 구분하여 배열로 나눔
-    
-    titleEquipments.forEach((title, index) => {
-        const contentElement = document.querySelector(`.char-subinfo3-content${index + 1}`);
-        if (contentElement) {
-            contentElement.textContent = title.trim(); // 불필요한 공백 제거를 위해 trim 사용
-        }
-    });
+                const titleEquipments = titleEquipment.split(','); // 타이틀을 ','로 구분하여 배열로 나눔
+                console.log(titleEquipment)
+                titleEquipments.forEach((title, index) => {
+                    const contentElement = document.querySelector(`.char-subinfo3-content${index + 1}`);
+                    if (contentElement) {
+                        contentElement.textContent = title.trim(); // 불필요한 공백 제거를 위해 trim 사용
+                    }
+                });
             }
             
             //document.querySelector('.char-subinfo3-content1').textContent = `${highestLevelCharacter.titleEquipment}`;
