@@ -214,7 +214,7 @@ async function fetchCharacterInfo() {
             // Display other servers
             if (otherServers.length > 0) {
                 const otherServersDiv = document.createElement("div");
-                otherServersDiv.innerHTML = "<br>다른 서버 캐릭터들(server_name 기준으로 정렬):<br>" + otherServers.map(server => server.server).join("<br>");
+                otherServersDiv.innerHTML = otherServers.map(server => server.server).join("<br>");
                 resultDiv.appendChild(otherServersDiv);
             }
 
