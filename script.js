@@ -126,14 +126,33 @@ async function fetchCharacterInfo() {
             const characterClassGroupImage = document.createElement("img");
             const characterClassGroupName = highestLevelCharacter.character_class_group_name;
             const characterTitleEquipped = highestLevelCharacter.titleEquipment;
+            const titleEquipmentArray = highestLevelCharacter.titleEquipment;
 
-            console.log(characterTitleEquipped)
+            // Process titles and assign values to titleEquipDiv variables
+            let titleEquipDiv1 = "-"; // Default value for char-subinfo3-content1
+            let titleEquipDiv2 = "-"; // Default value for char-subinfo3-content2
+            let titleEquipDiv3 = "-"; // Default value for char-subinfo3-content3
+            let titleEquipDiv4 = "-"; // Default value for char-subinfo3-content4
 
             if (characterClassGroupName) {
                 const imageUrl = `Assets/chars/${characterClassGroupName}.png`;
                 characterClassGroupImage.src = imageUrl;
             }
 
+            titleEquipmentArray.forEach((title) => {
+                if (title.title_equipment_type === '1') {
+                    if (title.title_type_name === '장착') {
+                        titleEquipDiv2 = title.title_name;
+                    } else if (title.title_type_name === '특수') {
+                        titleEquipDiv3 = title.title_name;
+                    } else if (title.title_type_name === '공성') {
+                        titleEquipDiv4 = title.title_name;
+                    }
+                } else if (title.title_equipment_type === '2') {
+                    titleEquipDiv1 = title.title_name;
+                }
+            });
+            
             // Assign values to the div elements
             serverDiv.textContent = `${highestLevelCharacter.server}`;
             ocidDiv.textContent = `${highestLevelCharacter.ocid}`;
