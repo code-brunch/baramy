@@ -109,6 +109,7 @@ async function fetchCharacterInfo() {
             // Create three div elements
             const serverDiv = document.createElement("div");
             const ocidDiv = document.createElement("div");
+            const characterNameDiv = document.createElement("div");
             const characterLevelDiv = document.createElement("div");
             const characterDateDiv = document.createElement("div");
             const characterClassGroupDiv = document.createElement("div");
@@ -116,7 +117,6 @@ async function fetchCharacterInfo() {
             const characterClassImage = document.createElement("img");
             characterClassImage.src = getCharacterClassImage(highestLevelCharacter.character_class_name);
             
-
             const characterNationDiv = document.createElement("div");
             const characterGenderDiv = document.createElement("div");
             const characterExpDiv = document.createElement("div");
@@ -126,6 +126,7 @@ async function fetchCharacterInfo() {
             // Assign values to the div elements
             serverDiv.textContent = `${highestLevelCharacter.server}`;
             ocidDiv.textContent = `${highestLevelCharacter.ocid}`;
+            characterNameDiv.textContent = `${highestLevelCharacter.character_name}`;
             characterLevelDiv.textContent = `${highestLevelCharacter.character_level}`;
             characterDateDiv.textContent = `${highestLevelCharacter.character_date_create}`;
             characterClassGroupDiv.textContent = `${highestLevelCharacter.character_class_group_name}`;
@@ -139,6 +140,7 @@ async function fetchCharacterInfo() {
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
             resultDiv.appendChild(ocidDiv);
+            resultDiv.appendChild(characterNameDiv);
             resultDiv.appendChild(characterLevelDiv);
             resultDiv.appendChild(characterDateDiv);
             resultDiv.appendChild(characterClassGroupDiv);
@@ -152,6 +154,7 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(titleDiv);
 
             // Append xxxDiv to char-subinfo#-content#
+            document.querySelector('.char-subinfo1-content1').appendChild(characterNameDiv);
             document.querySelector('.char-subinfo1-content2').appendChild(serverDiv);
             document.querySelector('.char-subinfo1-content3').appendChild(characterNationDiv);
             document.querySelector('.char-subinfo1-content4').appendChild(characterDateDiv);
