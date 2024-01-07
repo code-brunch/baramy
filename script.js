@@ -154,6 +154,9 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(titleDiv);
 
             // Append xxxDiv to char-subinfo#-content#
+            // Lv.852 l 귀극 l 고구려
+            document.querySelector('.mychar-leftinfo1').textContent = `${highestLevelCharacter.character_level}`;
+            document.querySelector('.mychar-server1').textContent = `${highestLevelCharacter.server}`;
             document.querySelector('.char-subinfo1-content1').textContent = `${highestLevelCharacter.character_name}`;
             document.querySelector('.mychar-name1').textContent = `${highestLevelCharacter.character_name}`;
             document.querySelector('.char-subinfo1-content2').textContent = `${highestLevelCharacter.server}`;
