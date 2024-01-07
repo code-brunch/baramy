@@ -209,6 +209,7 @@ async function fetchCharacterInfo() {
                         
                         // Display the third title in the appropriate elements
                         document.querySelector('.sub22-title').textContent = thirdTitle;
+                        document.querySelector('.sub22-titleinfo').textContent = thirdTitle;
                     }
             
                     // Check if there are more than 3 titles
@@ -217,7 +218,8 @@ async function fetchCharacterInfo() {
                         const fourthTitle = titleEquipments[3].replace(/^.+:/, '').trim();
                         
                         // Display the fourth title in the appropriate elements
-                        document.querySelector('.sub22-titleinfo').textContent = fourthTitle;
+                        document.querySelector('.sub32-title').textContent = fourthTitle;
+                        document.querySelector('.sub32-titleinfo').textContent = fourthTitle;
                     }
                 });
             }
