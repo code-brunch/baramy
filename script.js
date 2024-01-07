@@ -139,6 +139,7 @@ async function fetchCharacterInfo() {
             }
             
             // Assign values to the div elements
+            /*
             serverDiv.textContent = `${highestLevelCharacter.server}`;
             ocidDiv.textContent = `${highestLevelCharacter.ocid}`;
             characterNameDiv.textContent = `${highestLevelCharacter.character_name}`;
@@ -151,6 +152,7 @@ async function fetchCharacterInfo() {
             characterExpDiv.textContent = `${highestLevelCharacter.character_exp}`;
             titleEquipDiv.textContent = `${highestLevelCharacter.titleEquipment}`;
             titleDiv.textContent = `${(highestLevelCharacter.titles)}`;
+            */
             
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
@@ -183,7 +185,7 @@ async function fetchCharacterInfo() {
             document.querySelector('.char-subinfo2-content3').textContent = `${highestLevelCharacter.character_level}`;
             document.querySelector('.char-subinfo2-content4').textContent = `${highestLevelCharacter.character_exp}`;
             
-            document.querySelector('.char-subinfo3-content1').textContent = `${titleEquipDiv}`;
+            document.querySelector('.char-subinfo3-content1').textContent = `${highestLevelCharacter.titleEquipment}`;
             //document.querySelector('.char-subinfo3-content2').textContent = `${titleEquipDiv2}`;
             //document.querySelector('.char-subinfo3-content3').textContent = `${titleEquipDiv3}`;
             //document.querySelector('.char-subinfo3-content4').textContent = `${titleEquipDiv4}`;
