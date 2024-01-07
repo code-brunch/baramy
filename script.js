@@ -169,7 +169,6 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(titleDiv);
 
             // Append xxxDiv to char-subinfo#-content#
-            document.querySelector('.char-tag-content').appendChild(titleEquipment);
             document.querySelector('.mychar').appendChild(characterClassGroupImage);
             document.querySelector('.mychar-leftinfo1').textContent = `Lv.${highestLevelCharacter.character_level} l ${highestLevelCharacter.character_class_name} l ${highestLevelCharacter.character_nation}`;
             document.querySelector('.mychar-server1').textContent = `${highestLevelCharacter.server}`;
