@@ -155,6 +155,7 @@ async function fetchCharacterInfo() {
             */
             
             // Append the div elements to the content-main div
+            /*
             resultDiv.appendChild(serverDiv);
             resultDiv.appendChild(ocidDiv);
             resultDiv.appendChild(characterNameDiv);
@@ -169,10 +170,11 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(characterExpDiv);
             resultDiv.appendChild(titleEquipDiv);
             resultDiv.appendChild(titleDiv);
-
+            */
+            
             // Append xxxDiv to char-subinfo#-content#
             document.querySelector('.mychar').appendChild(characterClassGroupImage);
-            document.querySelector('.char-subinfo2-content2').appendChild(characterClassImage);
+            //document.querySelector('.char-subinfo2-content2').appendChild(characterClassImage); - 직업 아이콘 추가하려는데 실패함
             document.querySelector('.mychar-leftinfo1').textContent = `Lv.${highestLevelCharacter.character_level} l ${highestLevelCharacter.character_class_name} l ${highestLevelCharacter.character_nation}`;
             document.querySelector('.mychar-server1').textContent = `${highestLevelCharacter.server}`;
             document.querySelector('.char-subinfo1-content1').textContent = `${highestLevelCharacter.character_name}`;
