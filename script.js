@@ -151,7 +151,10 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(characterExpDiv);
             resultDiv.appendChild(titleEquipDiv);
             resultDiv.appendChild(titleDiv);
-    
+
+            // Append serverDiv to char-subinfo1-content2
+            document.querySelector('.char-subinfo1-content2').appendChild(serverDiv);
+        
             // Sort otherServers array by character_level in ascending order
             otherServers.sort((a, b) => a.character_level - b.character_level);
     
