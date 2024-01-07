@@ -1,3 +1,5 @@
+let titles;
+
 document.addEventListener('DOMContentLoaded', function () {
     const characterNameInput = document.getElementById('characterName');
 
