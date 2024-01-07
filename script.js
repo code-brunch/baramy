@@ -123,12 +123,12 @@ async function fetchCharacterInfo() {
             const titleEquipDiv = document.createElement("div");
             const titleDiv = document.createElement("div");
             //1차 추가
-            //const characterClassGroupImage = document.createElement("img");
-            //const characterClassGroupName = highestLevelCharacter.character_class_group_name;
+            const characterClassGroupImage = document.createElement("img");
+            const characterClassGroupName = highestLevelCharacter.character_class_group_name;
 
-            //if (characterClassGroupName) {
-            //    const imageUrl = `Assets/chars/${characterClassGroupName}.png`;
-            //    characterClassGroupImage.src = imageUrl;
+            if (characterClassGroupName) {
+                const imageUrl = `Assets/chars/${characterClassGroupName}.png`;
+                characterClassGroupImage.src = imageUrl;
 
 
             // Assign values to the div elements
@@ -162,7 +162,7 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(titleDiv);
 
             // Append xxxDiv to char-subinfo#-content#
-            //document.querySelector('.mychar').appendChild(characterClassGroupImage);
+            document.querySelector('.mychar').appendChild(characterClassGroupImage);
             document.querySelector('.mychar-leftinfo1').textContent = `Lv.${highestLevelCharacter.character_level} l ${highestLevelCharacter.character_class_name} l ${highestLevelCharacter.character_nation}`;
             document.querySelector('.mychar-server1').textContent = `${highestLevelCharacter.server}`;
             document.querySelector('.char-subinfo1-content1').textContent = `${highestLevelCharacter.character_name}`;
