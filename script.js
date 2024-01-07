@@ -124,17 +124,17 @@ async function fetchCharacterInfo() {
             const titleDiv = document.createElement("div");
             
             // Assign values to the div elements
-            serverDiv.textContent = `서버: ${highestLevelCharacter.server}`;
-            ocidDiv.textContent = `ocid: ${highestLevelCharacter.ocid}`;
-            characterLevelDiv.textContent = `레벨: ${highestLevelCharacter.character_level}`;
-            characterDateDiv.textContent = `생성일: ${highestLevelCharacter.character_date_create}`;
-            characterClassGroupDiv.textContent = `직업: ${highestLevelCharacter.character_class_group_name}`;
-            characterClassDiv.textContent = `승급: ${highestLevelCharacter.character_class_name}`;
-            characterNationDiv.textContent = `국가: ${highestLevelCharacter.character_nation}`;
-            characterGenderDiv.textContent = `성별: ${highestLevelCharacter.character_gender}`;
-            characterExpDiv.textContent = `경험치: ${highestLevelCharacter.character_exp}`;
-            titleEquipDiv.textContent = `장착칭호: ${highestLevelCharacter.titleEquipment}`;
-            titleDiv.textContent = `보유칭호: ${(highestLevelCharacter.titles)}`;
+            serverDiv.textContent = `${highestLevelCharacter.server}`;
+            ocidDiv.textContent = `${highestLevelCharacter.ocid}`;
+            characterLevelDiv.textContent = `${highestLevelCharacter.character_level}`;
+            characterDateDiv.textContent = `${highestLevelCharacter.character_date_create}`;
+            characterClassGroupDiv.textContent = `${highestLevelCharacter.character_class_group_name}`;
+            characterClassDiv.textContent = `${highestLevelCharacter.character_class_name}`;
+            characterNationDiv.textContent = `${highestLevelCharacter.character_nation}`;
+            characterGenderDiv.textContent = `${highestLevelCharacter.character_gender}`;
+            characterExpDiv.textContent = `${highestLevelCharacter.character_exp}`;
+            titleEquipDiv.textContent = `${highestLevelCharacter.titleEquipment}`;
+            titleDiv.textContent = `${(highestLevelCharacter.titles)}`;
     
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
@@ -152,8 +152,15 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(titleEquipDiv);
             resultDiv.appendChild(titleDiv);
 
-            // Append serverDiv to char-subinfo1-content2
+            // Append xxxDiv to char-subinfo#-content#
             document.querySelector('.char-subinfo1-content2').appendChild(serverDiv);
+            document.querySelector('.char-subinfo1-content3').appendChild(characterNationDiv);
+            document.querySelector('.char-subinfo1-content4').appendChild(characterDateDiv);
+
+            document.querySelector('.char-subinfo2-content1').appendChild(characterClassGroupDiv);
+            document.querySelector('.char-subinfo2-content2').appendChild(characterClassDiv);
+            document.querySelector('.char-subinfo2-content3').appendChild(characterLevelDiv);
+            document.querySelector('.char-subinfo2-content4').appendChild(characterExpDiv);
         
             // Sort otherServers array by character_level in ascending order
             otherServers.sort((a, b) => a.character_level - b.character_level);
