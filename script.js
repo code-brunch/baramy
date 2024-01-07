@@ -135,7 +135,27 @@ async function fetchCharacterInfo() {
             characterExpDiv.textContent = `${highestLevelCharacter.character_exp}`;
             titleEquipDiv.textContent = `${highestLevelCharacter.titleEquipment}`;
             titleDiv.textContent = `${(highestLevelCharacter.titles)}`;
-    
+
+            // Process titles and assign values to titleEquipDiv variables
+            let titleEquipDiv1 = "-"; // Default value for char-subinfo3-content1
+            let titleEquipDiv2 = "-"; // Default value for char-subinfo3-content2
+            let titleEquipDiv3 = "-"; // Default value for char-subinfo3-content3
+            let titleEquipDiv4 = "-"; // Default value for char-subinfo3-content4
+            
+            titles.forEach((title) => {
+                if (title.title_equipment_type === 1) {
+                    if (title.title_type_name === '장착') {
+                        titleEquipDiv2 = title.title_name;
+                    } else if (title.title_type_name === '특수') {
+                        titleEquipDiv3 = title.title_name;
+                    } else if (title.title_type_name === '공성') {
+                        titleEquipDiv4 = title.title_name;
+                    }
+                } else if (title.title_equipment_type === 2) {
+                    titleEquipDiv1 = title.title_name;
+                }
+            });
+            
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
             resultDiv.appendChild(ocidDiv);
@@ -161,6 +181,11 @@ async function fetchCharacterInfo() {
             document.querySelector('.char-subinfo2-content2').appendChild(characterClassDiv);
             document.querySelector('.char-subinfo2-content3').appendChild(characterLevelDiv);
             document.querySelector('.char-subinfo2-content4').appendChild(characterExpDiv);
+
+            document.querySelector('.char-subinfo3-content1').textContent = `장비칭호: ${titleEquipDiv1}`;
+            document.querySelector('.char-subinfo3-content2').textContent = `장착: ${titleEquipDiv2}`;
+            document.querySelector('.char-subinfo3-content3').textContent = `특수: ${titleEquipDiv3}`;
+            document.querySelector('.char-subinfo3-content4').textContent = `공성: ${titleEquipDiv4}`;
         
             // Sort otherServers array by character_level in ascending order
             otherServers.sort((a, b) => a.character_level - b.character_level);
