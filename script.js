@@ -154,21 +154,21 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(titleDiv);
 
             // Append xxxDiv to char-subinfo#-content#
-            document.querySelector('.char-subinfo1-content1').textContent = `캐릭터명: ${highestLevelCharacter.character_name}`;
-            document.querySelector('.mychar-name1').textContent = `캐릭터명: ${highestLevelCharacter.character_name}`;
-            document.querySelector('.char-subinfo1-content2').textContent = `서버: ${highestLevelCharacter.server}`;
-            document.querySelector('.char-subinfo1-content3').textContent = `국가: ${highestLevelCharacter.character_nation}`;
-            document.querySelector('.char-subinfo1-content4').textContent = `생성일: ${highestLevelCharacter.character_date_create}`;
+            document.querySelector('.char-subinfo1-content1').textContent = `${highestLevelCharacter.character_name}`;
+            document.querySelector('.mychar-name1').textContent = `${highestLevelCharacter.character_name}`;
+            document.querySelector('.char-subinfo1-content2').textContent = `${highestLevelCharacter.server}`;
+            document.querySelector('.char-subinfo1-content3').textContent = `${highestLevelCharacter.character_nation}`;
+            document.querySelector('.char-subinfo1-content4').textContent = `${highestLevelCharacter.character_date_create}`;
 
-            document.querySelector('.char-subinfo2-content1').textContent = `클래스 그룹: ${highestLevelCharacter.character_class_group_name}`;
-            document.querySelector('.char-subinfo2-content2').textContent = `클래스: ${highestLevelCharacter.character_class_name}`;
-            document.querySelector('.char-subinfo2-content3').textContent = `레벨: ${highestLevelCharacter.character_level}`;
-            document.querySelector('.char-subinfo2-content4').textContent = `경험치: ${highestLevelCharacter.character_exp}`;
+            document.querySelector('.char-subinfo2-content1').textContent = `${highestLevelCharacter.character_class_group_name}`;
+            document.querySelector('.char-subinfo2-content2').textContent = `${highestLevelCharacter.character_class_name}`;
+            document.querySelector('.char-subinfo2-content3').textContent = `${highestLevelCharacter.character_level}`;
+            document.querySelector('.char-subinfo2-content4').textContent = `${highestLevelCharacter.character_exp}`;
             
-            document.querySelector('.char-subinfo3-content1').textContent = `장비칭호: ${titleEquipDiv1}`;
-            document.querySelector('.char-subinfo3-content2').textContent = `장착: ${titleEquipDiv2}`;
-            document.querySelector('.char-subinfo3-content3').textContent = `특수: ${titleEquipDiv3}`;
-            document.querySelector('.char-subinfo3-content4').textContent = `공성: ${titleEquipDiv4}`;
+            document.querySelector('.char-subinfo3-content1').textContent = `${titleEquipDiv1}`;
+            document.querySelector('.char-subinfo3-content2').textContent = `${titleEquipDiv2}`;
+            document.querySelector('.char-subinfo3-content3').textContent = `${titleEquipDiv3}`;
+            document.querySelector('.char-subinfo3-content4').textContent = `${titleEquipDiv4}`;
         
             // Sort otherServers array by character_level in ascending order
             otherServers.sort((a, b) => a.character_level - b.character_level);
