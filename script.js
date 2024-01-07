@@ -187,8 +187,15 @@ async function fetchCharacterInfo() {
             document.querySelector('.char-subinfo2-content2').textContent = `${highestLevelCharacter.character_class_name}`;
             document.querySelector('.char-subinfo2-content3').textContent = `${highestLevelCharacter.character_level}`;
             document.querySelector('.char-subinfo2-content4').textContent = `${highestLevelCharacter.character_exp}`;
+
+            var titleEquipment = highestLevelCharacter.titleEquipment;
+            if (titleEquipment === '장착') {
+                document.querySelector('.char-subinfo3-content2').textContent = titleEquipment;
+            } else if (titleEquipment === '외형') {
+                document.querySelector('.char-subinfo3-content1').textContent = titleEquipment;
+            }
             
-            document.querySelector('.char-subinfo3-content1').textContent = `${highestLevelCharacter.titleEquipment}`;
+            //document.querySelector('.char-subinfo3-content1').textContent = `${highestLevelCharacter.titleEquipment}`;
             //document.querySelector('.char-subinfo3-content2').textContent = `${titleEquipDiv2}`;
             //document.querySelector('.char-subinfo3-content3').textContent = `${titleEquipDiv3}`;
             //document.querySelector('.char-subinfo3-content4').textContent = `${titleEquipDiv4}`;
