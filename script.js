@@ -138,25 +138,26 @@ async function fetchCharacterInfo() {
                 characterClassGroupImage.src = imageUrl;
             }
 
-            console.log(characterTitleEquipped)
-            // 배열 확인 후 forEach 사용
-            if (Array.isArray(characterTitleEquipped)) {
-                characterTitleEquipped.forEach((title) => {
-                    if (title.title_equipment_type === '1') {
-                        if (title.title_type_name === '장착') {
-                            titleEquipDiv2 = title.title_name;
-                        } else if (title.title_type_name === '특수') {
-                            titleEquipDiv3 = title.title_name;
-                        } else if (title.title_type_name === '공성') {
-                            titleEquipDiv4 = title.title_name;
+            
+            if (characterTitleEquipped && typeof characterTitleEquipped === 'object') {
+                Object.keys(characterTitleEquipped).forEach(titleType => {
+                    const title = characterTitleEquipped[titleType];
+                    if (title && title.title_name) {
+                        if (titleType === '1') {
+                            if (title.title_type_name === '장착') {
+                                titleEquipDiv2 = title.title_name;
+                            } else if (title.title_type_name === '특수') {
+                                titleEquipDiv3 = title.title_name;
+                            } else if (title.title_type_name === '공성') {
+                                titleEquipDiv4 = title.title_name;
+                            }
+                        } else if (titleType === '2') {
+                            titleEquipDiv1 = title.title_name;
                         }
-                    } else if (title.title_equipment_type === '2') {
-                        titleEquipDiv1 = title.title_name;
                     }
                 });
             } else {
-                // characterTitleEquipped이 배열이 아니면 처리하는 코드 추가
-                console.error("characterTitleEquipped이 배열이 아닙니다:", characterTitleEquipped);
+                console.error("Invalid characterTitleEquipped:", characterTitleEquipped);
             }
             
             // Assign values to the div elements
