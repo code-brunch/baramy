@@ -1,5 +1,3 @@
-let titles;
-
 document.addEventListener('DOMContentLoaded', function () {
     const characterNameInput = document.getElementById('characterName');
 
@@ -73,8 +71,6 @@ async function fetchCharacterInfo() {
                 });
 
             const titleData = await titleResponse.json();
-            // Define 'titles' array before using it in the loop
-            titles = titleData.titles;
 
                 if (characterData.character_level !== undefined && !isNaN(characterData.character_level)) {
                     const characterInfo = {
@@ -139,26 +135,6 @@ async function fetchCharacterInfo() {
             characterExpDiv.textContent = `${highestLevelCharacter.character_exp}`;
             titleEquipDiv.textContent = `${highestLevelCharacter.titleEquipment}`;
             titleDiv.textContent = `${(highestLevelCharacter.titles)}`;
-
-            // Process titles and assign values to titleEquipDiv variables
-            let titleEquipDiv1 = "-"; // Default value for char-subinfo3-content1
-            let titleEquipDiv2 = "-"; // Default value for char-subinfo3-content2
-            let titleEquipDiv3 = "-"; // Default value for char-subinfo3-content3
-            let titleEquipDiv4 = "-"; // Default value for char-subinfo3-content4
-            
-            titles.forEach((title) => {
-                if (title.title_equipment_type === 1) {
-                    if (title.title_type_name === '장착') {
-                        titleEquipDiv2 = title.title_name;
-                    } else if (title.title_type_name === '특수') {
-                        titleEquipDiv3 = title.title_name;
-                    } else if (title.title_type_name === '공성') {
-                        titleEquipDiv4 = title.title_name;
-                    }
-                } else if (title.title_equipment_type === 2) {
-                    titleEquipDiv1 = title.title_name;
-                }
-            });
             
             // Append the div elements to the content-main div
             resultDiv.appendChild(serverDiv);
