@@ -162,9 +162,8 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(characterLevelDiv);
             resultDiv.appendChild(characterDateDiv);
             resultDiv.appendChild(characterClassGroupDiv);
-            characterClassDiv.appendChild(characterClassImage);
             resultDiv.appendChild(characterClassDiv);
-            //characterClassDiv.appendChild(characterClassImage);
+            resultDiv.appendChild(characterClassImage);
             
             resultDiv.appendChild(characterNationDiv);
             resultDiv.appendChild(characterGenderDiv);
