@@ -155,6 +155,7 @@ async function fetchCharacterInfo() {
 
             // Append xxxDiv to char-subinfo#-content#
             document.querySelector('.char-subinfo1-content1').appendChild(characterNameDiv);
+            document.querySelector('.mychar-name1').appendChild(characterNameDiv);
             document.querySelector('.char-subinfo1-content2').appendChild(serverDiv);
             document.querySelector('.char-subinfo1-content3').appendChild(characterNationDiv);
             document.querySelector('.char-subinfo1-content4').appendChild(characterDateDiv);
