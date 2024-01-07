@@ -138,7 +138,8 @@ async function fetchCharacterInfo() {
                 characterClassGroupImage.src = imageUrl;
             }
 
-                        // 배열 확인 후 forEach 사용
+            console.log(characterTitleEquipped)
+            // 배열 확인 후 forEach 사용
             if (Array.isArray(characterTitleEquipped)) {
                 characterTitleEquipped.forEach((title) => {
                     if (title.title_equipment_type === '1') {
