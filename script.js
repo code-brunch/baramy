@@ -125,6 +125,9 @@ async function fetchCharacterInfo() {
             //1차 추가
             const characterClassGroupImage = document.createElement("img");
             const characterClassGroupName = highestLevelCharacter.character_class_group_name;
+            const characterTitleEquipped = highestLevelCharacter.titleEquipment;
+
+            console.log(characterTitleEquipped)
 
             if (characterClassGroupName) {
                 const imageUrl = `Assets/chars/${characterClassGroupName}.png`;
