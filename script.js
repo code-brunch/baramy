@@ -129,7 +129,7 @@ async function fetchCharacterInfo() {
             if (characterClassGroupName) {
                 const imageUrl = `Assets/chars/${characterClassGroupName}.png`;
                 characterClassGroupImage.src = imageUrl;
-
+            }
 
             // Assign values to the div elements
             serverDiv.textContent = `${highestLevelCharacter.server}`;
