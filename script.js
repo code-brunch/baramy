@@ -192,10 +192,15 @@ async function fetchCharacterInfo() {
             var titleEquipment = highestLevelCharacter.titleEquipment;
             console.log(titleEquipment)
             
-            if (titleEquipment === '장착') {
-                document.querySelector('.char-subinfo3-content2').textContent = titleEquipment;
-            } else if (titleEquipment === '외형') {
-                document.querySelector('.char-subinfo3-content1').textContent = titleEquipment;
+            if (titleEquipment) {
+    const titleEquipments = titleEquipment.split(','); // 타이틀을 ','로 구분하여 배열로 나눔
+    
+    titleEquipments.forEach((title, index) => {
+        const contentElement = document.querySelector(`.char-subinfo3-content${index + 1}`);
+        if (contentElement) {
+            contentElement.textContent = title.trim(); // 불필요한 공백 제거를 위해 trim 사용
+        }
+    });
             }
             
             //document.querySelector('.char-subinfo3-content1').textContent = `${highestLevelCharacter.titleEquipment}`;
