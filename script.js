@@ -183,10 +183,10 @@ async function fetchCharacterInfo() {
             document.querySelector('.char-subinfo2-content3').textContent = `${highestLevelCharacter.character_level}`;
             document.querySelector('.char-subinfo2-content4').textContent = `${highestLevelCharacter.character_exp}`;
             
-            document.querySelector('.char-subinfo3-content1').textContent = `${titleEquipDiv1}`;
-            document.querySelector('.char-subinfo3-content2').textContent = `${titleEquipDiv2}`;
-            document.querySelector('.char-subinfo3-content3').textContent = `${titleEquipDiv3}`;
-            document.querySelector('.char-subinfo3-content4').textContent = `${titleEquipDiv4}`;
+            document.querySelector('.char-subinfo3-content1').textContent = `${titleEquipDiv}`;
+            //document.querySelector('.char-subinfo3-content2').textContent = `${titleEquipDiv2}`;
+            //document.querySelector('.char-subinfo3-content3').textContent = `${titleEquipDiv3}`;
+            //document.querySelector('.char-subinfo3-content4').textContent = `${titleEquipDiv4}`;
         
             // Sort otherServers array by character_level in ascending order
             otherServers.sort((a, b) => a.character_level - b.character_level);
