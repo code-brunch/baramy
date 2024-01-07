@@ -188,7 +188,10 @@ async function fetchCharacterInfo() {
             document.querySelector('.char-subinfo2-content3').textContent = `${highestLevelCharacter.character_level}`;
             document.querySelector('.char-subinfo2-content4').textContent = `${highestLevelCharacter.character_exp}`;
 
+            //240108 작업필요
             var titleEquipment = highestLevelCharacter.titleEquipment;
+            console.log(titleEquipment)
+            
             if (titleEquipment === '장착') {
                 document.querySelector('.char-subinfo3-content2').textContent = titleEquipment;
             } else if (titleEquipment === '외형') {
