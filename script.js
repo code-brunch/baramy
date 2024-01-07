@@ -194,14 +194,13 @@ async function fetchCharacterInfo() {
             
             if (titleEquipment) {
                 const titleEquipments = titleEquipment.split(',').map(title => title.trim()); // 타이틀을 ','로 구분하여 배열로 나눔
+                titleEquipments.split(':').trim();
                 console.log(titleEquipments.join('//'));
                 titleEquipments.forEach((title, index) => {
-                    const [firstPart, secondPart] = title.split('//');
-                    const reversedTitle = `${secondPart} // ${firstPart}`;
-                    
+                    const extractedTitle = title.replace(/^.+:/, '').trim();
                     const contentElement = document.querySelector(`.char-subinfo3-content${index + 1}`);
                     if (contentElement) {
-                        contentElement.textContent = title; // 불필요한 공백 제거를 위해 trim 사용
+                        contentElement.textContent = extractedTitle;
                     }
                 });
             }
