@@ -203,19 +203,21 @@ async function fetchCharacterInfo() {
                     }
 
                     // Check if there are more than 2 titles
-                    if (index >= 2) {
+                    if (titleEquipments.length >= 3 && index === 2) {
                         // Extract the third and fourth titles
                         const thirdTitle = titleEquipments[2].replace(/^.+:/, '').trim();
-                        const fourthTitle = titleEquipments[3].replace(/^.+:/, '').trim();
+                        
+                        // Display the third title in the appropriate elements
+                        document.querySelector('.sub22-title').textContent = thirdTitle;
+                    }
             
-                        // Display the third title and fourth title in the appropriate elements
-                        if (index === 2) {
-                            document.querySelector('.sub22-title').textContent = thirdTitle;
-                            document.querySelector('.sub22-titleinfo').textContent = fourthTitle;
-                        } else if (index === 3) {
-                            document.querySelector('.sub32-title').textContent = thirdTitle;
-                            document.querySelector('.sub32-titleinfo').textContent = fourthTitle;
-                        }
+                    // Check if there are more than 3 titles
+                    if (titleEquipments.length >= 4 && index === 3) {
+                        // Extract the fourth title
+                        const fourthTitle = titleEquipments[3].replace(/^.+:/, '').trim();
+                        
+                        // Display the fourth title in the appropriate elements
+                        document.querySelector('.sub22-titleinfo').textContent = fourthTitle;
                     }
                 });
             }
