@@ -138,7 +138,7 @@ async function fetchCharacterInfo() {
                 characterClassGroupImage.src = imageUrl;
             }
             
-            // Assign values to the div elements
+            // Assign values to the div elements - 여긴 지워도 되려나?
             /*
             serverDiv.textContent = `${highestLevelCharacter.server}`;
             ocidDiv.textContent = `${highestLevelCharacter.ocid}`;
@@ -162,7 +162,7 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(characterDateDiv);
             resultDiv.appendChild(characterClassGroupDiv);
             resultDiv.appendChild(characterClassDiv);
-            resultDiv.appendChild(characterClassImage);
+            //resultDiv.appendChild(characterClassImage);
             
             resultDiv.appendChild(characterNationDiv);
             resultDiv.appendChild(characterGenderDiv);
@@ -172,6 +172,7 @@ async function fetchCharacterInfo() {
 
             // Append xxxDiv to char-subinfo#-content#
             document.querySelector('.mychar').appendChild(characterClassGroupImage);
+            document.querySelector('.char-subinfo2-content2').appendChild(characterClassImage);
             document.querySelector('.mychar-leftinfo1').textContent = `Lv.${highestLevelCharacter.character_level} l ${highestLevelCharacter.character_class_name} l ${highestLevelCharacter.character_nation}`;
             document.querySelector('.mychar-server1').textContent = `${highestLevelCharacter.server}`;
             document.querySelector('.char-subinfo1-content1').textContent = `${highestLevelCharacter.character_name}`;
