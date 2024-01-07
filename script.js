@@ -73,6 +73,8 @@ async function fetchCharacterInfo() {
                 });
 
             const titleData = await titleResponse.json();
+            // Define 'titles' array before using it in the loop
+            titles = titleData.titles;
 
                 if (characterData.character_level !== undefined && !isNaN(characterData.character_level)) {
                     const characterInfo = {
