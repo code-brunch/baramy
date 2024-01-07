@@ -126,7 +126,6 @@ async function fetchCharacterInfo() {
             const characterClassGroupImage = document.createElement("img");
             const characterClassGroupName = highestLevelCharacter.character_class_group_name;
             const characterTitleEquipped = highestLevelCharacter.titleEquipment;
-            const titleEquipmentArray = highestLevelCharacter.titleEquipment;
 
             // Process titles and assign values to titleEquipDiv variables
             let titleEquipDiv1 = "-"; // Default value for char-subinfo3-content1
@@ -139,19 +138,22 @@ async function fetchCharacterInfo() {
                 characterClassGroupImage.src = imageUrl;
             }
 
-            titleEquipmentArray.forEach((title) => {
-                if (title.title_equipment_type === '1') {
-                    if (title.title_type_name === '장착') {
-                        titleEquipDiv2 = title.title_name;
-                    } else if (title.title_type_name === '특수') {
-                        titleEquipDiv3 = title.title_name;
-                    } else if (title.title_type_name === '공성') {
-                        titleEquipDiv4 = title.title_name;
+            if (characterTitleEquipped) {
+                // titleEquipment이 배열인 것으로 가정합니다.
+                characterTitleEquipped.forEach((title) => {
+                    if (title.title_equipment_type === '1') {
+                        if (title.title_type_name === '장착') {
+                            titleEquipDiv2 = title.title_name;
+                        } else if (title.title_type_name === '특수') {
+                            titleEquipDiv3 = title.title_name;
+                        } else if (title.title_type_name === '공성') {
+                            titleEquipDiv4 = title.title_name;
+                        }
+                    } else if (title.title_equipment_type === '2') {
+                        titleEquipDiv1 = title.title_name;
                     }
-                } else if (title.title_equipment_type === '2') {
-                    titleEquipDiv1 = title.title_name;
-                }
-            });
+                });
+            }
             
             // Assign values to the div elements
             serverDiv.textContent = `${highestLevelCharacter.server}`;
