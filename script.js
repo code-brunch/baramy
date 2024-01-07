@@ -125,39 +125,17 @@ async function fetchCharacterInfo() {
             //1차 추가
             const characterClassGroupImage = document.createElement("img");
             const characterClassGroupName = highestLevelCharacter.character_class_group_name;
-            const characterTitleEquipped = highestLevelCharacter.titleEquipment;
+            //const characterTitleEquipped = highestLevelCharacter.titleEquipment;
 
             // Process titles and assign values to titleEquipDiv variables
-            let titleEquipDiv1 = "-"; // Default value for char-subinfo3-content1
-            let titleEquipDiv2 = "-"; // Default value for char-subinfo3-content2
-            let titleEquipDiv3 = "-"; // Default value for char-subinfo3-content3
-            let titleEquipDiv4 = "-"; // Default value for char-subinfo3-content4
+            //let titleEquipDiv1 = "-"; // Default value for char-subinfo3-content1
+            //let titleEquipDiv2 = "-"; // Default value for char-subinfo3-content2
+            //let titleEquipDiv3 = "-"; // Default value for char-subinfo3-content3
+            //let titleEquipDiv4 = "-"; // Default value for char-subinfo3-content4
 
             if (characterClassGroupName) {
                 const imageUrl = `Assets/chars/${characterClassGroupName}.png`;
                 characterClassGroupImage.src = imageUrl;
-            }
-
-            
-            if (characterTitleEquipped && typeof characterTitleEquipped === 'object') {
-                Object.keys(characterTitleEquipped).forEach(titleType => {
-                    const title = characterTitleEquipped[titleType];
-                    if (title && title.title_name) {
-                        if (titleType === '1') {
-                            if (title.title_type_name === '장착') {
-                                titleEquipDiv2 = title.title_name;
-                            } else if (title.title_type_name === '특수') {
-                                titleEquipDiv3 = title.title_name;
-                            } else if (title.title_type_name === '공성') {
-                                titleEquipDiv4 = title.title_name;
-                            }
-                        } else if (titleType === '2') {
-                            titleEquipDiv1 = title.title_name;
-                        }
-                    }
-                });
-            } else {
-                console.error("Invalid characterTitleEquipped:", characterTitleEquipped);
             }
             
             // Assign values to the div elements
@@ -191,6 +169,7 @@ async function fetchCharacterInfo() {
             resultDiv.appendChild(titleDiv);
 
             // Append xxxDiv to char-subinfo#-content#
+            document.querySelector('.char-tag-content').appendChild(titleEquipment);
             document.querySelector('.mychar').appendChild(characterClassGroupImage);
             document.querySelector('.mychar-leftinfo1').textContent = `Lv.${highestLevelCharacter.character_level} l ${highestLevelCharacter.character_class_name} l ${highestLevelCharacter.character_nation}`;
             document.querySelector('.mychar-server1').textContent = `${highestLevelCharacter.server}`;
