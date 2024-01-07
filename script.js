@@ -193,7 +193,7 @@ async function fetchCharacterInfo() {
             console.log(titleEquipment)
             
             if (titleEquipment) {
-                const titleEquipments = titleEquipment.split(','); // 타이틀을 ','로 구분하여 배열로 나눔
+                const titleEquipments = titleEquipment.split(',').map(title => title.trim()); // 타이틀을 ','로 구분하여 배열로 나눔
                 console.log(titleEquipment)
                 titleEquipments.forEach((title, index) => {
                     const contentElement = document.querySelector(`.char-subinfo3-content${index + 1}`);
