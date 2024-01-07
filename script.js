@@ -138,8 +138,8 @@ async function fetchCharacterInfo() {
                 characterClassGroupImage.src = imageUrl;
             }
 
-            if (characterTitleEquipped) {
-                // titleEquipment이 배열인 것으로 가정합니다.
+                        // 배열 확인 후 forEach 사용
+            if (Array.isArray(characterTitleEquipped)) {
                 characterTitleEquipped.forEach((title) => {
                     if (title.title_equipment_type === '1') {
                         if (title.title_type_name === '장착') {
@@ -153,6 +153,9 @@ async function fetchCharacterInfo() {
                         titleEquipDiv1 = title.title_name;
                     }
                 });
+            } else {
+                // characterTitleEquipped이 배열이 아니면 처리하는 코드 추가
+                console.error("characterTitleEquipped이 배열이 아닙니다:", characterTitleEquipped);
             }
             
             // Assign values to the div elements
