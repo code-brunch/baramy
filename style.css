@@ -763,3 +763,13 @@ label.sr-only {
 #result {
   margin-top: 20px;
 }
+
+/* Content Main 숨기기 */
+.content-main {
+    display: none;
+}
+
+/* Content Sub 숨기기 */
+.content-sub {
+    display: none;
+}
