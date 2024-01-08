@@ -238,6 +238,7 @@ async function fetchCharacterInfo() {
                                     break;
                                 default:
                                     break;
+                        }
                     }
                 });
             }
