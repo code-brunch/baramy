@@ -764,6 +764,6 @@ label.sr-only {
   margin-top: 20px;
 }
 
-.content-main, .content-sub {
+.content-sub, .main-leftbox, .main-rightbox {
     display: none;
 }
