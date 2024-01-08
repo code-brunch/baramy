@@ -337,6 +337,9 @@ async function fetchCharacterInfo() {
             document.querySelector('.content-sub').style.display = 'block';
             document.querySelector('.cb-section2').style.backgroundColor = 'rgba(0, 0, 0, .12)';
         } else {
+            document.querySelector('.content-main').style.display = 'none';
+            document.querySelector('.content-sub').style.display = 'none';
+            document.querySelector('.cb-section2').style.backgroundColor = '#333';
             resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
         }
     
