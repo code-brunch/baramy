@@ -275,7 +275,7 @@ async function fetchCharacterInfo() {
                 document.querySelector('.char-tag-content').textContent = extractedRecentTitle;
 
                 // Display the '성을 정복한 자' title in char-tag-content2
-                const conquestTitles = myTitles.filter(title => title.includes('성을 정복한 자'));
+                const conquestTitles = recentTitles.filter(title => title.includes('성을 정복한 자'));
                 const modifiedConquestTitles = conquestTitles.map(title => title.replace(/^일반: /, ''));
                 const castleNames = modifiedConquestTitles.map(title => extractCastleWord(title));
                 const castleName = castleNames.join(' ');
@@ -524,6 +524,6 @@ function extractFourthTitleWord(fourthtitle) {
 }
 
 function extractCastleWord(conquestTitle) {
-    const words = conquestTitle.split(' ');
+    const words = conquestTitle.split('을');
     return words.length > 0 ? words[0] : '';
 }
