@@ -343,11 +343,21 @@ async function fetchCharacterInfo() {
             resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
             //document.querySelector('.cb-section1').textContent = '캐릭을 찾을 수 없습니다.';
 
+            // 이미지를 감싸는 .cb-section1 요소 선택
             const section1Element = document.querySelector('.cb-section1');
+            // 이미지 뒤에 텍스트를 추가하는 요소를 생성하고 스타일을 설정
             const errorMessageElement = document.createElement('div');
             errorMessageElement.textContent = "캐릭터를 찾을 수 없습니다.";
-            errorMessageElement.classList.add('error-message');
+            errorMessageElement.classList.add('error-message'); // 텍스트 스타일이나 위치 등을 위한 클래스 부여
             section1Element.appendChild(errorMessageElement);
+
+            const errorMessageStyle = `
+                font-size: 60px;
+                font-weight: bold;
+                text-align: center;
+                color: white; /* 텍스트 색상 설정 */
+            `;
+            document.querySelector('.error-message').style.cssText = errorMessageStyle;
         }
     
         // Clear the input value after successful search
