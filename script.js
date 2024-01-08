@@ -243,6 +243,18 @@ async function fetchCharacterInfo() {
                     }
                 });
             }
+
+            var mytitle = highestLevelCharacter.title;
+
+            if (mytitle) {
+                const myTitles = mytitle.split(',').map(title => title.trim());
+                console.log(myTitles)
+            
+                // Extract the last 5 titles if there are more than 5 titles
+                const recentTitles = myTitles.length >= 5 ? myTitles.slice(-5) : myTitles;
+                console.log(myTitles)
+            }
+            
             
             //document.querySelector('.char-subinfo3-content1').textContent = `${highestLevelCharacter.titleEquipment}`;
             //document.querySelector('.char-subinfo3-content2').textContent = `${titleEquipDiv2}`;
