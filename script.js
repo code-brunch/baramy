@@ -259,7 +259,7 @@ async function fetchCharacterInfo() {
                 const extractedRecentTitles = recentTitles.map(title => title.replace(/^.+:/, '').trim());
             
                 // Join the modified titles into a single string
-                const extractedRecentTitle = extractedRecentTitles.join(' ');
+                const extractedRecentTitle = extractedRecentTitles.join(' l '); // 구분자
 
                 document.querySelector('.char-tag-content').textContent = extractedRecentTitle;
                 //console.log(recentTitles)
@@ -277,7 +277,7 @@ async function fetchCharacterInfo() {
             // Display other servers
             if (otherServers.length > 0) {
                 const otherServersDiv = document.createElement("div");
-                otherServersDiv.innerHTML = otherServers.map(server => server.server).join(" ");
+                otherServersDiv.innerHTML = otherServers.map(server => server.server).join(" l "); // 구분자
                 resultDiv.appendChild(otherServersDiv);
             }
 
