@@ -357,7 +357,7 @@ async function fetchCharacterInfo() {
                 font-size: 60px;
                 font-weight: bold;
                 text-align: center;
-                color: white; /* 텍스트 색상 설정 */
+                color: black; /* 텍스트 색상 설정 */
                 z-index: 5;
                 top: 50%;
                 transform: translateY(-50%);
