@@ -232,10 +232,9 @@ async function fetchCharacterInfo() {
                                         document.querySelector('.sub22-title').textContent = rank1;
                                         document.querySelector('.sub22-titleinfo').textContent = rank2;
                                     } else if (extractedTitleType === '공성') {
-                                        const rank3 = extractFourthTitleWord(extractedTitle);
                                         document.querySelector('.char-subinfo3-content4').textContent = extractedTitle;
-                                        document.querySelector('.sub32-title').textContent = rank3;
-                                        document.querySelector('.sub32-titleinfo').textContent = fourthTitle;
+                                        document.querySelector('.sub32-title').textContent = extractFourthTitleWord(extractedTitle);
+                                        document.querySelector('.sub32-titleinfo').textContent = extractedTitle;
                                     } else { // 신규 추가 240108 13시
                                         contentElement.textContent = '';
                                     }
@@ -509,6 +508,6 @@ function extractFourthTitleWord(fourthtitle) {
         return subWords.length >= 2 ? subWords[0].trim() + '성 점령자' : words[1] + subWords[0].trim() + '성 점령자';
     } else {
         // Return '' for other cases
-        return '';
+        return ;
     }
 }
