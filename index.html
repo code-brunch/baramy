@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <!-- This site was created in Webflow. https://www.webflow.com -->
-<!-- Last Published: Mon Jan 08 2024 02:43:25 GMT+0000 (Coordinated Universal Time) -->
+<!-- Last Published: Mon Jan 08 2024 22:55:34 GMT+0000 (Coordinated Universal Time) -->
 <html data-wf-domain="div-tester.webflow.io" data-wf-page="6597368de63a0bbbb65bb653" data-wf-site="6597368de63a0bbbb65bb64e">
     <head>
         <meta charset="utf-8"/>
-        <title>바람 연 캐릭터 검색기 Beta v1.0</title>
-        <link rel="stylesheet" href="style.css">
+        <title>바람:연 캐릭터 검색기 Beta v1.0</title>
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta content="Webflow" name="generator"/>
         <link href="https://fonts.googleapis.com" rel="preconnect"/>
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
@@ -25,16 +25,18 @@
                 ("ontouchstart"in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
             }(window, document);
         </script>
+        <link href="https://assets-global.website-files.com/img/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+        <link href="https://assets-global.website-files.com/img/webclip.png" rel="apple-touch-icon"/>
     </head>
     <body class="body">
         <div class="cb-header">
             <div class="logo">
                 <img src="https://assets-global.website-files.com/6597368de63a0bbbb65bb64e/6597407938e8ddfd49fbe7b0_brmy-logo.png" loading="lazy" alt="" class="logo-img"/>
-                <div class="logo-text">Char Searcher</div>
+                <div class="logo-text">바람:연 캐릭터 검색기</div>
             </div>
             <div class="searchbar">
                 <div class="search-container">
-                <label for="characterName" class="sr-only">캐릭터 또는 길드:</label>
+                <label for="characterName" class="sr-only">캐릭터:</label>
                 <input type="text" id="characterName" required placeholder="수행자명을 입력해주세요.">
                 <button onclick="fetchCharacterInfo()">조회</button>
                 </div>
@@ -48,7 +50,9 @@
                     <div id="w-node-f8f51fcd-5000-3e18-34ae-6b0f08eab7ef-b65bb653" class="main-leftbox">
                         <div class="main-leftbox-wrap">
                             <div class="char-img-box">
-                                <div class="mychar"></div>
+                                <div class="mychar">
+                                    <img src="https://assets-global.website-files.com/6597368de63a0bbbb65bb64e/659a232ebb9e8df41d8bf855_%EB%AC%B4%EC%82%AC.png" loading="lazy" alt="" class="mychar-img"/>
+                                </div>
                             </div>
                             <div id="w-node-_5a16140d-f06c-9be0-bd1d-c34a24056354-b65bb653" class="char-info-box">
                                 <div class="mychar-info1">
@@ -113,8 +117,8 @@
                                 </div>
                             </div>
                             <div id="w-node-_875557e5-3953-7fb4-4f71-8741803bb2dc-b65bb653" class="char-tag-box">
-                                <div class="text-block-4">서버 이력 </div>
-                                <div id="result"></div>
+                                <div class="char-server-history-title">서버 이력 </div>
+                                <div class="result"></div>
                                 <div class="char-tag-title">최근 획득 칭호</div>
                                 <div class="char-tag-content"></div>
                             </div>
