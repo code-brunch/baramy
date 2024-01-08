@@ -108,7 +108,12 @@ async function fetchCharacterInfo() {
         const moonZoneCharacters = otherServers.filter(
             server => (server.server === '낙랑' || server.server === '하백' || server.server === '비류' || server.server === '온조') && new Date(server.character_date_create) > new Date('2023-09-21')
         );
-        console.log(moonZoneCharacters)
+        //console.log(moonZoneCharacters)
+
+        // If there are moonZoneCharacters, choose the first one as highestLevelCharacter
+        if (moonZoneCharacters.length > 0) {
+            highestLevelCharacter = moonZoneCharacters[0];
+        }
         
         // Display the result with the highest level
         if (highestLevelCharacter) {
