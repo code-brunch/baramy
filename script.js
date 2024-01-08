@@ -244,7 +244,7 @@ async function fetchCharacterInfo() {
                 });
             }
 
-            var chartitle = highestLevelCharacter.title;
+            var chartitle = highestLevelCharacter.titles;
 
             if (chartitle) {
                 const myTitles = chartitle.split(',').map(mytitle => mytitle.trim());
