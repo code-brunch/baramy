@@ -232,7 +232,7 @@ async function fetchCharacterInfo() {
                                         const rank3 = extractFourthTitleWord(extractedTitle);
                                         contentElement.textContent = extractedTitle;
                                         document.querySelector('.sub32-title').textContent = rank3;
-                                        document.querySelector('.sub32-titleinfo').textContent = fourthTitle;
+                                        document.querySelector('.sub32-titleinfo').textContent = extractedTitle;
                                     } else {
                                         contentElement.textContent = '';
                                     }
