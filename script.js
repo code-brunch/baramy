@@ -353,6 +353,7 @@ async function fetchCharacterInfo() {
             //section1Element.insertBefore(errorMessageElement, section1Element.firstChild);
 
             const errorMessageStyle = `
+                position: relative;
                 font-size: 60px;
                 font-weight: bold;
                 text-align: center;
