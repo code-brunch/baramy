@@ -557,11 +557,13 @@ function getRankFromThirdWord(thirdWord) {
 
 function extractFourthTitleWord(fourthtitle) {
     const words = fourthtitle.split(' ');
+    console.log(words)
     // Always split the first word by '의'
     if (words.length >= 1) {
         // Split the first word by '의'
         const subWords = words[0].split('의');
-        
+        console.log(subWords[0])
+        console.log(words[1])
         // Return the first part after '의'
         return subWords.length >= 2 ? subWords[0].trim() + '성 점령자' : words[1] + subWords[0].trim() + '성 점령자';
     } else {
