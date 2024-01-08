@@ -277,12 +277,12 @@ async function fetchCharacterInfo() {
                 // Display the '성을 정복한 자' title in char-tag-content2
                 const conquestTitles = recentTitles.filter(title => title.includes('성을 정복한 자'));
                 const modifiedConquestTitles = conquestTitles.map(title => title.replace(/^일반: /, ''));
+                const lastConquestTitle = modifiedConquestTitles.length > 0 ? modifiedConquestTitles[modifiedConquestTitles.length - 1] : '';
                 const castleNames = modifiedConquestTitles.map(title => extractCastleWord(title));
                 const castleName = castleNames.join(' ');
-                const lastConquestTitle = modifiedConquestTitles.length > 0 ? modifiedConquestTitles[modifiedConquestTitles.length - 1] : '';
                 
                 document.querySelector('.sub12-title').textContent = castleName;
-                document.querySelector('.char-tag-content2').textContent = lastConquestTitle;
+                document.querySelector('.sub12-titleinfo').textContent = lastConquestTitle;
                 //console.log(recentTitles)
             }
 
