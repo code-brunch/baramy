@@ -198,6 +198,7 @@ async function fetchCharacterInfo() {
                 titleEquipments.forEach((title, index) => {
                     const extractedTitle = title.replace(/^.+:/, '').trim();
                     const contentElement = document.querySelector(`.char-subinfo3-content${index + 1}`);
+                    
                     if (contentElement) {
                         contentElement.textContent = extractedTitle;
                     }
@@ -211,13 +212,20 @@ async function fetchCharacterInfo() {
                         // Extract the third and fourth titles
                         const thirdTitle = titleEquipments[2].replace(/^.+:/, '').trim();
 
-                        const rank1 = getRankFromMiddleWord(middleWord);
-                        const rank2 = getRankFromThirdWord(thirdWord);
-                        document.querySelector('.sub22-title').textContent = rank1;
-                        document.querySelector('.sub22-titleinfo').textContent = rank2;
-                        // Display the third title in the appropriate elements
-                        //document.querySelector('.sub22-title').textContent = thirdTitle;
-                        //document.querySelector('.sub22-titleinfo').textContent = thirdTitle;
+                         // Check the title_type_name for the third title
+                        const titleType = getTitleTypeName(thirdTitle);
+
+                        if (titleType === '특수') {
+                            // Display in char-subinfo3-content3 for '특수'
+                            const rank1 = getRankFromMiddleWord(middleWord);
+                            const rank2 = getRankFromThirdWord(thirdWord);
+                            document.querySelector('.sub22-title').textContent = rank1;
+                            document.querySelector('.sub22-titleinfo').textContent = rank2;
+                        } else if (titleType === '공성') {
+                            // Display in char-subinfo3-content4 for '공성'
+                            document.querySelector('.sub32-title').textContent = test;
+                            document.querySelector('.sub32-titleinfo').textContent = test2;
+                        }
                     }
             
                     // Check if there are more than 3 titles
