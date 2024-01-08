@@ -400,8 +400,8 @@ function extractThirdWord(title) {
 }
 
 function getRankFromThirdWord(thirdWord) {
-    // Map specific values based on the middle word
-    switch (middleWord) {
+    // Map specific values based on the third word
+    switch (thirdWord) {
         case '제왕':
             return '1위';
         case '대왕':
@@ -418,7 +418,7 @@ function getRankFromThirdWord(thirdWord) {
             return '41~70위권';
         case '선구자':
             return '71~100위권';
-        // Add more cases for other middle words if needed
+        // Add more cases for other third words if needed
         default:
             return '';
     }
