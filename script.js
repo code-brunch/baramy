@@ -565,7 +565,7 @@ function extractFourthTitleWord(fourthtitle) {
         console.log(subWords[0])
         console.log(words[1])
         // Return the first part after '의'
-        return subWords.length >= 2 ? subWords[0].trim() + '성 점령자' : words[1] + subWords[0].trim() + '성 점령자';
+        return subWords.length >= 2 ? subWords[0].trim() + '성 점령자' : subWords[0].trim() + '성 점령자';
     } else {
         // Return '' for other cases
         return ;
