@@ -3428,3 +3428,14 @@ label.sr-only {
 .content-sub {
     display: none;
 }
+
+@font-face {
+  font-family: 'BaramyFontLight'; /* 폰트 이름 지정 */
+  src: url('font/BaramyFont Light.ttf') format('truetype'); /* 폰트 파일 경로 지정 */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'BaramyFontLight', sans-serif; /* 폰트를 사용할 요소에 폰트 적용 */
+}
