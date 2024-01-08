@@ -16,11 +16,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-async function fetchCharacterInfo() {
+async function fetchCharacterInfo() {    
     const apiKey = "test_ad6c0a6934215fad4b75dfc81d40caa08ec93cbb06b86feee55ebcbed5a6401040fc9f0162a1fec40ac4b8e45e56924d";
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
 
+    resultDiv.innerHTML = ""; // Clear previous results
+    document.querySelector('.mychar').innerHTML = ""; // Clear previous character details
+
+    
     if (!characterName) {
         alert("캐릭터명을 입력 후 검색해주세요.");
         return;
