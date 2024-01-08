@@ -255,7 +255,7 @@ async function fetchCharacterInfo() {
             // Display other servers
             if (otherServers.length > 0) {
                 const otherServersDiv = document.createElement("div");
-                otherServersDiv.innerHTML = otherServers.map(server => server.server).join("<br>");
+                otherServersDiv.innerHTML = otherServers.map(server => server.server).join(" l ");
                 resultDiv.appendChild(otherServersDiv);
             }
 
