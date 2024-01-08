@@ -224,6 +224,8 @@ async function fetchCharacterInfo() {
                                         document.querySelector('.char-subinfo3-content4').textContent = extractedTitle;
                                         document.querySelector('.sub32-title').textContent = rank3;
                                         document.querySelector('.sub32-titleinfo').textContent = fourthTitle;
+                                    } else { // 신규 추가 240108 13시
+                                        contentElement.textContent = '';
                                     }
                                     break;
                                 case 3:
@@ -248,11 +250,14 @@ async function fetchCharacterInfo() {
 
             if (chartitle) {
                 const myTitles = chartitle.split(',').map(mytitle => mytitle.trim());
-                console.log(myTitles)
+                //console.log(myTitles)
             
                 // Extract the last 5 titles if there are more than 5 titles
                 const recentTitles = myTitles.length >= 5 ? myTitles.slice(-5) : myTitles;
-                console.log(recentTitles)
+                const extractedRecentTitle = recentTitles.replace(/^.+:/, '').trim();
+                
+                document.querySelector('.char-tag-content').textContent = extractedRecentTitle;
+                //console.log(recentTitles)
             }
             
             
