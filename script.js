@@ -196,7 +196,11 @@ async function fetchCharacterInfo() {
             document.querySelector('.mychar-name1').textContent = `${highestLevelCharacter.character_name}`;
             document.querySelector('.char-subinfo1-content2').textContent = `${highestLevelCharacter.server}`;
             document.querySelector('.char-subinfo1-content3').textContent = `${highestLevelCharacter.character_nation}`;
-            document.querySelector('.char-subinfo1-content4').textContent = `${highestLevelCharacter.character_date_create}`;
+            
+            const date = new Date(highestLevelCharacter.character_date_create);
+            const formattedDate = date.toISOString().split('T')[0];
+            document.querySelector('.char-subinfo1-content4').textContent = formattedDate;
+            //document.querySelector('.char-subinfo1-content4').textContent = `${highestLevelCharacter.character_date_create}`;
 
             document.querySelector('.char-subinfo2-content1').textContent = `${highestLevelCharacter.character_class_group_name}`;
             document.querySelector('.char-subinfo2-content2').textContent = `${highestLevelCharacter.character_class_name}`;
