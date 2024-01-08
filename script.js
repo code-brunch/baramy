@@ -103,7 +103,13 @@ async function fetchCharacterInfo() {
 
     try {
         await Promise.all(promises);
-    
+
+        // Filter out characters from 달 권역 서버 (낙랑, 하백, 비류, 온조) with character_date_create after 2023-09-21
+        const moonZoneCharacters = otherServers.filter(
+            server => (server.server === '낙랑' || server.server === '하백' || server.server === '비류' || server.server === '온조') && new Date(server.character_date_create) > new Date('2023-09-21')
+        );
+        console.log(moonZoneCharacters)
+        
         // Display the result with the highest level
         if (highestLevelCharacter) {
             // Create three div elements
