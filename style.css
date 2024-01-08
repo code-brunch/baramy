@@ -763,3 +763,13 @@ label.sr-only {
 #result {
   margin-top: 20px;
 }
+
+/* 검색 버튼을 누를 때 컨텐츠 표시 및 배경색 변경 */
+.body.searched .content-main,
+.body.searched .content-sub {
+    display: block;
+}
+
+.body.searched .cb-section2 {
+    background-color: rgba(0, 0, 0, .12);
+}
