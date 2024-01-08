@@ -770,6 +770,6 @@ label.sr-only {
 }
 
 /* Content Sub 숨기기 */
-.w-layout-grid content-sub-grid {
+.content-sub-grid {
     display: none;
 }
