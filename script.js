@@ -195,52 +195,49 @@ async function fetchCharacterInfo() {
             if (titleEquipment) {
                 const titleEquipments = titleEquipment.split(',').map(title => title.trim()); // 타이틀을 ','로 구분하여 배열로 나눔
                 
-                
                 titleEquipments.forEach((title, index) => {
                     const extractedTitleType = title.replace(/:.+$/, '').trim();
                     const extractedTitle = title.replace(/^.+:/, '').trim();
                     const contentElement = document.querySelector(`.char-subinfo3-content${index + 1}`);
-                    console.log(extractedTitleType)
-                    console.log(extractedTitle)
                     
-                    if (contentElement) {
-                        contentElement.textContent = extractedTitle;
-                    }
-
-                    // Extract the middle word
                     const middleWord = extractMiddleWord(extractedTitle);
                     const thirdWord = extractThirdWord(extractedTitle);
                     
-                    // Check if there are more than 2 titles
-                    if (titleEquipments.length >= 3 && index === 2) {
-                        // Extract the third and fourth titles
-                        const thirdTitle = titleEquipments[2].replace(/^.+:/, '').trim();
-
-                         // Check the title_type_name for the third title
-                        const titleType = getTitleTypeName(thirdTitle);
-
-                        if (titleType === '특수') {
-                            // Display in char-subinfo3-content3 for '특수'
-                            const rank1 = getRankFromMiddleWord(middleWord);
-                            const rank2 = getRankFromThirdWord(thirdWord);
-                            document.querySelector('.sub22-title').textContent = rank1;
-                            document.querySelector('.sub22-titleinfo').textContent = rank2;
-                        } else if (titleType === '공성') {
-                            // Display in char-subinfo3-content4 for '공성'
-                            document.querySelector('.sub32-title').textContent = test;
-                            document.querySelector('.sub32-titleinfo').textContent = test2;
-                        }
-                    }
-            
-                    // Check if there are more than 3 titles
-                    if (titleEquipments.length >= 4 && index === 3) {
-                        // Extract the fourth title
-                        const fourthTitle = titleEquipments[3].replace(/^.+:/, '').trim();
-
-                        const rank3 = extractFourthTitleWord(fourthTitle);
-                        // Display the fourth title in the appropriate elements
-                        document.querySelector('.sub32-title').textContent = rank3;
-                        document.querySelector('.sub32-titleinfo').textContent = fourthTitle;
+                    if (contentElement) {
+                        switch (index) {
+                                 case 0:
+                                    // Display in char-subinfo3-content1
+                                    contentElement.textContent = extractedTitle;
+                                    break;
+                                case 1:
+                                    // Display in char-subinfo3-content2
+                                    contentElement.textContent = extractedTitle;
+                                    break;
+                                case 2:
+                                    // Display in char-subinfo3-content3
+                                    if (titleType === '특수') {
+                                        const rank1 = getRankFromMiddleWord(extractMiddleWord(extractedTitle));
+                                        const rank2 = getRankFromThirdWord(extractThirdWord(extractedTitle));
+                                        //contentElement.textContent = `${rank1} ${rank2}`;
+                                        document.querySelector('.sub22-title').textContent = rank1;
+                                        document.querySelector('.sub22-titleinfo').textContent = rank2;
+                                    } else if (titleType === '공성') {
+                                        contentElement.textContent = '';
+                                    }
+                                    break;
+                                case 3:
+                                    // Display in char-subinfo3-content4
+                                    if (titleType === '공성') {
+                                        const rank3 = extractFourthTitleWord(extractedTitle);
+                                        contentElement.textContent = rank3;
+                                    } else {
+                                        contentElement.textContent = '';
+                                        document.querySelector('.sub32-title').textContent = rank3;
+                                        document.querySelector('.sub32-titleinfo').textContent = fourthTitle;
+                                    }
+                                    break;
+                                default:
+                                    break;
                     }
                 });
             }
