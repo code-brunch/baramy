@@ -349,14 +349,15 @@ async function fetchCharacterInfo() {
             const errorMessageElement = document.createElement('div');
             errorMessageElement.textContent = "캐릭터를 찾을 수 없습니다.";
             errorMessageElement.classList.add('error-message'); // 텍스트 스타일이나 위치 등을 위한 클래스 부여
-            //section1Element.appendChild(errorMessageElement);
-            section1Element.insertBefore(errorMessageElement, section1Element.firstChild);
+            section1Element.appendChild(errorMessageElement);
+            //section1Element.insertBefore(errorMessageElement, section1Element.firstChild);
 
             const errorMessageStyle = `
                 font-size: 60px;
                 font-weight: bold;
                 text-align: center;
                 color: white; /* 텍스트 색상 설정 */
+                z-index: 2;
             `;
             document.querySelector('.error-message').style.cssText = errorMessageStyle;
         }
