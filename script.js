@@ -194,10 +194,14 @@ async function fetchCharacterInfo() {
             
             if (titleEquipment) {
                 const titleEquipments = titleEquipment.split(',').map(title => title.trim()); // 타이틀을 ','로 구분하여 배열로 나눔
-
+                
+                
                 titleEquipments.forEach((title, index) => {
+                    const extractedTitleType = title.replace(/:.+$/, '').trim();
                     const extractedTitle = title.replace(/^.+:/, '').trim();
                     const contentElement = document.querySelector(`.char-subinfo3-content${index + 1}`);
+                    console.log(extractedTitleType)
+                    console.log(extractedTitle)
                     
                     if (contentElement) {
                         contentElement.textContent = extractedTitle;
@@ -451,5 +455,5 @@ function extractFourthTitleWord(fourthtitle) {
 function getTitleTypeName(title) {
     // Assuming title has a format like "title_type_name: title_name"
     const parts = title.split(':');
-    return parts.length === 2 ? parts[0].trim() : '';
+    return parts[0].trim();
 }
