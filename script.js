@@ -204,16 +204,20 @@ async function fetchCharacterInfo() {
 
                     // Extract the middle word
                     const middleWord = extractMiddleWord(extractedTitle);
+                    const thirdWord = extractThirdWord(extractedTitle);
+                    
                     // Check if there are more than 2 titles
                     if (titleEquipments.length >= 3 && index === 2) {
                         // Extract the third and fourth titles
                         const thirdTitle = titleEquipments[2].replace(/^.+:/, '').trim();
 
-                        const rank = getRankFromMiddleWord(middleWord);
-                        document.querySelector('.sub22-title').textContent = rank;
+                        const rank1 = getRankFromMiddleWord(middleWord);
+                        const rank2 = getRankFromThirdWord(thirdWord);
+                        document.querySelector('.sub22-title').textContent = rank1;
+                        document.querySelector('.sub22-titleinfo').textContent = rank2;
                         // Display the third title in the appropriate elements
                         //document.querySelector('.sub22-title').textContent = thirdTitle;
-                        document.querySelector('.sub22-titleinfo').textContent = thirdTitle;
+                        //document.querySelector('.sub22-titleinfo').textContent = thirdTitle;
                     }
             
                     // Check if there are more than 3 titles
@@ -367,13 +371,55 @@ function getRankFromMiddleWord(middleWord) {
     // Map specific values based on the middle word
     switch (middleWord) {
         case '미궁의':
-            return '일반 전투력 랭커';
+            return '전투력 랭커(일반)';
         case '영광의':
-            return '대인 전투력 랭커';
-        case '영광의':
-            return '대인 전투력 랭커';
+            return '전투력 랭커(대인)';
+        case '불멸의':
+            return '전투력 랭커(보스)';
+        case '패기의':
+            return '전투력 상승왕(일반)';
+        case '투지의':
+            return '전투력 상승왕(대인)';
+        case '투쟁의':
+            return '전투력 상승왕(보스)';
+        case '파괴의':
+            return 'PK 중독자';
         // Add more cases for other middle words if needed
         default:
-            return '-';
+            return '';
+    }
+}
+
+function extractThirdWord(title) {
+    const words = title.split(' ');
+    if (words.length === 3) {
+        // Return the third word (index 2)
+        return words[2];
+    }
+    return '';
+}
+
+function getRankFromThirdWord(thirdWord) {
+    // Map specific values based on the middle word
+    switch (middleWord) {
+        case '제왕':
+            return '1위';
+        case '대왕':
+            return '2위';
+        case '소왕':
+            return '3위';
+        case '화신':
+            return '4~10위권';
+        case '전설':
+            return '11~20위권';
+        case '영웅':
+            return '21~40위권';
+        case '정복자':
+            return '41~70위권';
+        case '선구자':
+            return '71~100위권';
+        // Add more cases for other middle words if needed
+        default:
+            return '';
     }
 }
