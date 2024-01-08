@@ -202,6 +202,8 @@ async function fetchCharacterInfo() {
                     
                     const middleWord = extractMiddleWord(extractedTitle);
                     const thirdWord = extractThirdWord(extractedTitle);
+
+                    console.log(index, extractedTitleType, extractedTitle)
                     
                     if (contentElement) {
                         switch (index) {
@@ -448,10 +450,4 @@ function extractFourthTitleWord(fourthtitle) {
         // Return '' for other cases
         return ;
     }
-}
-
-function getTitleTypeName(title) {
-    // Assuming title has a format like "title_type_name: title_name"
-    const parts = title.split(':');
-    return parts[0].trim();
 }
