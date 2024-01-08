@@ -311,9 +311,9 @@ async function fetchCharacterInfo() {
             const otherServersDiv = document.createElement("div");
             
             // Filter out moonZone servers from otherServers
-            const nonMoonZoneServers = otherServers.filter(server => !['낙랑', '하백', '비류', '온조'].includes(server.server));
+            const moonZoneServers = otherServers.filter(server => ['낙랑', '하백', '비류', '온조'].includes(server.server));
             
-            otherServersDiv.innerHTML = nonMoonZoneServers.map(server => server.server).join(" l "); // 구분자
+            otherServersDiv.innerHTML = moonZoneServers.map(server => server.server).join(" l "); // 구분자
             resultDiv.appendChild(otherServersDiv);
 
             document.querySelector('.content-sub').appendChild(titleDiv);
