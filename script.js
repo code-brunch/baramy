@@ -21,9 +21,8 @@ async function fetchCharacterInfo() {
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
     
-    //resultDiv.innerHTML = ""; // Clear previous results
     document.querySelector('.mychar').innerHTML = ""; // Clear previous character details
-
+    document.querySelector('.char-subinfo3-content3').innerHTML = "";
     
     if (!characterName) {
         alert("캐릭터명을 입력 후 검색해주세요.");
