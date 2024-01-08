@@ -221,6 +221,7 @@ async function fetchCharacterInfo() {
                                         document.querySelector('.sub22-title').textContent = rank1;
                                         document.querySelector('.sub22-titleinfo').textContent = rank2;
                                     } else if (extractedTitleType === '공성') {
+                                        const rank3 = extractFourthTitleWord(extractedTitle);
                                         document.querySelector('.char-subinfo3-content4').textContent = extractedTitle;
                                         document.querySelector('.sub32-title').textContent = rank3;
                                         document.querySelector('.sub32-titleinfo').textContent = fourthTitle;
@@ -231,9 +232,9 @@ async function fetchCharacterInfo() {
                                 case 3:
                                     // Display in char-subinfo3-content4
                                     if (extractedTitleType === '공성') {
-                                        const rank3 = extractFourthTitleWord(extractedTitle);
+                                        const rank4 = extractFourthTitleWord(extractedTitle);
                                         contentElement.textContent = extractedTitle;
-                                        document.querySelector('.sub32-title').textContent = rank3;
+                                        document.querySelector('.sub32-title').textContent = rank4;
                                         document.querySelector('.sub32-titleinfo').textContent = extractedTitle;
                                     } else {
                                         contentElement.textContent = '';
