@@ -360,6 +360,14 @@ async function fetchCharacterInfo() {
                 color: white; /* 텍스트 색상 설정 */
                 z-index: 5;
             `;
+
+            const section1Style = `
+                position: relative;
+                z-index: 1; /* 이미지 감싸는 요소의 z-index 설정 */
+            `;
+
+            document.querySelector('.error-message').style.cssText = errorMessageStyle;
+            section1Element.style.cssText = section1Style;
             document.querySelector('.error-message').style.cssText = errorMessageStyle;
         }
     
