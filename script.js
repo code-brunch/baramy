@@ -230,7 +230,7 @@ async function fetchCharacterInfo() {
                                     // Display in char-subinfo3-content4
                                     if (extractedTitleType === '공성') {
                                         const rank3 = extractFourthTitleWord(extractedTitle);
-                                        contentElement.textContent = rank3;
+                                        contentElement.textContent = extractedTitle;
                                         document.querySelector('.sub32-title').textContent = rank3;
                                         document.querySelector('.sub32-titleinfo').textContent = fourthTitle;
                                     } else {
