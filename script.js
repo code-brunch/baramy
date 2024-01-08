@@ -357,7 +357,7 @@ async function fetchCharacterInfo() {
                 font-weight: bold;
                 text-align: center;
                 color: white; /* 텍스트 색상 설정 */
-                z-index: 2;
+                z-index: 5;
             `;
             document.querySelector('.error-message').style.cssText = errorMessageStyle;
         }
