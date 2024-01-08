@@ -276,8 +276,12 @@ async function fetchCharacterInfo() {
 
                 // Display the '성을 정복한 자' title in char-tag-content2
                 const conquestTitles = myTitles.filter(title => title.includes('성을 정복한 자'));
-                const lastConquestTitle = conquestTitles.length > 0 ? conquestTitles[conquestTitles.length - 1] : '';
-                document.querySelector('.sub12-titleinfo').textContent = lastConquestTitle;
+                const modifiedConquestTitles = conquestTitles.map(title => title.replace(/^일반: /, ''));
+                const castleName = extractCastleWord(modifiedConquestTitles)
+                const lastConquestTitle = modifiedConquestTitles.length > 0 ? modifiedConquestTitles[modifiedConquestTitles.length - 1] : '';
+                
+                document.querySelector('.sub12-title').textContent = castleName;
+                document.querySelector('.char-tag-content2').textContent = lastConquestTitle;
                 //console.log(recentTitles)
             }
 
@@ -516,4 +520,9 @@ function extractFourthTitleWord(fourthtitle) {
         // Return '' for other cases
         return ;
     }
+}
+
+function extractCastleWord(ConquestTitle) {
+    const words = ConquestTitle.split(' ');
+    return words[0];
 }
