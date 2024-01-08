@@ -2226,7 +2226,7 @@ textarea.w-input, textarea.w-select {
   height: 100%;
   margin-left: auto;
   margin-right: auto;
-  display: block;
+  display: none;
   position: static;
   transform: translate(0);
 }
@@ -3326,6 +3326,6 @@ label.sr-only {
   margin-top: 20px;
 }
 
-.content-main, .content-sub {
+.content-sub {
     display: none;
 }
