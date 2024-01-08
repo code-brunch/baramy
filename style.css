@@ -765,11 +765,11 @@ label.sr-only {
 }
 
 /* Content Main 숨기기 */
-.content-main {
+.w-layout-grid content-main-grid {
     display: none;
 }
 
 /* Content Sub 숨기기 */
-.content-sub {
+.w-layout-grid content-sub-grid {
     display: none;
 }
