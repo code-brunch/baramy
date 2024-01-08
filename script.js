@@ -184,7 +184,7 @@ async function fetchCharacterInfo() {
             */
             
             // Append xxxDiv to char-subinfo#-content#
-            document.querySelector('.mychar').appendChild(characterClassGroupImage);
+            //document.querySelector('.mychar').appendChild(characterClassGroupImage);
             //document.querySelector('.char-subinfo2-content2').appendChild(characterClassImage); - 직업 아이콘 추가하려는데 실패함
             document.querySelector('.mychar-leftinfo1').textContent = `Lv.${highestLevelCharacter.character_level} l ${highestLevelCharacter.character_class_name} l ${highestLevelCharacter.character_nation}`;
             document.querySelector('.mychar-server1').textContent = `${highestLevelCharacter.server}`;
@@ -222,6 +222,7 @@ async function fetchCharacterInfo() {
                                 case 1:
                                     // Display in char-subinfo3-content2
                                     contentElement.textContent = extractedTitle;
+                                    document.querySelector('.mychar-title1').textContent = extractedTitle;
                                     break;
                                 case 2:
                                     // Display in char-subinfo3-content3
