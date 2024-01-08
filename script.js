@@ -341,7 +341,13 @@ async function fetchCharacterInfo() {
             document.querySelector('.content-sub').style.display = 'none';
             document.querySelector('.cb-section2').style.backgroundColor = '#333';
             resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
-            document.querySelector('.cb-section1').textContent = '캐릭을 찾을 수 없습니다.';
+            //document.querySelector('.cb-section1').textContent = '캐릭을 찾을 수 없습니다.';
+
+            const section1Element = document.querySelector('.cb-section1');
+            const errorMessageElement = document.createElement('div');
+            errorMessageElement.textContent = "캐릭터를 찾을 수 없습니다.";
+            errorMessageElement.classList.add('error-message');
+            section1Element.appendChild(errorMessageElement);
         }
     
         // Clear the input value after successful search
