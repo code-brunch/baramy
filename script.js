@@ -23,6 +23,7 @@ async function fetchCharacterInfo() {
     
     document.querySelector('.mychar').innerHTML = ""; // Clear previous character details
     document.querySelector('.char-subinfo3-content3').innerHTML = "";
+    document.querySelector('.char-subinfo3-content4').innerHTML = "";
     
     if (!characterName) {
         alert("캐릭터명을 입력 후 검색해주세요.");
@@ -279,13 +280,19 @@ async function fetchCharacterInfo() {
 
                 // Display the '성을 정복한 자' title in char-tag-content2
                 const conquestTitles = recentTitles.filter(title => title.includes('성을 정복한 자'));
-                const modifiedConquestTitles = conquestTitles.map(title => title.replace(/^일반: /, ''));
-                const lastConquestTitle = modifiedConquestTitles.length > 0 ? modifiedConquestTitles[modifiedConquestTitles.length - 1] : '';
-                const castleNames = modifiedConquestTitles.map(title => extractCastleWord(title));
-                const castleName = castleNames.join(' ');
+
+                if (conquestTitles.length > 0) {
+                    const latestConquestTitle = conquestTitles[conquestTitles.length - 1];
+                    const modifiedLatestConquestTitle = latestConquestTitle.replace(/^일반: /, '');
+                    const castleName = extractCastleWord(modifiedLatestConquestTitle);
                 
-                document.querySelector('.sub12-title').textContent = castleName;
-                document.querySelector('.sub12-titleinfo').textContent = lastConquestTitle;
+                    document.querySelector('.sub12-title').textContent = castleName;
+                    document.querySelector('.sub12-titleinfo').textContent = modifiedLatestConquestTitle;
+                } else {
+                    // Handle the case when there are no conquest titles
+                    document.querySelector('.sub12-title').textContent = ''; // Clear the content
+                    document.querySelector('.sub12-titleinfo').textContent = ''; // Clear the content
+                }
                 //console.log(recentTitles)
             }
 
