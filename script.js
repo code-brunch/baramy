@@ -359,6 +359,8 @@ async function fetchCharacterInfo() {
                 text-align: center;
                 color: white; /* 텍스트 색상 설정 */
                 z-index: 5;
+                top: 50%;
+                transform: translateY(-50%);
             `;
 
             const section1Style = `
