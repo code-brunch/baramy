@@ -272,9 +272,9 @@ async function fetchCharacterInfo() {
             const serverSymbol = serverName === '연' || serverName === '무휼' || serverName === '세류' || serverName === '해명' ? '해' : '달';
             
             // 출력
-            document.querySelector('.sub13-content2').textContent = serverSymbol;
-            document.querySelector('.sub23-content2').textContent = serverSymbol;
-            document.querySelector('.sub33-content2').textContent = serverSymbol;
+            document.querySelector('.sub13-content2').textContent = serverName;
+            document.querySelector('.sub23-content2').textContent = serverName;
+            document.querySelector('.sub33-content2').textContent = serverName;
             
             document.querySelector('.sub13-content1').textContent = serverSymbol;
             document.querySelector('.sub23-content1').textContent = serverSymbol;
