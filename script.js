@@ -200,7 +200,7 @@ async function fetchCharacterInfo() {
                     const extractedTitle = title.replace(/^.+:/, '').trim();
                     const contentElement = document.querySelector(`.char-subinfo3-content${index + 1}`);
 
-                    console.log(index, extractedTitleType, extractedTitle)
+                    //console.log(index, extractedTitleType, extractedTitle)
                     
                     if (contentElement) {
                         switch (index) {
@@ -244,15 +244,15 @@ async function fetchCharacterInfo() {
                 });
             }
 
-            var mytitle = highestLevelCharacter.title;
+            var chartitle = highestLevelCharacter.title;
 
-            if (mytitle) {
-                const myTitles = mytitle.split(',').map(title => title.trim());
+            if (chartitle) {
+                const myTitles = chartitle.split(',').map(mytitle => mytitle.trim());
                 console.log(myTitles)
             
                 // Extract the last 5 titles if there are more than 5 titles
                 const recentTitles = myTitles.length >= 5 ? myTitles.slice(-5) : myTitles;
-                console.log(myTitles)
+                console.log(recentTitles)
             }
             
             
