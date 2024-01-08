@@ -300,11 +300,21 @@ async function fetchCharacterInfo() {
             otherServers.sort((a, b) => a.character_level - b.character_level);
     
             // Display other servers
+            /*
             if (otherServers.length > 0) {
                 const otherServersDiv = document.createElement("div");
                 otherServersDiv.innerHTML = otherServers.map(server => server.server).join(" l "); // 구분자
                 resultDiv.appendChild(otherServersDiv);
             }
+            */
+            // Display other servers
+            const otherServersDiv = document.createElement("div");
+            
+            // Filter out moonZone servers from otherServers
+            const nonMoonZoneServers = otherServers.filter(server => !['낙랑', '하백', '비류', '온조'].includes(server.server));
+            
+            otherServersDiv.innerHTML = nonMoonZoneServers.map(server => server.server).join(" l "); // 구분자
+            resultDiv.appendChild(otherServersDiv);
 
             document.querySelector('.content-sub').appendChild(titleDiv);
         } else {
