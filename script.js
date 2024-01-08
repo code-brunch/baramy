@@ -332,6 +332,9 @@ async function fetchCharacterInfo() {
         }
 
             document.querySelector('.content-sub').appendChild(titleDiv);
+
+            document.querySelector('.content-main').style.display = 'block';
+            document.querySelector('.content-sub').style.display = 'block';
         } else {
             resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
         }
