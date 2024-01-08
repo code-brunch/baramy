@@ -224,9 +224,10 @@ async function fetchCharacterInfo() {
                     if (titleEquipments.length >= 4 && index === 3) {
                         // Extract the fourth title
                         const fourthTitle = titleEquipments[3].replace(/^.+:/, '').trim();
-                        
+
+                        const rank3 = extractFourthTitleWord(fourthTitle);
                         // Display the fourth title in the appropriate elements
-                        document.querySelector('.sub32-title').textContent = fourthTitle;
+                        document.querySelector('.sub32-title').textContent = rank3;
                         document.querySelector('.sub32-titleinfo').textContent = fourthTitle;
                     }
                 });
@@ -421,5 +422,20 @@ function getRankFromThirdWord(thirdWord) {
         // Add more cases for other third words if needed
         default:
             return '';
+    }
+}
+
+function extractFourthTitleWord(fourthtitle) {
+    const words = fourthtitle.split(' ');
+    // Always split the first word by '의'
+    if (words.length >= 1) {
+        // Split the first word by '의'
+        const subWords = words[0].split('의');
+        
+        // Return the first part after '의'
+        return subWords.length >= 2 ? words[1] + subWords[0].trim() + '성 점령자' : subWords[0].trim() + '성 점령자';
+    } else {
+        // Return '' for other cases
+        return '';
     }
 }
