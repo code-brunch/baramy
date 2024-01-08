@@ -215,19 +215,19 @@ async function fetchCharacterInfo() {
                                     break;
                                 case 2:
                                     // Display in char-subinfo3-content3
-                                    if (titleType === '특수') {
+                                    if (extractedTitleType === '특수') {
                                         const rank1 = getRankFromMiddleWord(extractMiddleWord(extractedTitle));
                                         const rank2 = getRankFromThirdWord(extractThirdWord(extractedTitle));
                                         //contentElement.textContent = `${rank1} ${rank2}`;
                                         document.querySelector('.sub22-title').textContent = rank1;
                                         document.querySelector('.sub22-titleinfo').textContent = rank2;
-                                    } else if (titleType === '공성') {
+                                    } else if (extractedTitleType === '공성') {
                                         contentElement.textContent = '';
                                     }
                                     break;
                                 case 3:
                                     // Display in char-subinfo3-content4
-                                    if (titleType === '공성') {
+                                    if (extractedTitleType === '공성') {
                                         const rank3 = extractFourthTitleWord(extractedTitle);
                                         contentElement.textContent = rank3;
                                     } else {
