@@ -17,9 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 async function fetchCharacterInfo() {
-    // 페이지 상태 업데이트
-    document.body.classList.add("searched");
-    
     const apiKey = "test_ad6c0a6934215fad4b75dfc81d40caa08ec93cbb06b86feee55ebcbed5a6401040fc9f0162a1fec40ac4b8e45e56924d";
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
