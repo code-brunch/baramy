@@ -199,9 +199,6 @@ async function fetchCharacterInfo() {
                     const extractedTitleType = title.replace(/:.+$/, '').trim();
                     const extractedTitle = title.replace(/^.+:/, '').trim();
                     const contentElement = document.querySelector(`.char-subinfo3-content${index + 1}`);
-                    
-                    const middleWord = extractMiddleWord(extractedTitle);
-                    const thirdWord = extractThirdWord(extractedTitle);
 
                     console.log(index, extractedTitleType, extractedTitle)
                     
@@ -220,11 +217,13 @@ async function fetchCharacterInfo() {
                                     if (extractedTitleType === '특수') {
                                         const rank1 = getRankFromMiddleWord(extractMiddleWord(extractedTitle));
                                         const rank2 = getRankFromThirdWord(extractThirdWord(extractedTitle));
-                                        //contentElement.textContent = `${rank1} ${rank2}`;
+                                        contentElement.textContent = extractedTitle;
                                         document.querySelector('.sub22-title').textContent = rank1;
                                         document.querySelector('.sub22-titleinfo').textContent = rank2;
                                     } else if (extractedTitleType === '공성') {
-                                        contentElement.textContent = '';
+                                        document.querySelector('.char-subinfo3-content4').textContent = extractedTitle;
+                                        document.querySelector('.sub32-title').textContent = rank3;
+                                        document.querySelector('.sub32-titleinfo').textContent = fourthTitle;
                                     }
                                     break;
                                 case 3:
@@ -232,10 +231,10 @@ async function fetchCharacterInfo() {
                                     if (extractedTitleType === '공성') {
                                         const rank3 = extractFourthTitleWord(extractedTitle);
                                         contentElement.textContent = rank3;
-                                    } else {
-                                        contentElement.textContent = '';
                                         document.querySelector('.sub32-title').textContent = rank3;
                                         document.querySelector('.sub32-titleinfo').textContent = fourthTitle;
+                                    } else {
+                                        contentElement.textContent = '';
                                     }
                                     break;
                                 default:
