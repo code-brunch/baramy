@@ -273,6 +273,10 @@ async function fetchCharacterInfo() {
                 const extractedRecentTitle = extractedRecentTitles.join(' l '); // 구분자
 
                 document.querySelector('.char-tag-content').textContent = extractedRecentTitle;
+
+                // Display the '성을 정복한 자' title in char-tag-content2
+                const conquestTitle = myTitles.find(title => title.includes('성을 정복한 자'));
+                document.querySelector('.char-tag-content2').textContent = conquestTitle || ''; // If conquestTitle is undefined, display an empty string
                 //console.log(recentTitles)
             }
 
