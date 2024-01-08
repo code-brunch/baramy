@@ -251,12 +251,16 @@ async function fetchCharacterInfo() {
 
             if (chartitle) {
                 const myTitles = chartitle.split(',').map(mytitle => mytitle.trim());
-                //console.log(myTitles)
             
                 // Extract the last 5 titles if there are more than 5 titles
                 const recentTitles = myTitles.length >= 5 ? myTitles.slice(-5) : myTitles;
-                const extractedRecentTitle = recentTitles.replace(/^.+:/, '').trim();
-                
+            
+                // Apply replace to each title in the array
+                const extractedRecentTitles = recentTitles.map(title => title.replace(/^.+:/, '').trim());
+            
+                // Join the modified titles into a single string
+                const extractedRecentTitle = extractedRecentTitles.join(', ');
+
                 document.querySelector('.char-tag-content').textContent = extractedRecentTitle;
                 //console.log(recentTitles)
             }
