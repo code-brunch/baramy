@@ -356,7 +356,7 @@ function getCharacterClassImage(characterClassName) {
 
 function extractMiddleWord(title) {
     const words = title.split(' ');
-    if (words.length >= 3) {
+    if (words.length === 3) {
         // Return the middle word (index 1)
         return words[1];
     }
@@ -367,11 +367,13 @@ function getRankFromMiddleWord(middleWord) {
     // Map specific values based on the middle word
     switch (middleWord) {
         case '미궁의':
-            return '1등';
-        case '전장의':
-            return '2등';
+            return '일반 전투력 랭커';
+        case '영광의':
+            return '대인 전투력 랭커';
+        case '영광의':
+            return '대인 전투력 랭커';
         // Add more cases for other middle words if needed
         default:
-            return '다른 등수';
+            return '-';
     }
 }
