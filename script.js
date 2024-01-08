@@ -313,11 +313,11 @@ async function fetchCharacterInfo() {
                 const otherServersDiv = document.createElement("div");
                 const nonMoonZoneServers = otherServers.filter(server => !['낙랑', '하백', '비류', '온조'].includes(server.server));
                 otherServersDiv.innerHTML = nonMoonZoneServers.map(server => server.server).join(" l "); // 구분자
-                resultDiv.appendChild(moonZoneServersDiv);
+                resultDiv.appendChild(otherServersDiv);
             } else {
                 const moonZoneServersDiv = document.createElement("div");
                 moonZoneServersDiv.innerHTML = moonZoneCharacters.map(server => server.server).join(" l "); // 구분자
-                resultDiv.appendChild(otherServersDiv);
+                resultDiv.appendChild(moonZoneServersDiv);
             }
 
             //////////////
