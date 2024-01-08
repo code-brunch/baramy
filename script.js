@@ -349,7 +349,8 @@ async function fetchCharacterInfo() {
             const errorMessageElement = document.createElement('div');
             errorMessageElement.textContent = "캐릭터를 찾을 수 없습니다.";
             errorMessageElement.classList.add('error-message'); // 텍스트 스타일이나 위치 등을 위한 클래스 부여
-            section1Element.appendChild(errorMessageElement);
+            //section1Element.appendChild(errorMessageElement);
+            section1Element.insertBefore(errorMessageElement, section1Element.firstChild);
 
             const errorMessageStyle = `
                 font-size: 60px;
