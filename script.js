@@ -447,3 +447,9 @@ function extractFourthTitleWord(fourthtitle) {
         return ;
     }
 }
+
+function getTitleTypeName(title) {
+    // Assuming title has a format like "title_type_name: title_name"
+    const parts = title.split(':');
+    return parts.length === 2 ? parts[0].trim() : '';
+}
