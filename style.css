@@ -2133,7 +2133,7 @@ textarea.w-input, textarea.w-select {
   width: 100%;
   height: 38vh;
   color: #000;
-  background-color: #333;
+  background-color: rgba(0, 0, 0, .12);
   justify-content: center;
   align-items: flex-start;
   display: flex;
@@ -2852,7 +2852,7 @@ textarea.w-input, textarea.w-select {
   width: 100%;
   height: 40%;
   background-color: rgba(0, 0, 0, 0);
-  border-bottom: 1px solid rgba(0, 0, 0, .16);
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
   border-left: 1px rgba(0, 0, 0, .16);
   border-right: 1px rgba(0, 0, 0, .16);
   padding-left: 10px;
@@ -2921,7 +2921,7 @@ textarea.w-input, textarea.w-select {
   height: 35%;
 }
 
-.text-block-4 {
+.char-server-history-title {
   width: 100%;
   height: 18%;
   color: rgba(51, 51, 51, .81);
@@ -2930,7 +2930,7 @@ textarea.w-input, textarea.w-select {
   display: flex;
 }
 
-.div-block-8 {
+.result {
   width: 100%;
   height: 22%;
   border-bottom: 1px solid rgba(0, 0, 0, .16);
@@ -2946,11 +2946,11 @@ textarea.w-input, textarea.w-select {
 
 @media screen and (max-width: 991px) {
   .cb-section1 {
-    height: 45vh;
+    height: 70vh;
   }
 
   .cb-section2 {
-    height: 44vh;
+    height: 85vh;
     flex-direction: row;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -2972,7 +2972,7 @@ textarea.w-input, textarea.w-select {
   }
 
   .section-background {
-    height: 45vh;
+    height: 70vh;
   }
 
   .content-main-grid {
@@ -3010,6 +3010,10 @@ textarea.w-input, textarea.w-select {
     height: 30px;
   }
 
+  .sub13-middle {
+    height: 80%;
+  }
+
   .sub2-divblock, .sub3-divblock {
     width: 70%;
     height: 100%;
@@ -3031,6 +3035,10 @@ textarea.w-input, textarea.w-select {
 
   .sub32-title, .sub32-titleinfo {
     height: 30px;
+  }
+
+  .sub23-middle, .sub33-middle {
+    height: 80%;
   }
 
   .mychar {
@@ -3112,11 +3120,11 @@ textarea.w-input, textarea.w-select {
 
 @media screen and (max-width: 767px) {
   .cb-section1 {
-    height: 40vh;
+    height: 60vh;
   }
 
   .cb-section2 {
-    height: 49vh;
+    height: 70vh;
   }
 
   .logo-img {
@@ -3125,7 +3133,7 @@ textarea.w-input, textarea.w-select {
   }
 
   .section-background {
-    height: 40vh;
+    height: 60vh;
   }
 
   .content-main {
@@ -3146,6 +3154,14 @@ textarea.w-input, textarea.w-select {
     grid-template-rows: auto auto auto;
     grid-template-columns: 1fr;
   }
+
+  .sub13-middle, .sub23-middle, .sub33-middle {
+    height: 80%;
+  }
+
+  .char-subinfo1-title2, .char-subinfo1-title1, .char-subinfo1-title3, .char-subinfo1-title4, .char-subinfo1-content1, .char-subinfo1-content2, .char-subinfo1-content3, .char-subinfo1-content4, .char-tag-title, .char-subinfo2-title1, .char-subinfo2-title2, .char-subinfo2-title3, .char-subinfo2-title4, .char-subinfo3-title1, .char-subinfo3-title2, .char-subinfo3-title3, .char-subinfo3-title4, .char-server-history-title {
+    padding-left: 7px;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -3162,11 +3178,11 @@ textarea.w-input, textarea.w-select {
   }
 
   .cb-section1 {
-    height: 35vh;
+    height: 58vh;
   }
 
   .cb-section2 {
-    height: 50vh;
+    height: 72vh;
   }
 
   .copyright {
@@ -3183,6 +3199,7 @@ textarea.w-input, textarea.w-select {
   }
 
   .searchbar {
+    width: 270px;
     height: 40px;
     margin-right: 0;
   }
@@ -3193,22 +3210,30 @@ textarea.w-input, textarea.w-select {
   }
 
   .section-background {
-    height: 35vh;
+    height: 58vh;
   }
 
   .content-main {
-    width: 90%;
+    width: 96%;
     height: 100%;
   }
 
   .content-main-grid {
-    grid-row-gap: 8px;
-    grid-template-rows: auto auto;
+    grid-row-gap: 0px;
+    grid-template-rows: minmax(auto, 30vh) minmax(auto, 25vh);
     grid-template-columns: 1fr;
   }
 
   .cb-sub-header {
-    height: 3vh;
+    height: 8vh;
+  }
+
+  .char-subinfo-box {
+    height: 60%;
+  }
+
+  .char-tag-box {
+    height: 40%;
   }
 
   .content-sub-grid {
@@ -3220,22 +3245,34 @@ textarea.w-input, textarea.w-select {
   }
 
   .cb-sub-section {
-    height: 4vh;
+    height: 8vh;
   }
 
-  .sub1-divblock, .sub2-divblock, .sub3-divblock {
+  .sub1-divblock {
     width: 100%;
   }
 
+  .sub13-middle {
+    height: 80%;
+  }
+
+  .sub2-divblock, .sub3-divblock {
+    width: 100%;
+  }
+
+  .sub23-middle, .sub33-middle {
+    height: 80%;
+  }
+
   .mychar-title1 {
-    height: 50%;
+    height: 20%;
     font-size: 14px;
   }
 
   .mychar-name1 {
     height: 50%;
-    padding-top: 25px;
-    font-size: 40px;
+    padding-top: 15px;
+    font-size: 30px;
   }
 
   .mychar-upperr1 {
@@ -3248,9 +3285,10 @@ textarea.w-input, textarea.w-select {
   }
 
   .mychar-server1 {
-    padding-top: 18px;
-    padding-left: 10px;
-    font-size: 15px;
+    height: 20%;
+    padding-top: 0;
+    padding-left: 0;
+    font-size: 13px;
   }
 
   .mychar-info1-lowerl {
@@ -3262,12 +3300,73 @@ textarea.w-input, textarea.w-select {
   }
 
   .mychar-leftinfo1 {
-    padding-top: 6px;
+    height: 20%;
+    padding-top: 0;
+    padding-left: 0;
     font-size: 12px;
   }
 
-  .char-subinfo1-title2, .char-subinfo1-title1, .char-subinfo1-title3, .char-subinfo1-title4, .char-tag-title, .char-subinfo2-title1, .char-subinfo2-title2, .char-subinfo2-title3, .char-subinfo2-title4, .char-subinfo3-title1, .char-subinfo3-title2, .char-subinfo3-title3, .char-subinfo3-title4, .text-block-4 {
+  .mychar-img {
+    height: 100%;
+  }
+
+  .char-subinfo1, .char-subinfo2, .char-subinfo3 {
+    height: 33.33%;
+  }
+
+  .char-subinfo1-title2, .char-subinfo1-title1, .char-subinfo1-title3, .char-subinfo1-title4 {
     padding-left: 3px;
+    font-size: 12px;
+  }
+
+  .char-subinfo1-content1, .char-subinfo1-content2, .char-subinfo1-content3, .char-subinfo1-content4 {
+    font-size: 12px;
+  }
+
+  .char-tag-title, .char-tag-content {
+    height: 25%;
+    padding-left: 3px;
+    font-size: 12px;
+  }
+
+  .char-subinfo2-title1, .char-subinfo2-title2, .char-subinfo2-title3, .char-subinfo2-title4, .char-subinfo3-title1, .char-subinfo3-title2, .char-subinfo3-title3, .char-subinfo3-title4 {
+    padding-left: 3px;
+    font-size: 12px;
+  }
+
+  .char-subinfo2-content1, .char-subinfo2-content2, .char-subinfo2-content3, .char-subinfo2-content4 {
+    font-size: 12px;
+  }
+
+  .char-subinfo3-content1, .char-subinfo3-content2, .char-subinfo3-content3, .char-subinfo3-content4 {
+    padding-left: 3px;
+    font-size: 12px;
+  }
+
+  .mainrightbox {
+    align-items: flex-start;
+  }
+
+  .main-leftbox-wrap {
+    height: 70%;
+  }
+
+  .main-rightbox-wrap {
+    height: 100%;
+  }
+
+  .mychar-title2 {
+    height: 80%;
+  }
+
+  .mychar-reserved {
+    height: 10%;
+  }
+
+  .char-server-history-title, .result {
+    height: 25%;
+    padding-left: 3px;
+    font-size: 12px;
   }
 }
 
