@@ -259,7 +259,7 @@ async function fetchCharacterInfo() {
                 const extractedRecentTitles = recentTitles.map(title => title.replace(/^.+:/, '').trim());
             
                 // Join the modified titles into a single string
-                const extractedRecentTitle = extractedRecentTitles.join(', ');
+                const extractedRecentTitle = extractedRecentTitles.join(' ');
 
                 document.querySelector('.char-tag-content').textContent = extractedRecentTitle;
                 //console.log(recentTitles)
