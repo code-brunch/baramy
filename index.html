@@ -36,7 +36,12 @@
                 <img src="https://assets-global.website-files.com/6597368de63a0bbbb65bb64e/6597407938e8ddfd49fbe7b0_brmy-logo.png" loading="lazy" alt="" class="logo-img"/>
                 <div class="logo-text">Char Searcher</div>
             </div>
-            <div class="searchbar"></div>
+            <div class="searchbar">
+                <div class="search-container">
+                <label for="characterName" class="sr-only">캐릭터 또는 길드:</label>
+                <input type="text" id="characterName" required placeholder="수행자명을 입력해주세요.">
+                <button onclick="fetchCharacterInfo()">조회</button>
+            </div>
         </div>
         <div class="cb-sub-header"></div>
         <div class="cb-section1">
