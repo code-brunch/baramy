@@ -341,6 +341,7 @@ async function fetchCharacterInfo() {
             document.querySelector('.content-sub').style.display = 'none';
             document.querySelector('.cb-section2').style.backgroundColor = '#333';
             resultDiv.textContent = "모든 서버에서 캐릭터를 찾을 수 없습니다.";
+            document.querySelector('.cb-section1').textContent = '캐릭을 찾을 수 없습니다.';
         }
     
         // Clear the input value after successful search
