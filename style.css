@@ -3326,6 +3326,6 @@ label.sr-only {
   margin-top: 20px;
 }
 
-.content-sub {
+.content-main, .content-sub {
     display: none;
 }
