@@ -264,8 +264,22 @@ async function fetchCharacterInfo() {
                 document.querySelector('.char-tag-content').textContent = extractedRecentTitle;
                 //console.log(recentTitles)
             }
+
+            // 서버 값을 가져옴
+            const serverName = highestLevelCharacter.server;
             
+            // 서버 이름에 따라 '해' 또는 '달'을 결정
+            const serverSymbol = serverName === '연' || serverName === '무휼' || serverName === '세류' || serverName === '해명' ? '해' : '달';
             
+            // 출력
+            document.querySelector('.sub13-content2').textContent = serverSymbol;
+            document.querySelector('.sub23-content2').textContent = serverSymbol;
+            document.querySelector('.sub33-content2').textContent = serverSymbol;
+            
+            document.querySelector('.sub13-content1').textContent = serverSymbol;
+            document.querySelector('.sub23-content1').textContent = serverSymbol;
+            document.querySelector('.sub33-content1').textContent = serverSymbol;
+
             //document.querySelector('.char-subinfo3-content1').textContent = `${highestLevelCharacter.titleEquipment}`;
             //document.querySelector('.char-subinfo3-content2').textContent = `${titleEquipDiv2}`;
             //document.querySelector('.char-subinfo3-content3').textContent = `${titleEquipDiv3}`;
