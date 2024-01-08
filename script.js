@@ -202,13 +202,17 @@ async function fetchCharacterInfo() {
                         contentElement.textContent = extractedTitle;
                     }
 
+                    // Extract the middle word
+                    const middleWord = extractMiddleWord(extractedTitle);
                     // Check if there are more than 2 titles
                     if (titleEquipments.length >= 3 && index === 2) {
                         // Extract the third and fourth titles
                         const thirdTitle = titleEquipments[2].replace(/^.+:/, '').trim();
-                        
+
+                        const rank = getRankFromMiddleWord(middleWord);
+                        document.querySelector('.sub22-title').textContent = rank;
                         // Display the third title in the appropriate elements
-                        document.querySelector('.sub22-title').textContent = thirdTitle;
+                        //document.querySelector('.sub22-title').textContent = thirdTitle;
                         document.querySelector('.sub22-titleinfo').textContent = thirdTitle;
                     }
             
@@ -347,5 +351,27 @@ function getCharacterClassImage(characterClassName) {
         // 매핑이 없는 경우 기본 이미지를 반환
         console.warn(`이미지를 찾을 수 없습니다. characterClassName: ${characterClassName}`);
         return null; // default img 넣어주기 "default_class_image.png";
+    }
+}
+
+function extractMiddleWord(title) {
+    const words = title.split(' ');
+    if (words.length >= 3) {
+        // Return the middle word (index 1)
+        return words[1];
+    }
+    return '';
+}
+
+function getRankFromMiddleWord(middleWord) {
+    // Map specific values based on the middle word
+    switch (middleWord) {
+        case '미궁의':
+            return '1등';
+        case '전장의':
+            return '2등';
+        // Add more cases for other middle words if needed
+        default:
+            return '다른 등수';
     }
 }
