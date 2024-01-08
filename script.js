@@ -509,6 +509,6 @@ function extractFourthTitleWord(fourthtitle) {
         return subWords.length >= 2 ? subWords[0].trim() + '성 점령자' : words[1] + subWords[0].trim() + '성 점령자';
     } else {
         // Return '' for other cases
-        return ;
+        return '';
     }
 }
