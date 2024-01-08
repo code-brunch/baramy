@@ -764,12 +764,6 @@ label.sr-only {
   margin-top: 20px;
 }
 
-/* Content Main 숨기기 */
-.w-layout-grid content-main-grid {
-    display: none;
-}
-
-/* Content Sub 숨기기 */
-.content-sub-grid {
+.content-main, .content-sub {
     display: none;
 }
