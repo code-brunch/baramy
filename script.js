@@ -243,7 +243,6 @@ async function fetchCharacterInfo() {
                                     } else if (extractedTitleType === '공성') {
                                         // 이미지 코드 추가
                                         const castleImageSrc2 = getCastleImageSrc2(extractedTitle);
-                                        console.log(castleImageSrc2);
                                         let castleImage2 = document.querySelector('.sub32-img img');
                                         if (!castleImage2) {
                                             castleImage2 = document.createElement('img');
@@ -265,7 +264,6 @@ async function fetchCharacterInfo() {
                                     if (extractedTitleType === '공성') {
                                         // 이미지 코드 추가
                                         const castleImageSrc2 = getCastleImageSrc2(extractedTitle);
-                                        console.log(castleImageSrc2);
                                         let castleImage2 = document.querySelector('.sub32-img img');
                                         if (!castleImage2) {
                                             castleImage2 = document.createElement('img');
@@ -619,6 +617,7 @@ function getCastleImageSrc2(castleInfo) {
     if (words2.length >= 1) {
         const subWords2 = words2[0].split('의');
         const castleName2 = subWords2.length >= 2 ? subWords2[0].trim() : subWords2[0].trim();
+        console.log(castleName2);
         return `Assets/icons_rect/${castleName2}아이콘_사각.png`;
     } else {
         return '';
