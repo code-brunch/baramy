@@ -3501,6 +3501,8 @@ label.sr-only {
 #result {
   padding-left: 10px;
   font-family: 'BaramyFontLight';
+  font-size: var(--main-font-size-middle);
+  padding-top: 8px;
 }
 
 .content-sub {
