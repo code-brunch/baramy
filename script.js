@@ -289,13 +289,23 @@ async function fetchCharacterInfo() {
                     const latestConquestTitle = conquestTitles[conquestTitles.length - 1];
                     const modifiedLatestConquestTitle = latestConquestTitle.replace(/^일반: /, '');
                     const castleName = extractCastleWord(modifiedLatestConquestTitle);
-                
+
+                    // 이미지용 코드추가
+                    const castleImageSrc = getCastleImageSrc(castleName);
+
+                    // 이미지 변경을 위한 코드
+                    const castleImage = document.querySelector('.sub12-img');
+                    castleImage.src = castleImageSrc;
+                    //castleImage.alt = castleName; // 이미지의 대체 텍스트로 성 이름을 사용할 수 있습니다.
+                    
                     document.querySelector('.sub12-title').textContent = castleName;
                     document.querySelector('.sub12-titleinfo').textContent = modifiedLatestConquestTitle;
                 } else {
                     // Handle the case when there are no conquest titles
                     document.querySelector('.sub12-title').textContent = ''; // Clear the content
                     document.querySelector('.sub12-titleinfo').textContent = ''; // Clear the content
+                    document.querySelector('.sub12-img').src = ''; // Clear the image source
+                    //document.querySelector('.sub12-img').alt = ''; // Clear the image alt text
                 }
                 //console.log(recentTitles)
             }
@@ -576,4 +586,22 @@ function extractFourthTitleWord(fourthtitle) {
 function extractCastleWord(conquestTitle) {
     const words = conquestTitle.split('을');
     return words.length > 0 ? words[0] : '';
+}
+
+function getCastleImageSrc(castleName) {
+    // 고구려 성
+    if (castleName === '숙군성' || castleName === '평양성' || castleName === '졸본성' || castleName === '오골성' || castleName === '하보산성' || castleName === '낭랑산성' || castleName === '후연성' || castleName === '개주성' || castleName === '용성' || castleName === '오녀산성') {
+        return 'Assets/icons_rect/요새_고구려.png';
+    }
+    // 부여 성
+    else if (castleName === '장훈성' || castleName === '동부여성' || castleName === '송원성' || castleName === '가섭원성' || castleName === '용담산성' || castleName === '동단산성' || castleName === '상곡성' || castleName === '어양성' || castleName === '읍루성' || castleName === '범안성') {
+        return 'Assets/icons_rect/요새_부여.png';
+    }
+    // 중국 성
+    else if (castleName === '만리장성' || castleName === '대방성' || castleName === '현도성' || castleName === '낙양성' || castleName === '장안성' || castleName === '강서성' || castleName === '복건성' || castleName === '광둥성' || castleName === '산시성' || castleName === '산둥성') {
+        return 'Assets/icons_rect/요새_중국.png';
+    }
+    else {
+        return ''; // 기본값으로 빈 문자열 반환 또는 다른 기본 이미지 설정
+    }
 }
