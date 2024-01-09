@@ -18,15 +18,10 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Create Docs Directory
-        run: mkdir -p docs
-
       - name: Deploy to GitHub Pages
         run: |
+          mkdir -p docs
           cp -r index.html style.css script.js Assets/ docs/
           sed -i "s|{{API_KEY}}|${{ secrets.API_KEY }}|g" docs/script.js
-
-          # Add the following line to print the API_KEY
-          echo "API_KEY: ${{ secrets.API_KEY }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
