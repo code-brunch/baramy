@@ -242,15 +242,15 @@ async function fetchCharacterInfo() {
                                         document.querySelector('.sub22-titleinfo').textContent = rank2;
                                     } else if (extractedTitleType === '공성') {
                                         // 이미지 코드 추가
-                                        const castleImageSrc = getCastleImageSrc2(castleName);
-                                        const castleImage = document.querySelector('.sub22-img img');
-                                        if (!castleImage) {
-                                            castleImage = document.createElement('img');
-                                            document.querySelector('.sub12-img').appendChild(castleImage);
+                                        const castleImageSrc2 = getCastleImageSrc2(extractedTitle);
+                                        const castleImage2 = document.querySelector('.sub22-img img');
+                                        if (!castleImage2) {
+                                            castleImage2 = document.createElement('img');
+                                            document.querySelector('.sub22-img').appendChild(castleImage2);
                                         }
-                                        castleImage.style.width = '25px';
-                                        castleImage.style.height = '25px';
-                                        castleImage.src = castleImageSrc;
+                                        castleImage2.style.width = '25px';
+                                        castleImage2.style.height = '25px';
+                                        castleImage2.src = castleImageSrc2;
                                         
                                         document.querySelector('.char-subinfo3-content4').textContent = extractedTitle;
                                         document.querySelector('.sub32-title').textContent = extractFourthTitleWord(extractedTitle);
@@ -263,15 +263,15 @@ async function fetchCharacterInfo() {
                                     // Display in char-subinfo3-content4
                                     if (extractedTitleType === '공성') {
                                         // 이미지 코드 추가
-                                        const castleImageSrc = getCastleImageSrc2(castleName);
-                                        const castleImage = document.querySelector('.sub22-img img');
-                                        if (!castleImage) {
-                                            castleImage = document.createElement('img');
-                                            document.querySelector('.sub12-img').appendChild(castleImage);
+                                        const castleImageSrc2 = getCastleImageSrc2(extractedTitle);
+                                        const castleImage2 = document.querySelector('.sub22-img img');
+                                        if (!castleImage2) {
+                                            castleImage2 = document.createElement('img');
+                                            document.querySelector('.sub22-img').appendChild(castleImage2);
                                         }
-                                        castleImage.style.width = '25px';
-                                        castleImage.style.height = '25px';
-                                        castleImage.src = castleImageSrc;
+                                        castleImage2.style.width = '25px';
+                                        castleImage2.style.height = '25px';
+                                        castleImage2.src = castleImageSrc2;
                                         
                                         const rank4 = extractFourthTitleWord(extractedTitle);
                                         contentElement.textContent = extractedTitle;
@@ -613,11 +613,11 @@ function extractFourthTitleWord(fourthtitle) {
 }
 
 function getCastleImageSrc2(castleInfo) {
-    const words = castleInfo.split(' ');
-    if (words.length >= 1) {
-        const subWords = words[0].split('의');
-        const castleName = subWords.length >= 2 ? subWords[0].trim() : subWords[0].trim();
-        return `Assets/icons_rect/${castleName}_아이콘_사각.png`;
+    const words2 = castleInfo.split(' ');
+    if (words2.length >= 1) {
+        const subWords2 = words2[0].split('의');
+        const castleName2 = subWords2.length >= 2 ? subWords2[0].trim() : subWords2[0].trim();
+        return `Assets/icons_rect/${castleName2}_아이콘_사각.png`;
     } else {
         return '';
     }
