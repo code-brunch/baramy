@@ -298,7 +298,8 @@ async function fetchCharacterInfo() {
                     // 이미지가 없으면 새로운 img 태그를 생성
                     if (!castleImage) {
                         castleImage = document.createElement('img');
-                        document.querySelector('.sub12-upper').appendChild(castleImage);
+                        //document.querySelector('.sub12-upper').appendChild(castleImage);
+                        document.querySelector('.sub12-upper').insertBefore(castleImage, document.querySelector('.sub12-title'));
                     }
                     castleImage.style.width = '25px'; // 25px로 수정 (원래는 30px로 되어 있었음)
                     castleImage.style.height = '25px'; // 25px로 수정 (원래는 30px로 되어 있었음)
