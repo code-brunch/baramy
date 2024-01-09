@@ -29,7 +29,10 @@ async function fetchCharacterInfo() {
     document.querySelector('.mychar').innerHTML = ""; // Clear previous character details
     document.querySelector('.char-subinfo3-content3').innerHTML = "";
     document.querySelector('.char-subinfo3-content4').innerHTML = "";
-    document.querySelector('.sub12-img').innerHTML = "";
+    document.querySelector('.sub1-divblock').innerHTML = "";
+    document.querySelector('.sub2-divblock').innerHTML = "";
+    document.querySelector('.sub3-divblock').innerHTML = "";
+    //document.querySelector('.sub12-img').innerHTML = "";
     
     const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
     const resultDiv = document.getElementById("result");
