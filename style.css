@@ -2187,6 +2187,7 @@ textarea.w-input, textarea.w-select {
   font-family: Montserrat, sans-serif;
   font-size: 25px;
   font-weight: 800;
+  font-family: 'BaramyFontLight'
 }
 
 .form-block {
@@ -2702,6 +2703,7 @@ textarea.w-input, textarea.w-select {
   padding-left: 0;
   font-size: 20px;
   display: flex;
+  font-family: 'BaramyFontLight'
 }
 
 .mychar-name1 {
@@ -2713,6 +2715,7 @@ textarea.w-input, textarea.w-select {
   padding-left: 0;
   font-size: 60px;
   display: flex;
+  font-family: 'BaramyFontLight'
 }
 
 .mychar-info1-upperr {
@@ -2739,6 +2742,7 @@ textarea.w-input, textarea.w-select {
   padding-top: 0;
   font-size: 15px;
   display: flex;
+  font-family: 'BaramyFontLight'
 }
 
 .mychar-info1-lowerl {
@@ -2759,6 +2763,7 @@ textarea.w-input, textarea.w-select {
   padding-left: 8px;
   font-size: 14px;
   display: flex;
+  font-family: 'BaramyFontLight'
 }
 
 .mychar-img {
@@ -2803,6 +2808,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-end;
   padding-left: 10px;
   display: flex;
+  font-family: 'BaramyFontLight'
 }
 
 .char-subinfo1-title1 {
@@ -2813,6 +2819,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-end;
   padding-left: 10px;
   display: flex;
+  font-family: 'BaramyFontLight'
 }
 
 .char-subinfo1-title3, .char-subinfo1-title4 {
@@ -2822,6 +2829,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-end;
   padding-left: 10px;
   display: flex;
+  font-family: 'BaramyFontLight'
 }
 
 .char-subinfo1-content {
@@ -2880,6 +2888,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-end;
   padding-left: 10px;
   display: flex;
+  font-family: 'BaramyFontLight'
 }
 
 .char-subinfo2-content1, .char-subinfo2-content2, .char-subinfo2-content3, .char-subinfo2-content4, .char-subinfo3-content1, .char-subinfo3-content2, .char-subinfo3-content3, .char-subinfo3-content4 {
@@ -3168,6 +3177,7 @@ textarea.w-input, textarea.w-select {
 
   .char-subinfo1-title2, .char-subinfo1-title1, .char-subinfo1-title3, .char-subinfo1-title4, .char-subinfo1-content1, .char-subinfo1-content2, .char-subinfo1-content3, .char-subinfo1-content4, .char-tag-title, .char-subinfo2-title1, .char-subinfo2-title2, .char-subinfo2-title3, .char-subinfo2-title4, .char-subinfo3-title1, .char-subinfo3-title2, .char-subinfo3-title3, .char-subinfo3-title4, .char-server-history-title {
     padding-left: 7px;
+    font-family: 'BaramyFontLight'
   }
 }
 
