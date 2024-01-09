@@ -831,50 +831,6 @@ textarea.w-input, textarea.w-select {
   display: none !important;
 }
 
-@media screen and (max-width: 1400px) {
-  .mychar-name1 {
-    font-size: var(--main-font-sizeS);
-  }
-
-  .mychar-title1 {
-    font-size: var(--main-font-size-mobile-small);
-  }
-
-  .mychar-leftinfo1, .mychar-server1 {
-    font-size: var(--main-font-size-mobile-verysmall);
-  }
-
-  .char-subinfo1-title1, .char-subinfo1-title2, .char-subinfo1-title3, .char-subinfo1-title4, .char-subinfo2-title1, .char-subinfo2-title2, .char-subinfo2-title3, .char-subinfo2-title4, .char-subinfo3-title1, .char-subinfo3-title2, .char-subinfo3-title3, .char-subinfo3-title4{
-    padding-top: 6px;
-    padding-left: 8px;
-    font-size: var(--main-font-size-small);
-  }
-
-  .char-server-history-title, .char-tag-title {
-    padding-top: 6px;
-    padding-left: 8px;
-    font-size: var(--main-font-size-small);
-  }
-  
-  .char-subinfo1-content1, .char-subinfo1-content2, .char-subinfo1-content3, .char-subinfo1-content4, .char-subinfo2-content1, .char-subinfo2-content2, .char-subinfo2-content3, .char-subinfo2-content4, .char-subinfo3-content1, .char-subinfo3-content2, .char-subinfo3-content3, .char-subinfo3-content4{
-    padding-top: 6px;
-    padding-left: 8px;
-    font-size: var(--main-font-size-small);
-  }
-  
-  #result {
-    padding-top: 6px;
-    padding-left: 8px;
-    font-size: var(--main-font-size-small);
-  }
-
-  .char-tag-content {
-    padding-top: 6px;
-    padding-left: 8px;
-    font-size: var(--main-font-size-small);
-  }
-}
-
 @media screen and (max-width: 991px) {
   .w-container {
     max-width: 728px;
@@ -3069,6 +3025,50 @@ textarea.w-input, textarea.w-select {
 .char-box-rightmargin {
   width: 5%;
   height: 100%;
+}
+
+@media screen and (max-width: 1400px) {
+  .mychar-name1 {
+    font-size: var(--main-font-sizeS);
+  }
+
+  .mychar-title1 {
+    font-size: var(--main-font-size-mobile-small);
+  }
+
+  .mychar-leftinfo1, .mychar-server1 {
+    font-size: var(--main-font-size-mobile-verysmall);
+  }
+
+  .char-subinfo1-title1, .char-subinfo1-title2, .char-subinfo1-title3, .char-subinfo1-title4, .char-subinfo2-title1, .char-subinfo2-title2, .char-subinfo2-title3, .char-subinfo2-title4, .char-subinfo3-title1, .char-subinfo3-title2, .char-subinfo3-title3, .char-subinfo3-title4{
+    padding-top: 6px;
+    padding-left: 8px;
+    font-size: var(--main-font-size-small);
+  }
+
+  .char-server-history-title, .char-tag-title {
+    padding-top: 6px;
+    padding-left: 8px;
+    font-size: var(--main-font-size-small);
+  }
+  
+  .char-subinfo1-content1, .char-subinfo1-content2, .char-subinfo1-content3, .char-subinfo1-content4, .char-subinfo2-content1, .char-subinfo2-content2, .char-subinfo2-content3, .char-subinfo2-content4, .char-subinfo3-content1, .char-subinfo3-content2, .char-subinfo3-content3, .char-subinfo3-content4{
+    padding-top: 6px;
+    padding-left: 8px;
+    font-size: var(--main-font-size-small);
+  }
+  
+  #result {
+    padding-top: 6px;
+    padding-left: 8px;
+    font-size: var(--main-font-size-small);
+  }
+
+  .char-tag-content {
+    padding-top: 6px;
+    padding-left: 8px;
+    font-size: var(--main-font-size-small);
+  }
 }
 
 @media screen and (max-width: 991px) {
