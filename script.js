@@ -243,10 +243,10 @@ async function fetchCharacterInfo() {
                                     } else if (extractedTitleType === '공성') {
                                         // 이미지 코드 추가
                                         const castleImageSrc2 = getCastleImageSrc2(extractedTitle);
-                                        const castleImage2 = document.querySelector('.sub22-img img');
+                                        let castleImage2 = document.querySelector('.sub32-img img');
                                         if (!castleImage2) {
                                             castleImage2 = document.createElement('img');
-                                            document.querySelector('.sub22-img').appendChild(castleImage2);
+                                            document.querySelector('.sub32-img').appendChild(castleImage2);
                                         }
                                         castleImage2.style.width = '25px';
                                         castleImage2.style.height = '25px';
@@ -264,10 +264,10 @@ async function fetchCharacterInfo() {
                                     if (extractedTitleType === '공성') {
                                         // 이미지 코드 추가
                                         const castleImageSrc2 = getCastleImageSrc2(extractedTitle);
-                                        const castleImage2 = document.querySelector('.sub22-img img');
+                                        let castleImage2 = document.querySelector('.sub32-img img');
                                         if (!castleImage2) {
                                             castleImage2 = document.createElement('img');
-                                            document.querySelector('.sub22-img').appendChild(castleImage2);
+                                            document.querySelector('.sub32-img').appendChild(castleImage2);
                                         }
                                         castleImage2.style.width = '25px';
                                         castleImage2.style.height = '25px';
