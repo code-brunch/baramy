@@ -2405,6 +2405,7 @@ textarea.w-input, textarea.w-select {
   width: 150px;
   height: 40px;
   text-align: center; /* 수평 중앙 정렬 */
+  padding-top: 3px;
 }
 
 .sub12-titleinfo {
@@ -2593,6 +2594,10 @@ textarea.w-input, textarea.w-select {
   text-align: center;
 }
 
+.sub22-title {
+  padding-top: 3px;
+}
+
 .sub32-img {
   width: 40px;
   height: 40px;
@@ -2604,8 +2609,11 @@ textarea.w-input, textarea.w-select {
   text-align: center; /* 수평 중앙 정렬 */
 }
 
+.sub32-title {
+  padding-top: 3px;
+}
 .sub32-titleinfo {
-text-align: center;
+  text-align: center;
 }
 
 .sub23-title1, .sub23-title2 {
@@ -3036,6 +3044,7 @@ text-align: center;
   .sub12-img {
     width: 30px;
     height: 30px;
+    text-align: center;
   }
 
   .sub12-title, .sub12-titleinfo {
@@ -3054,6 +3063,7 @@ text-align: center;
   .sub22-img {
     width: 30px;
     height: 30px;
+    text-align: center;
   }
 
   .sub22-title, .sub22-titleinfo {
@@ -3063,6 +3073,7 @@ text-align: center;
   .sub32-img {
     width: 30px;
     height: 30px;
+    text-align: center;
   }
 
   .sub32-title, .sub32-titleinfo {
