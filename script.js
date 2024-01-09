@@ -300,6 +300,8 @@ async function fetchCharacterInfo() {
                         castleImage = document.createElement('img');
                         document.querySelector('.sub12-img').appendChild(castleImage);
                     }
+                    castleImage.style.width = '25px'; // 25px로 수정 (원래는 30px로 되어 있었음)
+                    castleImage.style.height = '25px'; // 25px로 수정 (원래는 30px로 되어 있었음)
                     castleImage.src = castleImageSrc;
                     
                     document.querySelector('.sub12-title').textContent = castleName;
