@@ -2889,6 +2889,7 @@ textarea.w-input, textarea.w-select {
   display: flex;
   font-family: 'BaramyFontLight';
   font-size: var(--main-font-size-middle);
+  padding-top: 8px;
 }
 
 .char-tag-title {
@@ -2916,6 +2917,8 @@ textarea.w-input, textarea.w-select {
   border-right: 1px rgba(0, 0, 0, .16);
   padding-left: 10px;
   font-family: 'BaramyFontLight';
+  font-size: var(--main-font-size-middle);
+  padding-top: 8px;
 }
 
 .char-subinfo2-title, .char-subinfo2-content, .char-subinfo3-title, .char-subinfo3-content {
@@ -2994,6 +2997,7 @@ textarea.w-input, textarea.w-select {
   padding-left: 10px;
   display: flex;
   font-family: 'BaramyFontLight';
+  font-size: var(--main-font-size-small);
 }
 
 .result {
@@ -3171,7 +3175,7 @@ textarea.w-input, textarea.w-select {
 
   .char-tag-title {
     height: 30%;
-    font-size: 14px;
+    font-size: var(--main-font-size-small);
   }
 
   .char-tag-content {
@@ -3437,7 +3441,8 @@ textarea.w-input, textarea.w-select {
   .char-server-history-title, .result {
     height: 25%;
     padding-left: 3px;
-    font-size: 12px;
+    font-size: var(--main-font-size-middle);
+    padding-top: 8px;
   }
 }
 
