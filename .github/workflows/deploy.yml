@@ -20,8 +20,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          mkdir -p docs
-          cp -r index.html style.css script.js Assets/ docs/
-          sed -i "s|{{API_KEY}}|${{ secrets.API_KEY }}|g" docs/script.js
+          cp -r index.html style.css script.js Assets/ .
+          sed -i "s|{{API_KEY}}|${{ secrets.API_KEY }}|g" script.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
