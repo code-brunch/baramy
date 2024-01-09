@@ -21,9 +21,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build  # 빌드 스크립트 실행, 필요한 경우만 추가
-
       - name: Deploy to GitHub Pages
         run: |
           mkdir -p dist
