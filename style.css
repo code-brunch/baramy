@@ -3,6 +3,11 @@
   --main-font-size-middle: 20px;
   --main-font-size-small: 18px;
   --main-font-size-verysmall: 16px;
+
+  --main-font-size-mobile: 30px;
+  --main-font-size-mobile-middle: 16px;
+  --main-font-size-mobile-small: 12px;
+  --main-font-size-mobile-verysmall: 10px;
 }
 
 @font-face {
@@ -3414,8 +3419,8 @@ textarea.w-input, textarea.w-select {
 
   .char-subinfo3-content1, .char-subinfo3-content2, .char-subinfo3-content3, .char-subinfo3-content4 {
     padding-left: 3px;
-    padding-top: 8px;
-    font-size: var(--main-font-size-middle);
+    padding-top: 2px;
+    font-size: var(--main-font-size-mobile-small);
   }
 
   .mainrightbox {
