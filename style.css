@@ -1,3 +1,10 @@
+:root {
+  --main-font-size: 40px;
+  --main-font-size-middle: 20px;
+  --main-font-size-small: 18px;
+  --main-font-size-verysmall: 16px;
+}
+
 @font-face {
   font-family: 'BaramyFontLight'; /* 폰트 이름 지정 */
   src: url('Assets/font/BaramyFont Light.ttf') format('truetype'); /* 폰트 파일 경로 지정 */
@@ -2379,6 +2386,7 @@ textarea.w-input, textarea.w-select {
 .sub11-title {
   color: #fff;
   text-align: center;
+  font-size: var(--main-font-size-middle);
 }
 
 .sub12-upper {
@@ -2526,6 +2534,7 @@ textarea.w-input, textarea.w-select {
 .text-block-2, .text-block-3 {
   color: #fff;
   text-align: center;
+  font-size: var(--main-font-size-middle);
 }
 
 .sub22-upper {
@@ -2611,9 +2620,11 @@ textarea.w-input, textarea.w-select {
 
 .sub32-title {
   padding-top: 3px;
+  font-size: var(--main-font-size-small);
 }
 .sub32-titleinfo {
   text-align: center;
+  font-size: var(--main-font-size-verysmall);
 }
 
 .sub23-title1, .sub23-title2 {
@@ -2720,7 +2731,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-end;
   padding-bottom: 15px;
   padding-left: 0;
-  font-size: 20px;
+  font-size: var(--main-font-size-middle);
   display: flex;
   font-family: 'BaramyFontLight';
 }
@@ -2732,7 +2743,7 @@ textarea.w-input, textarea.w-select {
   align-items: center;
   padding-top: 15px;
   padding-left: 0;
-  font-size: 60px;
+  font-size: var(--main-font-size);
   display: flex;
   font-family: 'BaramyFontLight';
 }
@@ -2759,7 +2770,7 @@ textarea.w-input, textarea.w-select {
   justify-content: center;
   align-items: center;
   padding-top: 0;
-  font-size: 15px;
+  font-size: var(--main-font-size-small);
   display: flex;
   font-family: 'BaramyFontLight';
 }
@@ -2780,7 +2791,7 @@ textarea.w-input, textarea.w-select {
   justify-content: center;
   align-items: center;
   padding-left: 8px;
-  font-size: 14px;
+  font-size: var(--main-font-size-small);
   display: flex;
   font-family: 'BaramyFontLight';
 }
