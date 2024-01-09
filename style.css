@@ -2405,9 +2405,6 @@ textarea.w-input, textarea.w-select {
   width: 150px;
   height: 40px;
   text-align: center; /* 수평 중앙 정렬 */
-  line-height: 40px; /* 수직 중앙 정렬 */
-  display: flex;
-  align-items: center;
 }
 
 .sub12-titleinfo {
@@ -2604,6 +2601,7 @@ textarea.w-input, textarea.w-select {
 .sub32-title, .sub32-titleinfo {
   width: 150px;
   height: 40px;
+  text-align: center; /* 수평 중앙 정렬 */
 }
 
 .sub32-titleinfo {
