@@ -22,6 +22,6 @@ jobs:
         run: |
           mkdir -p docs
           cp -r index.html style.css script.js Assets/ docs/
-          sed -i "s|{{API_KEY}}|${{ secrets.API_KEY }}|g" docs/script.js
+          echo "const API_KEY = '${{ secrets.API_KEY }}';" >> docs/script.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

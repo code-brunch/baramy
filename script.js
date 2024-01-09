@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 async function fetchCharacterInfo() {    
-    const apiKey = "API_KEY_PLACEHOLDER";
+    const apiKey = "{{API_KEY}}";
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
     
