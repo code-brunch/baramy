@@ -2373,6 +2373,7 @@ textarea.w-input, textarea.w-select {
   height: 70%;
   border: 1px solid rgba(138, 55, 55, .77);
   border-radius: 5px;
+  font-family: 'BaramyFontLight'
 }
 
 .sub11-title {
@@ -2457,6 +2458,7 @@ textarea.w-input, textarea.w-select {
   border: 1px solid #2a98c4;
   border-bottom-color: #188fff;
   border-radius: 5px;
+  font-family: 'BaramyFontLight'
 }
 
 .sub3-divblock {
@@ -2464,6 +2466,7 @@ textarea.w-input, textarea.w-select {
   height: 70%;
   border: 1px solid #b48202;
   border-radius: 5px;
+  font-family: 'BaramyFontLight'
 }
 
 .sub21 {
@@ -2846,6 +2849,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-start;
   padding-left: 10px;
   display: flex;
+  font-family: 'BaramyFontLight'
 }
 
 .char-tag-title {
@@ -2897,6 +2901,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-start;
   padding-left: 10px;
   display: flex;
+  font-family: 'BaramyFontLight'
 }
 
 .main-leftbox, .mainrightbox {
@@ -2944,6 +2949,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-end;
   padding-left: 10px;
   display: flex;
+  font-family: 'BaramyFontLight'
 }
 
 .result {
@@ -3177,7 +3183,6 @@ textarea.w-input, textarea.w-select {
 
   .char-subinfo1-title2, .char-subinfo1-title1, .char-subinfo1-title3, .char-subinfo1-title4, .char-subinfo1-content1, .char-subinfo1-content2, .char-subinfo1-content3, .char-subinfo1-content4, .char-tag-title, .char-subinfo2-title1, .char-subinfo2-title2, .char-subinfo2-title3, .char-subinfo2-title4, .char-subinfo3-title1, .char-subinfo3-title2, .char-subinfo3-title3, .char-subinfo3-title4, .char-server-history-title {
     padding-left: 7px;
-    font-family: 'BaramyFontLight'
   }
 }
 
@@ -3344,6 +3349,7 @@ textarea.w-input, textarea.w-select {
     height: 25%;
     padding-left: 3px;
     font-size: 12px;
+    font-family: 'BaramyFontLight'
   }
 
   .char-subinfo2-title1, .char-subinfo2-title2, .char-subinfo2-title3, .char-subinfo2-title4, .char-subinfo3-title1, .char-subinfo3-title2, .char-subinfo3-title3, .char-subinfo3-title4 {
