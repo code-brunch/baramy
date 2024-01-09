@@ -595,15 +595,15 @@ function extractCastleWord(conquestTitle) {
 function getCastleImageSrc(castleName) {
     // 고구려 성
     if (castleName === '숙군성' || castleName === '평양성' || castleName === '졸본성' || castleName === '오골성' || castleName === '하보산성' || castleName === '낭랑산성' || castleName === '후연성' || castleName === '개주성' || castleName === '용성' || castleName === '오녀산성') {
-        return 'Assets/icons_rect/요새_고구려.png';
+        return 'Assets/icons_rect/요새_고구려.jpg';
     }
     // 부여 성
     else if (castleName === '장훈성' || castleName === '동부여성' || castleName === '송원성' || castleName === '가섭원성' || castleName === '용담산성' || castleName === '동단산성' || castleName === '상곡성' || castleName === '어양성' || castleName === '읍루성' || castleName === '범안성') {
-        return 'Assets/icons_rect/요새_부여.png';
+        return 'Assets/icons_rect/요새_부여.jpg';
     }
     // 중국 성
     else if (castleName === '만리장성' || castleName === '대방성' || castleName === '현도성' || castleName === '낙양성' || castleName === '장안성' || castleName === '강서성' || castleName === '복건성' || castleName === '광둥성' || castleName === '산시성' || castleName === '산둥성') {
-        return 'Assets/icons_rect/요새_중국.png';
+        return 'Assets/icons_rect/요새_중국.jpg';
     }
     else {
         return ''; // 기본값으로 빈 문자열 반환 또는 다른 기본 이미지 설정
