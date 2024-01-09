@@ -546,18 +546,25 @@ function getRankFromMiddleWord(middleWord) {
     // Map specific values based on the middle word
     switch (middleWord) {
         case '미궁의':
+            showImage('미궁의');
             return '전투력 랭커(일반)';
         case '영광의':
+            showImage('영광의');
             return '전투력 랭커(대인)';
         case '불멸의':
+            showImage('불멸의');
             return '전투력 랭커(보스)';
         case '패기의':
+            showImage('패기의');
             return '전투력 상승왕(일반)';
         case '투지의':
+            showImage('투지의');
             return '전투력 상승왕(대인)';
         case '투쟁의':
+            showImage('투쟁의');
             return '전투력 상승왕(보스)';
         case '파괴의':
+            showImage('파괴의');
             return 'PK 중독자';
         // Add more cases for other middle words if needed
         default:
@@ -653,4 +660,16 @@ function getCastleImageSrc(castleName) {
     else {
         return ''; // 기본값으로 빈 문자열 반환 또는 다른 기본 이미지 설정
     }
+}
+
+function showImage(imageName) {
+    const imageSrc = `Assets/icons_rect/${imageName}.png`;
+    let imageElement = document.querySelector('.sub22-img img');
+    if (!imageElement) {
+        imageElement = document.createElement('img');
+        document.querySelector('.sub22-img').appendChild(imageElement);
+    }
+    imageElement.style.width = '25px';
+    imageElement.style.height = '25px';
+    imageElement.src = imageSrc;
 }
