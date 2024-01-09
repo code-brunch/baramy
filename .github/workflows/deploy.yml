@@ -6,19 +6,6 @@ on:
       - main
 
 jobs:
-  clear-cache:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Clear GitHub Actions Cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.npm
-            ~/.cache
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/*.lock') }}
-        run: echo "Cache cleared"
-
   deploy:
     runs-on: ubuntu-latest
 
@@ -38,15 +25,4 @@ jobs:
           echo "const API_KEY = '${{ secrets.API_KEY }}';" >> docs/script.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./docs
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: docs
-          path: docs
+          API_KEY: ${{ secrets.API_KEY }}
