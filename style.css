@@ -903,7 +903,13 @@ textarea.w-input, textarea.w-select {
   .w-hidden-main, .w-hidden-medium {
     display: inherit !important;
   }
-
+  
+  .cb-header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
   .w-hidden-small {
     display: none !important;
   }
