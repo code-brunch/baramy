@@ -3031,6 +3031,16 @@ textarea.w-input, textarea.w-select {
     height: 70vh;
   }
 
+  .char-subinfo2-content1, .char-subinfo2-content2, .char-subinfo2-content3, .char-subinfo2-content4, .char-subinfo3-content1, .char-subinfo3-content2, .char-subinfo3-content3, .char-subinfo3-content4 {
+    padding-top: 2px;
+    font-size: var(--main-font-size-small);
+  }
+
+  .char-subinfo1-content1, .char-subinfo1-content2, .char-subinfo1-content3, .char-subinfo1-content4 {
+    padding-top: 2px;
+    font-size: var(--main-font-size-small);
+  }
+  
   .cb-section2 {
     height: 85vh;
     flex-direction: row;
