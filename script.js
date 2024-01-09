@@ -626,7 +626,6 @@ function getCastleImageSrc2(castleInfo) {
         const castleName2 = subWords2[0].trim();
         console.log(castleName2);
         return `Assets/icons_rect/${castleName2}아이콘_사각.png`;
-    }
     } else {
         return '';
     }
