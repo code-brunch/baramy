@@ -294,11 +294,13 @@ async function fetchCharacterInfo() {
                     const castleImageSrc = getCastleImageSrc(castleName);
 
                     // 이미지 변경을 위한 코드
-                    const castleImage = document.querySelector('.sub12-img');
-                    console.log('castleImage:', castleImage); // 콘솔에 이미지 엘리먼트가 제대로 선택되었는지 확인
+                    const castleImage = document.querySelector('.sub12-img img');
+                    // 이미지가 없으면 새로운 img 태그를 생성
+                    if (!castleImage) {
+                        castleImage = document.createElement('img');
+                        document.querySelector('.sub12-img').appendChild(castleImage);
+                    }
                     castleImage.src = castleImageSrc;
-                    console.log('castleImageSrc:', castleImageSrc); // 콘솔에 이미지 경로가 제대로 설정되었는지 확인
-                    //castleImage.alt = castleName; // 이미지의 대체 텍스트로 성 이름을 사용할 수 있습니다.
                     
                     document.querySelector('.sub12-title').textContent = castleName;
                     document.querySelector('.sub12-titleinfo').textContent = modifiedLatestConquestTitle;
