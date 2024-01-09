@@ -3364,7 +3364,7 @@ textarea.w-input, textarea.w-select {
   }
 
   .searchbar {
-    margin-right: 0;
+    margin-right: 50px;
   }
   
   .logo-img {
@@ -3409,7 +3409,7 @@ textarea.w-input, textarea.w-select {
   .searchbar {
     width: 270px;
     height: 40px;
-    margin-right: 0;
+    margin-right: -20px;
   }
 
   .logo-img {
