@@ -3282,6 +3282,10 @@ textarea.w-input, textarea.w-select {
     height: 60vh;
   }
 
+  .searchbar {
+    margin-right: 70px;
+  }
+  
   .cb-section2 {
     height: 70vh;
   }
