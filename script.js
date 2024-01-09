@@ -616,7 +616,7 @@ function getCastleImageSrc2(castleInfo) {
     const words2 = castleInfo.split(' ');
     if (words2.length >= 1) {
         const subWords2 = words2[0].split('의');
-        const castleName2 = subWords2.length >= 2 ? subWords2[0].trim() : subWords2[1].trim();
+        const castleName2 = subWords2.length >= 2 ? subWords2[1].trim() : subWords2[0].trim();
         console.log(castleName2);
         return `Assets/icons_rect/${castleName2}아이콘_사각.png`;
     } else {
