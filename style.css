@@ -3218,6 +3218,9 @@ textarea.w-input, textarea.w-select {
 
   .char-tag-content {
     height: 60%;
+    font-size: var(--main-font-size-verysmall);
+    padding-left: 8px;
+    padding-top: 2px;
   }
 
   .char-subinfo2-title1, .char-subinfo2-title2, .char-subinfo2-title3, .char-subinfo2-title4, .char-subinfo3-title1, .char-subinfo3-title2, .char-subinfo3-title3, .char-subinfo3-title4 {
