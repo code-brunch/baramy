@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 포커스 이벤트 처리
     characterNameInput.addEventListener('focus', function () {
-        if (characterNameInput.value === '캐릭터명 또는 길드') {
+        if (characterNameInput.value === '수행자명을 입력해주세요.') {
             characterNameInput.value = '';
         }
     });
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 포커스 아웃 이벤트 처리
     characterNameInput.addEventListener('blur', function () {
         if (characterNameInput.value === '') {
-            characterNameInput.value = '캐릭터명 또는 길드';
+            characterNameInput.value = '수행자명을 입력해주세요.';
         }
     });
 });
