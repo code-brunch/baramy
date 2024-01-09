@@ -28,6 +28,6 @@ jobs:
         run: |
           mkdir -p dist
           cp -r * dist/
+          sed -i "s|{{API_KEY}}|${{ secrets.API_KEY }}|g" dist/script.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          API_KEY: ${{ secrets.API_KEY }}
