@@ -2149,12 +2149,12 @@ textarea.w-input, textarea.w-select {
 .copyright {
   text-transform: uppercase;
   margin-left: 8px;
-  font-family: Montserrat, sans-serif;
+  font-family: 'BaramyFontLight';
 }
 
 .reference {
   margin-right: 8px;
-  font-family: Montserrat, sans-serif;
+  font-family: 'BaramyFontLight';
 }
 
 .logo {
