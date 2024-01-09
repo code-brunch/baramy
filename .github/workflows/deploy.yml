@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
       - name: Set up Node.js
@@ -18,13 +18,10 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Install dependencies
-        run: npm install
-
       - name: Deploy to GitHub Pages
         run: |
           mkdir -p docs
-          cp -r * docs/
+          cp -r index.html style.css script.js Assets/ docs/
           sed -i "s|{{API_KEY}}|${{ secrets.API_KEY }}|g" docs/script.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
