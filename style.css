@@ -3400,6 +3400,7 @@ textarea.w-input, textarea.w-select {
 .searchbar {
   display: flex;
   align-items: center;
+  font-family: 'BaramyFontLight'
 }
 
 .search-container {
@@ -3440,6 +3441,7 @@ label.sr-only {
 
 #result {
   margin-top: 20px;
+  font-family: 'BaramyFontLight'
 }
 
 .content-sub {
