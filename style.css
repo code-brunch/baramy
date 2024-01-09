@@ -2865,6 +2865,7 @@ textarea.w-input, textarea.w-select {
   padding-left: 10px;
   font-size: 14px;
   display: flex;
+  font-family: 'BaramyFontLight'
 }
 
 .char-tag-content {
@@ -2875,6 +2876,7 @@ textarea.w-input, textarea.w-select {
   border-left: 1px rgba(0, 0, 0, .16);
   border-right: 1px rgba(0, 0, 0, .16);
   padding-left: 10px;
+  font-family: 'BaramyFontLight'
 }
 
 .char-subinfo2-title, .char-subinfo2-content, .char-subinfo3-title, .char-subinfo3-content {
