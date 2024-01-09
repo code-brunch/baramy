@@ -3352,6 +3352,7 @@ textarea.w-input, textarea.w-select {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-right: 0;
   }
 }
 
