@@ -243,6 +243,7 @@ async function fetchCharacterInfo() {
                                     } else if (extractedTitleType === '공성') {
                                         // 이미지 코드 추가
                                         const castleImageSrc2 = getCastleImageSrc2(extractedTitle);
+                                        console.log(castleImageSrc2);
                                         let castleImage2 = document.querySelector('.sub32-img img');
                                         if (!castleImage2) {
                                             castleImage2 = document.createElement('img');
@@ -264,6 +265,7 @@ async function fetchCharacterInfo() {
                                     if (extractedTitleType === '공성') {
                                         // 이미지 코드 추가
                                         const castleImageSrc2 = getCastleImageSrc2(extractedTitle);
+                                        console.log(castleImageSrc2);
                                         let castleImage2 = document.querySelector('.sub32-img img');
                                         if (!castleImage2) {
                                             castleImage2 = document.createElement('img');
