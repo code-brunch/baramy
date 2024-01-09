@@ -904,12 +904,6 @@ textarea.w-input, textarea.w-select {
     display: inherit !important;
   }
   
-  .cb-header {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
   .w-hidden-small {
     display: none !important;
   }
@@ -3350,6 +3344,14 @@ textarea.w-input, textarea.w-select {
     padding-left: 5px;
     font-size: var(--main-font-size-mobile-big);
     padding-top: 1px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .cb-header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
