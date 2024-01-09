@@ -2187,7 +2187,7 @@ textarea.w-input, textarea.w-select {
   font-family: Montserrat, sans-serif;
   font-size: 25px;
   font-weight: 800;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .form-block {
@@ -2373,7 +2373,7 @@ textarea.w-input, textarea.w-select {
   height: 70%;
   border: 1px solid rgba(138, 55, 55, .77);
   border-radius: 5px;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .sub11-title {
@@ -2458,7 +2458,7 @@ textarea.w-input, textarea.w-select {
   border: 1px solid #2a98c4;
   border-bottom-color: #188fff;
   border-radius: 5px;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .sub3-divblock {
@@ -2466,7 +2466,7 @@ textarea.w-input, textarea.w-select {
   height: 70%;
   border: 1px solid #b48202;
   border-radius: 5px;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .sub21 {
@@ -2706,7 +2706,7 @@ textarea.w-input, textarea.w-select {
   padding-left: 0;
   font-size: 20px;
   display: flex;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .mychar-name1 {
@@ -2718,7 +2718,7 @@ textarea.w-input, textarea.w-select {
   padding-left: 0;
   font-size: 60px;
   display: flex;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .mychar-info1-upperr {
@@ -2745,7 +2745,7 @@ textarea.w-input, textarea.w-select {
   padding-top: 0;
   font-size: 15px;
   display: flex;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .mychar-info1-lowerl {
@@ -2766,7 +2766,7 @@ textarea.w-input, textarea.w-select {
   padding-left: 8px;
   font-size: 14px;
   display: flex;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .mychar-img {
@@ -2811,7 +2811,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-end;
   padding-left: 10px;
   display: flex;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .char-subinfo1-title1 {
@@ -2822,7 +2822,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-end;
   padding-left: 10px;
   display: flex;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .char-subinfo1-title3, .char-subinfo1-title4 {
@@ -2832,7 +2832,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-end;
   padding-left: 10px;
   display: flex;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .char-subinfo1-content {
@@ -2849,7 +2849,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-start;
   padding-left: 10px;
   display: flex;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .char-tag-title {
@@ -2865,7 +2865,7 @@ textarea.w-input, textarea.w-select {
   padding-left: 10px;
   font-size: 14px;
   display: flex;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .char-tag-content {
@@ -2876,7 +2876,7 @@ textarea.w-input, textarea.w-select {
   border-left: 1px rgba(0, 0, 0, .16);
   border-right: 1px rgba(0, 0, 0, .16);
   padding-left: 10px;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .char-subinfo2-title, .char-subinfo2-content, .char-subinfo3-title, .char-subinfo3-content {
@@ -2894,7 +2894,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-end;
   padding-left: 10px;
   display: flex;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .char-subinfo2-content1, .char-subinfo2-content2, .char-subinfo2-content3, .char-subinfo2-content4, .char-subinfo3-content1, .char-subinfo3-content2, .char-subinfo3-content3, .char-subinfo3-content4 {
@@ -2903,7 +2903,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-start;
   padding-left: 10px;
   display: flex;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .main-leftbox, .mainrightbox {
@@ -2951,7 +2951,7 @@ textarea.w-input, textarea.w-select {
   align-items: flex-end;
   padding-left: 10px;
   display: flex;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .result {
@@ -3351,7 +3351,7 @@ textarea.w-input, textarea.w-select {
     height: 25%;
     padding-left: 3px;
     font-size: 12px;
-    font-family: 'BaramyFontLight'
+    font-family: 'BaramyFontLight';
   }
 
   .char-subinfo2-title1, .char-subinfo2-title2, .char-subinfo2-title3, .char-subinfo2-title4, .char-subinfo3-title1, .char-subinfo3-title2, .char-subinfo3-title3, .char-subinfo3-title4 {
@@ -3408,7 +3408,7 @@ textarea.w-input, textarea.w-select {
 .searchbar {
   display: flex;
   align-items: center;
-  font-family: 'BaramyFontLight'
+  font-family: 'BaramyFontLight';
 }
 
 .search-container {
@@ -3449,7 +3449,8 @@ label.sr-only {
 
 #result {
   margin-top: 20px;
-  font-family: 'BaramyFontLight'
+  padding-left: 10px;
+  font-family: 'BaramyFontLight';
 }
 
 .content-sub {
