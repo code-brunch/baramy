@@ -623,6 +623,13 @@ textarea.w-input, textarea.w-select {
   display: block;
 }
 
+#result {
+  padding-left: 10px;
+  font-family: 'BaramyFontLight';
+  font-size: var(--main-font-size-middle);
+  padding-top: 8px;
+}
+
 .w-file-upload-input {
   width: .1px;
   height: .1px;
@@ -3531,13 +3538,6 @@ textarea.w-input, textarea.w-select {
 
 label.sr-only {
   display: none;
-}
-
-#result {
-  padding-left: 10px;
-  font-family: 'BaramyFontLight';
-  font-size: var(--main-font-size-middle);
-  padding-top: 8px;
 }
 
 .content-sub {
