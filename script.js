@@ -294,7 +294,7 @@ async function fetchCharacterInfo() {
                     const castleImageSrc = getCastleImageSrc(castleName);
 
                     // 이미지 변경을 위한 코드
-                    const castleImage = document.querySelector('.sub12-img img');
+                    let castleImage = document.querySelector('.sub12-img img');
                     // 이미지가 없으면 새로운 img 태그를 생성
                     if (!castleImage) {
                         castleImage = document.createElement('img');
