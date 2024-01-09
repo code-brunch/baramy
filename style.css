@@ -2414,6 +2414,7 @@ textarea.w-input, textarea.w-select {
   width: 150px;
   height: 40px;
   margin-left: 0;
+  text-align: center;
 }
 
 .sub13-middle {
@@ -2592,6 +2593,7 @@ textarea.w-input, textarea.w-select {
 .sub22-title, .sub22-titleinfo {
   width: 150px;
   height: 40px;
+  text-align: center;
 }
 
 .sub32-img {
@@ -2602,6 +2604,10 @@ textarea.w-input, textarea.w-select {
 .sub32-title, .sub32-titleinfo {
   width: 150px;
   height: 40px;
+}
+
+.sub32-titleinfo {
+text-align: center;
 }
 
 .sub23-title1, .sub23-title2 {
