@@ -614,11 +614,19 @@ function extractFourthTitleWord(fourthtitle) {
 
 function getCastleImageSrc2(castleInfo) {
     const words2 = castleInfo.split(' ');
-    if (words2.length >= 1) {
-        const subWords2 = words2[0].split('의');
-        const castleName2 = subWords2.length >= 2 ? subWords2[1].trim() : subWords2[0].trim();
+    console.log(words2);
+    console.log(words2.length);
+    if (words2.length >= 2) {
+        const subWords2 = words2[1].split('의');
+        const castleName2 = subWords2[0].trim();
         console.log(castleName2);
         return `Assets/icons_rect/${castleName2}아이콘_사각.png`;
+    } else if (words2.length === 1){
+        const subWords2 = words2[0].split('의');
+        const castleName2 = subWords2[0].trim();
+        console.log(castleName2);
+        return `Assets/icons_rect/${castleName2}아이콘_사각.png`;
+    }
     } else {
         return '';
     }
