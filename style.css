@@ -3398,7 +3398,8 @@ textarea.w-input, textarea.w-select {
   }
 
   .char-subinfo1-content1, .char-subinfo1-content2, .char-subinfo1-content3, .char-subinfo1-content4 {
-    padding-top: 8px;
+    padding-top: 2px;
+    font-size: var(--main-font-size-mobile-middle);
   }
 
   .char-tag-title, .char-tag-content {
@@ -3410,7 +3411,7 @@ textarea.w-input, textarea.w-select {
 
   .char-subinfo2-title1, .char-subinfo2-title2, .char-subinfo2-title3, .char-subinfo2-title4, .char-subinfo3-title1, .char-subinfo3-title2, .char-subinfo3-title3, .char-subinfo3-title4 {
     padding-left: 3px;
-    font-size: var(--main-font-size-small);
+    font-size: var(--main-font-size-mobile-verysmall);
   }
 
   .char-subinfo2-content1, .char-subinfo2-content2, .char-subinfo2-content3, .char-subinfo2-content4 {
