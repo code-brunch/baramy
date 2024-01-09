@@ -3287,8 +3287,8 @@ textarea.w-input, textarea.w-select {
   }
 
   .logo-img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
   }
 
   .section-background {
@@ -3348,6 +3348,11 @@ textarea.w-input, textarea.w-select {
 }
 
 @media screen and (max-width: 650px) {
+  .logo-img {
+    width: 45px;
+    height: 45px;
+  }
+  
   .cb-header {
     flex-direction: column;
     justify-content: center;
@@ -3356,6 +3361,10 @@ textarea.w-input, textarea.w-select {
 
   .searchbar {
     margin-right: 0;
+  }
+  
+  .logo-img {
+    margin-left: 0;
   }
 }
 
