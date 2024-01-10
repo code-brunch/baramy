@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
     const characterNameInput = document.getElementById('characterName');
 
     // 포커스 이벤트 처리
@@ -21,11 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const buffer = await response.arrayBuffer();
         const result = await WebAssembly.instantiate(buffer, {
             env: {
-                // WASM 모듈이 기대하는 함수를 여기에 추가
-                getApiKey: function () {
-                    return instance.exports.get_api_key();
-                }
-            }
+                // 다른 import 선언들...
+            },
         });
         return result.instance;
     })();
