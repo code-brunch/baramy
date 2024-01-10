@@ -13,6 +13,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Create src directory if not exists
+        run: mkdir -p src
+
       - name: Use API Key in Workflow
         run: echo "const API_KEY = '${{ secrets.API_KEY }}';" > src/apikey.js
         shell: bash
