@@ -23,6 +23,6 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           mkdir -p docs
-          cp -r * docs
+          rsync -av --exclude=docs . docs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
