@@ -15,29 +15,42 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Fetch API key
-    fetch('/actual/api-key-endpoint') // 실제 API 엔드포인트 경로로 변경
-        .then(response => response.text())
-        .then(apiKey => {
-            // WebAssembly 모듈 로드 및 초기화
-            return WebAssembly.instantiateStreaming(fetch('main.wasm'), {
-                env: {
-                    processAPIKey: function (apiKeyPtr) {
-                        const apiKeyStr = new TextDecoder('utf-8').decode(new Uint8Array(instance.exports.memory.buffer, apiKeyPtr));
-                        console.log('Processing API key:', apiKeyStr);
-                    }
+    // WASM 모듈을 비동기적으로 로드
+    const wasmModule = (async () => {
+        const response = await fetch('main.wasm');
+        const buffer = await response.arrayBuffer();
+        const result = await WebAssembly.instantiate(buffer, {
+            env: {
+                getApiKey: function () {
+                    // 이 함수는 WASM 모듈 내에서 getApiKey 함수를 호출할 때 사용됩니다.
                 }
-            });
-        })
-        .then(wasmInstance => {
-            // JavaScript 함수 호출
-            wasmInstance.instance.exports.main();
-        })
-        .catch(error => console.error('Error loading WebAssembly module:', error));
+            }
+        });
+        return result.instance;
+    })();
+
+    // WASM 모듈이 로드된 후 실행될 함수
+    wasmModule.then(instance => {
+        // WASM에서 API 키 가져오기
+        const wasmApiKey = new TextDecoder('utf-8').decode(new Uint8Array(instance.exports.memory.buffer, instance.exports.getApiKey()));
+        
+        // 여기에서 필요한 작업 수행
+        console.log('Received API Key from WASM:', wasmApiKey);
+
+        // 이제 API 키를 사용하여 원하는 작업을 수행할 수 있습니다.
+        // 예를 들어, fetchCharacterInfo 함수 내에서 사용할 수 있습니다.
+        fetchCharacterInfo(wasmApiKey);
+    });
 });
 
+async function fetchCharacterInfo(apiKey) {
+    // apiKey를 사용하여 캐릭터 정보 가져오기
+    // ...
+}
+
+
 async function fetchCharacterInfo() {    
-    //const apiKey = window.API_KEY;
+    const apiKey = API_KEY;
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
     
