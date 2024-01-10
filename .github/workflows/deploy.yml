@@ -13,18 +13,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Create src directory if not exists
-        run: mkdir -p src
-
       - name: Use API Key in Workflow
-        run: echo "const API_KEY = '${{ secrets.API_KEY }}';" > src/apikey.js
-        shell: bash
+        run: echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
 
       - name: Create docs directory
         run: mkdir -p docs
-
-      - name: Copy apikey.js to docs directory
-        run: cp src/apikey.js docs/apikey.js
 
       - name: Deploy to GitHub Pages
         run: |
