@@ -1,20 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const characterNameInput = document.getElementById('characterName');
-
-    // 포커스 이벤트 처리
-    characterNameInput.addEventListener('focus', function () {
-        if (characterNameInput.value === '수행자명을 입력해주세요.') {
-            characterNameInput.value = '';
-        }
-    });
-
-    // 포커스 아웃 이벤트 처리
-    characterNameInput.addEventListener('blur', function () {
-        if (characterNameInput.value === '') {
-            characterNameInput.value = '수행자명을 입력해주세요.';
-        }
-    });
-
     // WASM 모듈을 비동기적으로 로드
     const wasmModule = (async () => {
         const response = await fetch('./main.wasm');
@@ -55,7 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 async function fetchCharacterInfo(apiKey) {
     const characterNameInput = document.getElementById("characterName");
-    const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
+    const characterName = encodeURIComponent(characterNameInput.value.trim()); 
+
+    // 이제 apiKey를 사용하여 필요한 작업을 수행합니다.
+    // 예: 서버에 API 키와 characterName을 전송하여 정보를 가져오는 등
+    console.log('Fetching character info with API Key:', apiKey, 'and character name:', characterName);
     
     if (!characterName) {
         alert("수행자명을 입력 후 검색해주세요.");
