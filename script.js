@@ -23,6 +23,18 @@ document.addEventListener('DOMContentLoaded', function () {
             env: {
                 // 기존 import 선언들...
             },
+            wasi_snapshot_preview1: {
+                proc_exit: () => {},
+                fd_write: () => {},
+                fd_close: () => {},
+                fd_seek: () => {},
+                environ_sizes_get: () => {},
+                environ_get: () => {},
+                args_sizes_get: () => {},
+                args_get: () => {},
+                clock_res_get: () => {},
+                clock_time_get: () => {},
+            },
         });
         return result.instance;
     })();
