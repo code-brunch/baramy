@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Fetch API key
-    fetch('/path/to/api-key-endpoint')
+    fetch('/actual/api-key-endpoint') // 실제 API 엔드포인트 경로로 변경
         .then(response => response.text())
         .then(apiKey => {
             // WebAssembly 모듈 로드
-            fetch('main.wasm')
+            return fetch('main.wasm')
                 .then(response => response.arrayBuffer())
                 .then(buffer => WebAssembly.compile(buffer))
                 .then(module => WebAssembly.instantiate(module, {
@@ -30,15 +30,15 @@ document.addEventListener('DOMContentLoaded', function () {
                             console.log('Processing API key:', apiKeyStr);
                         }
                     }
-                }))
-                .then(instance => {
-                    // JavaScript 함수 호출
-                    instance.exports.main();
-                })
-                .catch(error => console.error('Error loading WebAssembly module:', error));
+                }));
         })
-        .catch(error => console.error('Error fetching API key:', error));
+        .then(instance => {
+            // JavaScript 함수 호출
+            instance.exports.main();
+        })
+        .catch(error => console.error('Error loading WebAssembly module:', error));
 });
+
 
 async function fetchCharacterInfo() {    
     //const apiKey = window.API_KEY;
