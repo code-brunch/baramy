@@ -21,8 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const buffer = await response.arrayBuffer();
         const result = await WebAssembly.instantiate(buffer, {
             env: {
+                // WASM 모듈이 기대하는 함수를 여기에 추가
                 getApiKey: function () {
-                    // 이 함수는 WASM 모듈 내에서 getApiKey 함수를 호출할 때 사용됩니다.
+                    return instance.exports.get_api_key();
                 }
             }
         });
