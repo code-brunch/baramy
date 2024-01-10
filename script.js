@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async function () {
+document.addEventListener('DOMContentLoaded', function () {
     const characterNameInput = document.getElementById('characterName');
 
     // 포커스 이벤트 처리
@@ -20,7 +20,13 @@ document.addEventListener('DOMContentLoaded', async function () {
         const response = await fetch('./main.wasm');
         const buffer = await response.arrayBuffer();
         const result = await WebAssembly.instantiate(buffer, {
-            // 다른 import 선언들...
+            env: {
+                // 기존 import 선언들...
+            },
+            wasi_snapshot_preview1: {
+                getAPIKey: function() {
+                },
+            },
         });
         return result.instance;
     })();
