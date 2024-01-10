@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // WASM 모듈을 비동기적으로 로드
     const wasmModule = (async () => {
-        const response = await fetch('main.wasm');
+        const response = await fetch('/baramy/main.wasm');
+
         const buffer = await response.arrayBuffer();
         const result = await WebAssembly.instantiate(buffer, {
             env: {
