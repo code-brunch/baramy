@@ -22,9 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const result = await WebAssembly.instantiate(buffer, {
             env: {
                 // 기존 import 선언들...
-            },
-            wasi_snapshot_preview1: {
-                getAPIKey: function() {
+                getApiKey: function () {
+                    // WASM 모듈에서 사용하는 함수 내용
                 },
             },
         });
