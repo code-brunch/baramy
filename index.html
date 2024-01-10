@@ -26,6 +26,10 @@
                 ("ontouchstart"in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
             }(window, document);
         </script>
+        <script>
+            // GitHub Actions에서 설정한 API_KEY 값을 스크립트에 주입
+            window.API_KEY = '<%= process.env.API_KEY %>';
+        </script>
         <script src="script.js"></script>
     </head>
     <body class="body">
