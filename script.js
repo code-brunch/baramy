@@ -22,9 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const result = await WebAssembly.instantiate(buffer, {
             env: {
                 // 기존 import 선언들...
-                getApiKey: function () {
-                    // WASM 모듈에서 사용하는 함수 내용
-                },
             },
         });
         return result.instance;
@@ -33,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // WASM 모듈이 로드된 후 실행될 함수
     wasmModule.then(instance => {
         // WASM에서 API 키 가져오기
-        const wasmApiKey = new TextDecoder('utf-8').decode(new Uint8Array(instance.exports.memory.buffer, instance.exports.getApiKey()));
-        
+        const wasmApiKey = new TextDecoder('utf-8').decode(instance.exports.main());
+
         // 여기에서 필요한 작업 수행
         console.log('Received API Key from WASM:', wasmApiKey);
 
