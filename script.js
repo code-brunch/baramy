@@ -20,9 +20,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const response = await fetch('./main.wasm');
         const buffer = await response.arrayBuffer();
         const result = await WebAssembly.instantiate(buffer, {
-            env: {
-                // 다른 import 선언들...
-            },
+            // 다른 import 선언들...
         });
         return result.instance;
     })();
@@ -49,6 +47,7 @@ async function fetchCharacterInfo(apiKey) {
         alert("수행자명을 입력 후 검색해주세요.");
         return;
     }
+    // 나머지 fetchCharacterInfo 함수 구현
 
     document.querySelector('.mychar').innerHTML = ""; // Clear previous character details
     document.querySelector('.char-subinfo3-content3').innerHTML = "";
