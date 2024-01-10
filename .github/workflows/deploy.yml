@@ -20,6 +20,9 @@ jobs:
         run: echo "const API_KEY = '${{ secrets.API_KEY }}';" > src/apikey.js
         shell: bash
 
+      - name: Copy apikey.js to docs directory
+        run: cp src/apikey.js docs/apikey.js
+
       - name: Deploy to GitHub Pages
         run: |
           mkdir -p docs
