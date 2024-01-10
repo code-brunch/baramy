@@ -1,4 +1,4 @@
-name: CI/CD Workflow
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -20,5 +20,9 @@ jobs:
         run: echo "const API_KEY = '${{ secrets.API_KEY }}';" > src/apikey.js
         shell: bash
 
-      - name: Build and Deploy
-        run: npm run deploy
+      - name: Deploy to GitHub Pages
+        run: |
+          mkdir -p docs
+          cp -r * docs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
