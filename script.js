@@ -47,9 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // 여기에서 필요한 작업 수행
         console.log('Received API Key from WASM:', wasmApiKey);
 
-        // 이제 API 키를 사용하여 원하는 작업을 수행할 수 있습니다.
-        // 예를 들어, fetchCharacterInfo 함수 내에서 사용할 수 있습니다.
-        fetchCharacterInfo(wasmApiKey);
+        // 이제 API 키를 사용하여 원하는 작업을 수행
+        fetchCharacterInfo(wasmApiKey, instance);
     });
 });
 
