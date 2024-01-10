@@ -14,12 +14,31 @@ document.addEventListener('DOMContentLoaded', function () {
             characterNameInput.value = '수행자명을 입력해주세요.';
         }
     });
-    // WebAssembly 모듈 로드
-    const module = new WebAssembly.Module(/* Load main.wasm binary data */);
-    const instance = new WebAssembly.Instance(module);
+    // Fetch API key
+    fetch('/path/to/api-key-endpoint')
+        .then(response => response.text())
+        .then(apiKey => {
+            // WebAssembly 모듈 로드
+            fetch('main.wasm')
+                .then(response => response.arrayBuffer())
+                .then(buffer => WebAssembly.compile(buffer))
+                .then(module => {
+                    // WebAssembly 모듈에서 인스턴스 생성
+                    const instance = new WebAssembly.Instance(module, {
+                        env: {
+                            processAPIKey: function (apiKeyPtr) {
+                                const apiKeyStr = new TextDecoder('utf-8').decode(new Uint8Array(memory.buffer, apiKeyPtr));
+                                console.log('Processing API key:', apiKeyStr);
+                            }
+                        }
+                    });
 
-    // WebAssembly 모듈에서 JavaScript 함수 호출
-    instance.exports.main();
+                    // JavaScript 함수 호출
+                    instance.exports.main();
+                })
+                .catch(error => console.error('Error loading WebAssembly module:', error));
+        })
+        .catch(error => console.error('Error fetching API key:', error));
 });
 
 async function fetchCharacterInfo() {    
