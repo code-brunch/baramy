@@ -14,10 +14,16 @@ document.addEventListener('DOMContentLoaded', function () {
             characterNameInput.value = '수행자명을 입력해주세요.';
         }
     });
+    // WebAssembly 모듈 로드
+    const module = new WebAssembly.Module(/* Load main.wasm binary data */);
+    const instance = new WebAssembly.Instance(module);
+
+    // WebAssembly 모듈에서 JavaScript 함수 호출
+    instance.exports.main();
 });
 
 async function fetchCharacterInfo() {    
-    const apiKey = window.API_KEY;
+    //const apiKey = window.API_KEY;
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
     
