@@ -44,13 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 async function fetchCharacterInfo(apiKey) {
-    // apiKey를 사용하여 캐릭터 정보 가져오기
-    // ...
-}
-
-
-async function fetchCharacterInfo() {    
-    const apiKey = API_KEY;
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
     
