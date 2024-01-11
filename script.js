@@ -14,57 +14,19 @@ document.addEventListener('DOMContentLoaded', function () {
             characterNameInput.value = '수행자명을 입력해주세요.';
         }
     });
-
-    // WASM 모듈을 비동기적으로 로드
-    const wasmModule = (async () => {
-        const response = await fetch('./main.wasm');
-        const buffer = await response.arrayBuffer();
-        const result = await WebAssembly.instantiate(buffer, {
-            env: {
-                // 기존 import 선언들...
-            },
-            wasi_snapshot_preview1: {
-                proc_exit: () => {},
-                fd_write: () => {},
-                fd_close: () => {},
-                fd_seek: () => {},
-                environ_sizes_get: () => {},
-                environ_get: () => {},
-                args_sizes_get: () => {},
-                args_get: () => {},
-                clock_res_get: () => {},
-                clock_time_get: () => {},
-            },
-        });
-        return result.instance;
-    })();
-
-    // WASM 모듈이 로드된 후 실행될 함수
-    wasmModule.then(instance => {
-        // WASM에서 API 키 가져오기
-        const wasmApiKey = new TextDecoder('utf-8').decode(instance.exports.main());
-
-        // 여기에서 필요한 작업 수행
-        console.log('Received API Key from WASM:', wasmApiKey);
-
-        // 이제 API 키를 사용하여 원하는 작업을 수행
-        fetchCharacterInfo(wasmApiKey, instance);
-    });
 });
 
-async function fetchCharacterInfo(apiKey) {
-    const characterNameInput = document.getElementById("characterName");
-    const characterName = encodeURIComponent(characterNameInput.value.trim()); 
+import { preconfig, postconfig } from './Assets/npik/config.js';
 
-    // 이제 apiKey를 사용하여 필요한 작업을 수행합니다.
-    // 예: 서버에 API 키와 characterName을 전송하여 정보를 가져오는 등
-    console.log('Fetching character info with API Key:', apiKey, 'and character name:', characterName);
+async function fetchCharacterInfo() {    
+    const baramyconfig = 'test_' + preconfig + postconfig;
+    const characterNameInput = document.getElementById("characterName");
+    const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
     
     if (!characterName) {
         alert("수행자명을 입력 후 검색해주세요.");
         return;
     }
-    // 나머지 fetchCharacterInfo 함수 구현
 
     document.querySelector('.mychar').innerHTML = ""; // Clear previous character details
     document.querySelector('.char-subinfo3-content3').innerHTML = "";
@@ -91,7 +53,7 @@ async function fetchCharacterInfo(apiKey) {
         try {
             const response = await fetch(url, {
                 headers: {
-                    "x-nxopen-api-key": apiKey,
+                    "x-nxopen-api-key": baramyconfig,
                 },
             });
 
@@ -103,7 +65,7 @@ async function fetchCharacterInfo(apiKey) {
                 const ocid = data.ocid;
                 const characterResponse = await fetch(`https://open.api.nexon.com/baramy/v1/character/basic?ocid=${ocid}`, {
                     headers: {
-                        "x-nxopen-api-key": apiKey,
+                        "x-nxopen-api-key": baramyconfig,
                     },
                 });
 
@@ -111,7 +73,7 @@ async function fetchCharacterInfo(apiKey) {
 
                 const titleEquipmentResponse = await fetch(`https://open.api.nexon.com/baramy/v1/character/title-equipment?ocid=${ocid}`, {
                 headers: {
-                    "x-nxopen-api-key": apiKey,
+                    "x-nxopen-api-key": baramyconfig,
                 },
                 });
     
@@ -119,7 +81,7 @@ async function fetchCharacterInfo(apiKey) {
     
                 const titleResponse = await fetch(`https://open.api.nexon.com/baramy/v1/character/title?ocid=${ocid}`, {
                     headers: {
-                        "x-nxopen-api-key": apiKey,
+                        "x-nxopen-api-key": baramyconfig,
                     },
                 });
 
