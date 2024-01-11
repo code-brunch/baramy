@@ -375,25 +375,13 @@ async function fetchCharacterInfo() {
             errorMessageElement.classList.add('error-message'); // 텍스트 스타일이나 위치 등을 위한 클래스 부여
             section1Element.appendChild(errorMessageElement);
 
-            const errorMessageStyle = `
-                position: relative;
-                font-size: 60px;
-                font-weight: bold;
-                text-align: center;
-                color: black; /* 텍스트 색상 설정 */
-                z-index: 5;
-                top: 50%;
-                transform: translateY(-50%);
-            `;
-
             const section1Style = `
                 position: relative;
                 z-index: 1; /* 이미지 감싸는 요소의 z-index 설정 */
             `;
 
-            document.querySelector('.error-message').style.cssText = errorMessageStyle;
             section1Element.style.cssText = section1Style;
-            document.querySelector('.error-message').style.cssText = errorMessageStyle;
+            //document.querySelector('.error-message').style.cssText = errorMessageStyle;
         }
     
         // Clear the input value after successful search
