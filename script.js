@@ -45,6 +45,7 @@ async function fetchCharacterInfo() {
     const existingErrorMessage = document.querySelector('.error-message');
     if (existingErrorMessage) {
         existingErrorMessage.remove();
+    }
     
     const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
     const resultDiv = document.getElementById("result");
