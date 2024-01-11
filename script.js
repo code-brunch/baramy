@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 import { preconfig, postconfig } from './Assets/npik/config.js';
 
 async function fetchCharacterInfo() {    
-    const baramyconfig = 'test_' + preconfig + postconfig;
+    const baramyconfig = 'test_' + preconfig.value + postconfig.value;
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
     
@@ -148,55 +148,15 @@ async function fetchCharacterInfo() {
             const characterExpDiv = document.createElement("div");
             const titleEquipDiv = document.createElement("div");
             const titleDiv = document.createElement("div");
-            //1차 추가
+
             const characterClassGroupImage = document.createElement("img");
             const characterClassGroupName = highestLevelCharacter.character_class_group_name;
-            //const characterTitleEquipped = highestLevelCharacter.titleEquipment;
 
-            // Process titles and assign values to titleEquipDiv variables
-            //let titleEquipDiv1 = "-"; // Default value for char-subinfo3-content1
-            //let titleEquipDiv2 = "-"; // Default value for char-subinfo3-content2
-            //let titleEquipDiv3 = "-"; // Default value for char-subinfo3-content3
-            //let titleEquipDiv4 = "-"; // Default value for char-subinfo3-content4
 
             if (characterClassGroupName) {
                 const imageUrl = `Assets/chars/${characterClassGroupName}.png`;
                 characterClassGroupImage.src = imageUrl;
             }
-            
-            // Assign values to the div elements - 여긴 지워도 되려나?
-            /*
-            serverDiv.textContent = `${highestLevelCharacter.server}`;
-            ocidDiv.textContent = `${highestLevelCharacter.ocid}`;
-            characterNameDiv.textContent = `${highestLevelCharacter.character_name}`;
-            characterLevelDiv.textContent = `${highestLevelCharacter.character_level}`;
-            characterDateDiv.textContent = `${highestLevelCharacter.character_date_create}`;
-            characterClassGroupDiv.textContent = `${highestLevelCharacter.character_class_group_name}`;
-            characterClassDiv.textContent = `${highestLevelCharacter.character_class_name}`;
-            characterNationDiv.textContent = `${highestLevelCharacter.character_nation}`;
-            characterGenderDiv.textContent = `${highestLevelCharacter.character_gender}`;
-            characterExpDiv.textContent = `${highestLevelCharacter.character_exp}`;
-            titleEquipDiv.textContent = `${highestLevelCharacter.titleEquipment}`;
-            titleDiv.textContent = `${(highestLevelCharacter.titles)}`;
-            */
-            
-            // Append the div elements to the content-main div
-            /*
-            resultDiv.appendChild(serverDiv);
-            resultDiv.appendChild(ocidDiv);
-            resultDiv.appendChild(characterNameDiv);
-            resultDiv.appendChild(characterLevelDiv);
-            resultDiv.appendChild(characterDateDiv);
-            resultDiv.appendChild(characterClassGroupDiv);
-            resultDiv.appendChild(characterClassDiv);
-            //resultDiv.appendChild(characterClassImage);
-            
-            resultDiv.appendChild(characterNationDiv);
-            resultDiv.appendChild(characterGenderDiv);
-            resultDiv.appendChild(characterExpDiv);
-            resultDiv.appendChild(titleEquipDiv);
-            resultDiv.appendChild(titleDiv);
-            */
             
             // Append xxxDiv to char-subinfo#-content#
             document.querySelector('.mychar').appendChild(characterClassGroupImage);
@@ -364,23 +324,10 @@ async function fetchCharacterInfo() {
             document.querySelector('.sub13-content1').textContent = serverSymbol;
             document.querySelector('.sub23-content1').textContent = serverSymbol;
             document.querySelector('.sub33-content1').textContent = serverSymbol;
-
-            //document.querySelector('.char-subinfo3-content1').textContent = `${highestLevelCharacter.titleEquipment}`;
-            //document.querySelector('.char-subinfo3-content2').textContent = `${titleEquipDiv2}`;
-            //document.querySelector('.char-subinfo3-content3').textContent = `${titleEquipDiv3}`;
-            //document.querySelector('.char-subinfo3-content4').textContent = `${titleEquipDiv4}`;
         
             // Sort otherServers array by character_level in ascending order
             otherServers.sort((a, b) => a.character_level - b.character_level);
     
-            // Display other servers
-            /*
-            if (otherServers.length > 0) {
-                const otherServersDiv = document.createElement("div");
-                otherServersDiv.innerHTML = otherServers.map(server => server.server).join(" l "); // 구분자
-                resultDiv.appendChild(otherServersDiv);
-            }
-            */
         // Display other servers
         if (moonZoneCharacters.length > 0) {
             // If there are moonZoneCharacters, show only moonZone servers
