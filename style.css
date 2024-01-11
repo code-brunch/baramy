@@ -3628,10 +3628,6 @@ textarea.w-input, textarea.w-select {
   font-family: 'BaramyFontLight';
 }
 
-.error-message {
-  font-size: 30px;
-}
-
 .search-container {
   display: flex;
   align-items: center;
