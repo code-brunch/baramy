@@ -358,12 +358,18 @@ async function fetchCharacterInfo() {
 
             // 이미지를 감싸는 .cb-section1 요소 선택
             const section1Element = document.querySelector('.cb-section1');
+            // 기존 오류 메시지 엘리먼트가 이미 존재하는지 확인
+            const existingErrorMessage = document.querySelector('.error-message');
+            if (existingErrorMessage) {
+                // 만약 존재한다면 제거
+                existingErrorMessage.remove();
+            }
+            
             // 이미지 뒤에 텍스트를 추가하는 요소를 생성하고 스타일을 설정
             const errorMessageElement = document.createElement('div');
-            errorMessageElement.textContent = "캐릭터를 찾을 수 없습니다.";
+            errorMessageElement.textContent = "수행자를 찾을 수 없습니다.";
             errorMessageElement.classList.add('error-message'); // 텍스트 스타일이나 위치 등을 위한 클래스 부여
             section1Element.appendChild(errorMessageElement);
-            //section1Element.insertBefore(errorMessageElement, section1Element.firstChild);
 
             const errorMessageStyle = `
                 position: relative;
