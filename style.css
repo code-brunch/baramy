@@ -2177,6 +2177,17 @@ textarea.w-input, textarea.w-select {
   font-family: 'BaramyFontLight';
 }
 
+.error-message {
+    position: relative;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    color: black; /* 텍스트 색상 설정 */
+    z-index: 5;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .logo {
   justify-content: center;
   align-items: center;
