@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 async function fetchCharacterInfo() {    
     
-    const baramyprecfg = 'test_';
-    const baramymidcfg = 'ad6c0a6934215fad4b75dfc81d40caa0fc195af0fcc'
-    const baramypostcfg = 'da90f8413fc1752215176c98f6cd472d4226608ef1a241f84aa9c'
+    const baramyprecfg = 'live_';
+    const baramymidcfg = 'ad6c0a6934215fad4b75dfc81d40caa0e37533fd2d8bbf78'
+    const baramypostcfg = 'f5c8b1742d11f4e364586f786ad62900856fce2b4f57ff4f'
     const baramyconfig = baramyprecfg + baramymidcfg + baramypostcfg
     const characterNameInput = document.getElementById("characterName");
     const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
