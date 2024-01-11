@@ -23,7 +23,7 @@ async function fetchCharacterInfo() {
     const baramypostcfg = 'f5c8b1742d11f4e364586f786ad62900856fce2b4f57ff4f'
     const baramyconfig = baramyprecfg + baramymidcfg + baramypostcfg
     const characterNameInput = document.getElementById("characterName");
-    const characterName = encodeURIComponent(characterNameInput.value.trim()); // trim을 사용하여 공백 제거
+    const characterName = encodeURIComponent(characterNameInput.value.trim());
     
     if (!characterName) {
         alert("수행자명을 입력 후 검색해주세요.");
@@ -42,6 +42,9 @@ async function fetchCharacterInfo() {
     document.querySelector('.sub32-img').innerHTML = "";
     document.querySelector('.sub32-title').innerHTML = "";
     document.querySelector('.sub32-titleinfo').innerHTML = "";
+    const existingErrorMessage = document.querySelector('.error-message');
+    if (existingErrorMessage) {
+        existingErrorMessage.remove();
     
     const servers = ["연", "무휼", "세류", "해명", "낙랑", "하백", "비류", "온조"];
     const resultDiv = document.getElementById("result");
