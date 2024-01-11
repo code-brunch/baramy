@@ -31,8 +31,11 @@ async function fetchCharacterInfo() {
     }
 
     document.querySelector('.mychar').innerHTML = ""; // Clear previous character details
+    document.querySelector('.char-subinfo3-content1').innerHTML = "";
+    document.querySelector('.char-subinfo3-content2').innerHTML = "";
     document.querySelector('.char-subinfo3-content3').innerHTML = "";
     document.querySelector('.char-subinfo3-content4').innerHTML = "";
+    document.querySelector('.char-tag-content').innerHTML = "";
     document.querySelector('.sub12-img').innerHTML = "";
     document.querySelector('.sub12-title').innerHTML = "";
     document.querySelector('.sub12-titleinfo').innerHTML = "";
